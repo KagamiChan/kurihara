@@ -1,0 +1,32 @@
+{
+  "name": "kurihara",
+  "private": true,
+  "description": "blog.kagami.moe next version",
+  "version": "1.0.0",
+  "author": "kagami <moe.pascal@gmail.com>",
+  "dependencies": {
+    "gatsby": "^1.0.1",
+    "gatsby-link": "^1.0.1",
+    "gatsby-plugin-react-helmet": "^1.0.1",
+    "react-typography": "^0.15.0",
+    "typography": "^0.15.8",
+    "typography-breakpoint-constants": "^0.14.0",
+    "typography-plugin-code": "^0.15.9"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  },
+  "keywords": [
+    "gatsby",
+    "blog"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-links && gh-pages -d public",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
