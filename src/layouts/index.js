@@ -2,60 +2,74 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 import { rhythm } from '../utils/typography'
 
-export default class Template extends React.Component {
-  static propTypes = {
-    children: PropTypes.func,
-  }
+const HeaderWrap = styled.div`
+  background: white;
+  margin-bottom: ${rhythm(1)};
+`
 
-  render() {
-    return (
-      <div>
-        <Helmet
-          title="Gatsby Default Starter"
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        />
-        <div
-          style={{
-            background: 'rebeccapurple',
-            marginBottom: rhythm(1),
-          }}
-        >
-          <div
-            style={{
-              margin: '0 auto',
-              maxWidth: 960,
-              padding: `${rhythm(1)} ${rhythm(3 / 4)}`,
-            }}
+const Header = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: ${rhythm(1)} ${rhythm(3 / 4)};
+`
+
+const H1 = styled.h1`
+  margin: 0;
+`
+
+const H1Link = styled(Link)`
+  text-decoration: none;
+`
+
+const Content = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: ${rhythm(1)} ${rhythm(3 / 4)};
+  paddingTop: 0;
+`
+
+const Template = ({ data, children }) => (
+  <div>
+    <Helmet
+      title={data.site.siteMetadata.title}
+      meta={[
+          { name: 'description', content: 'かがみ的个人日志' },
+          { name: 'keywords', content: 'かがみ, HP, BLOG' },
+        ]}
+    />
+    <HeaderWrap>
+      <Header >
+        <H1>
+          <H1Link
+            to="/"
           >
-            <h1 style={{ margin: 0 }}>
-              <Link
-                to="/"
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                }}
-              >
-                Gatsby
-              </Link>
-            </h1>
-          </div>
-        </div>
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: `${rhythm(1)} ${rhythm(3 / 4)}`,
-            paddingTop: 0,
-          }}
-        >
-          {this.props.children()}
-        </div>
-      </div>
-    )
-  }
+              Gatsby
+          </H1Link>
+        </H1>
+      </Header>
+    </HeaderWrap>
+    <Content >
+      {children()}
+    </Content>
+  </div>
+)
+
+Template.propTypes = {
+  data: PropTypes.object,
+  children: PropTypes.func.isRequired,
 }
+
+export default Template
+
+export const query = graphql`
+  query TemplateQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
