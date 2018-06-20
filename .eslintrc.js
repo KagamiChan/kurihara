@@ -19,6 +19,8 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     'no-confusing-arrow': 'off',
     'no-console': ['error', {allow: ['warn', 'error']}],
+    'react/prefer-stateless-function': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
   },
   'settings': {
     'import/resolver': {

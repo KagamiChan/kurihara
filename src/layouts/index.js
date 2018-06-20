@@ -58,7 +58,9 @@ const Template = ({ data, children }) => (
 )
 
 Template.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.shape({
+    site: PropTypes.object,
+  }).isRequired,
   children: PropTypes.func.isRequired,
 }
 
