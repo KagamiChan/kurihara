@@ -5,6 +5,9 @@
 version: 2
 jobs:
   build:
+    branches:
+      ignore: gh-pages
+
     docker:
       # specify the version you desire here
       - image: circleci/node
@@ -33,4 +36,13 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
-      - run: yarn build
+      - add_ssh_keys:
+          fingerprints:
+            - "54:a1:e6:30:c5:24:ab:42:dc:89:6f:73:5f:ec:f4:c7"
+
+      - run:
+          command: |
+            git config --global user.email "bot@kagami.me"
+            git config --global user.name "Llenn ちゃん"
+
+      - run: yarn deploy
