@@ -2,9 +2,7 @@ import Typography from 'typography'
 import CodePlugin from 'typography-plugin-code'
 import BSTheme from 'typography-theme-bootstrap'
 
-BSTheme.plugins = [
-  new CodePlugin(),
-]
+BSTheme.plugins = [new CodePlugin()]
 
 const typography = new Typography(BSTheme)
 

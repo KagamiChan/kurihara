@@ -6,11 +6,14 @@ module.exports = {
   },
   'extends': [
     "airbnb",
+    "prettier",
+    "prettier/react",
   ],
   'parser': 'babel-eslint',
   'plugins': [
     'import',
     'react',
+    'prettier',
   ],
   'rules': {
     'semi': ['error', 'never'],
@@ -21,6 +24,7 @@ module.exports = {
     'no-console': ['error', {allow: ['warn', 'error']}],
     'react/prefer-stateless-function': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'prettier/prettier': 'error',
   },
   'settings': {
     'import/resolver': {

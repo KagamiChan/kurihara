@@ -28,7 +28,7 @@ const Content = styled.div`
   margin: 0 auto;
   max-width: 960px;
   padding: ${rhythm(1)} ${rhythm(3 / 4)};
-  paddingTop: 0;
+  padding-top: 0;
 `
 
 const Template = ({ data, children }) => (
@@ -36,24 +36,18 @@ const Template = ({ data, children }) => (
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-          { name: 'description', content: 'かがみ的个人日志' },
-          { name: 'keywords', content: 'かがみ, HP, BLOG' },
-        ]}
+        { name: 'description', content: 'かがみ的个人日志' },
+        { name: 'keywords', content: 'かがみ, HP, BLOG' },
+      ]}
     />
     <HeaderWrap>
-      <Header >
+      <Header>
         <H1>
-          <H1Link
-            to="/"
-          >
-              Gatsby
-          </H1Link>
+          <H1Link to="/">Gatsby</H1Link>
         </H1>
       </Header>
     </HeaderWrap>
-    <Content >
-      {children()}
-    </Content>
+    <Content>{children()}</Content>
   </div>
 )
 
