@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: '少年读书隙中窥月',
@@ -11,5 +13,13 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: path.resolve(__dirname, './src/posts/'),
+      },
+    },
+    'gatsby-transformer-remark',
   ],
 }

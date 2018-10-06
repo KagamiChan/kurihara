@@ -5,11 +5,17 @@
   "version": "1.0.0",
   "author": "kagami <moe.pascal@gmail.com>",
   "dependencies": {
+    "date-fns": "^1.29.0",
+    "fs-extra": "^7.0.0",
     "gatsby": "^2.0.19",
     "gatsby-link": "^2.0.4",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-styled-components": "^3.0.0",
     "gatsby-plugin-typography": "^2.2.0",
+    "gatsby-source-filesystem": "^2.0.2",
+    "gatsby-transformer-remark": "^2.1.6",
+    "gray-matter": "^4.0.1",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -33,7 +39,8 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "draft": "node scripts/draft.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
