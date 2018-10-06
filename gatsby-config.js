@@ -2,5 +2,14 @@ module.exports = {
   siteMetadata: {
     title: '少年读书隙中窥月',
   },
-  plugins: ['gatsby-plugin-react-helmet', 'gatsby-plugin-styled-components'],
+  plugins: [
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/utils/typography',
+      },
+    },
+  ],
 }
