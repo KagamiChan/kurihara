@@ -11,4 +11,6 @@ if (process.env.NODE_ENV !== 'production') {
   typography.injectStyles()
 }
 
+export const { rhythm, scale } = typography
+
 export default typography
