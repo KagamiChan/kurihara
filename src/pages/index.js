@@ -172,17 +172,21 @@ export default class Index extends React.Component {
   }, 50)
 
   componentDidMount = () => {
-    this.drawCanvas()
+    if (typeof window !== 'undefined') {
+      this.drawCanvas()
 
-    document.addEventListener('click', this.drawCanvas)
-    document.addEventListener('touchstart', this.drawCanvas)
-    window.addEventListener('resize', this.drawCanvas)
+      document.addEventListener('click', this.drawCanvas)
+      document.addEventListener('touchstart', this.drawCanvas)
+      window.addEventListener('resize', this.drawCanvas)
+    }
   }
 
   componentWillMount = () => {
-    document.removeEventListener('click', this.drawCanvas)
-    document.removeEventListener('touchstart', this.drawCanvas)
-    window.removeEventListener('resize', this.drawCanvas)
+    if (typeof window !== 'undefined') {
+      document.removeEventListener('click', this.drawCanvas)
+      document.removeEventListener('touchstart', this.drawCanvas)
+      window.removeEventListener('resize', this.drawCanvas)
+    }
   }
 
   render() {
