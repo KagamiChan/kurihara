@@ -7,7 +7,7 @@ tags:
   - 未分类
 title: '10+: To the next 10 years'
 ---
-![10y_anni](./10y_anni.png)
+![10y_anni](10y_anni.png)
 
 在生存25年，学会走路20+年，看动漫5年之类的大大小小成就之后，我终于又解锁了一个新成就：写日志10年。
 
