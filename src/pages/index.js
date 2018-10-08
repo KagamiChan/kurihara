@@ -111,7 +111,7 @@ const drawFlower = (ctx, x0, y0, r, theta, style) => {
 const links = [
   {
     name: 'blog',
-    url: '//blog.kagami.moe',
+    url: '/blog',
     width: 88,
     positionX: -4,
   },
