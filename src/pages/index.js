@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import { map, debounce, times } from 'lodash'
+import Helmet from 'react-helmet'
 
 import sprite from '../assets/sprite.png'
 
@@ -193,6 +194,9 @@ export default class Index extends React.Component {
     return (
       <>
         <Wrapper>
+          <Helmet>
+            <title>明镜止水::春擬き</title>
+          </Helmet>
           <Title title="冴えない HP の育てかた">明镜止水</Title>
           <nav>
             <List>
