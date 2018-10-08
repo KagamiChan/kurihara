@@ -33,8 +33,8 @@ const H1Link = styled(Link)`
   background-size: contain;
   text-indent: -999px;
   overflow: hidden;
-  width: 160px;
-  height: 80px;
+  width: ${rhythm(6)};
+  height: ${rhythm(3)};
   display: block;
 `
 
