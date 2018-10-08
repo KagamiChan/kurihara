@@ -1,12 +1,11 @@
 import React from 'react'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { map, debounce, times } from 'lodash'
 import Helmet from 'react-helmet'
 
 import sprite from '../assets/sprite.png'
 
-// eslint-disable-next-line no-unused-expressions
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   html{
     width: 100%;
     height: 100%;
@@ -198,6 +197,7 @@ export default class Index extends React.Component {
             <title>明镜止水::春擬き</title>
           </Helmet>
           <Title title="冴えない HP の育てかた">明镜止水</Title>
+          <GlobalStyle />
           <nav>
             <List>
               {map(links, link => (
@@ -215,7 +215,7 @@ export default class Index extends React.Component {
           </nav>
         </Wrapper>
         <Footer>鏡 ＠ がんばらないプロジェクト/翠星製作所</Footer>
-        <Canvas innerRef={this.canvas} />
+        <Canvas ref={this.canvas} />
       </>
     )
   }
