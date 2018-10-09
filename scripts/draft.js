@@ -25,12 +25,16 @@ const draft = async date => {
 
     await fs.ensureDir(directory)
 
-    const content = matter.stringify('Lorem ipsum', {
-      title: process.argv.slice(2).join(' '),
-      date: format(date),
-      tags: [],
-      draft: true,
-    })
+    const content = matter.stringify(
+      '曲曲折折的荷塘上面，弥望的是田田的叶子。',
+      {
+        title: process.argv.slice(2).join(' '),
+        publish_date: format(date),
+        revise_date: format(date),
+        tags: [],
+        draft: true,
+      },
+    )
 
     await fs.writeFile(path.join(directory, 'index.md'), content)
   } catch (e) {
