@@ -25,7 +25,9 @@ const Content = styled.div`
 `
 
 const Timestamp = styled.div`
-  color: #777;
+  color: ${props => props.theme.grey};
+  margin-bottom: ${rhythm(1)};
+  font-weight: 200;
 `
 
 const Title = styled.h1`
@@ -44,15 +46,29 @@ class BlogPostTemplate extends Component {
     const { markdownRemark: post } = data
 
     const publishDate = new Date(post.frontmatter.publish_date)
+
+    const reviseDate = new Date(post.frontmatter.revise_date)
+
     return (
       <Layout>
         <Article>
           <Title>{post.frontmatter.title}</Title>
           <Content>
             <Timestamp>
+              发布于{' '}
               <time dateTime={post.frontmatter.publish_date}>
                 {format(publishDate, 'YYYY-MM-DD')}
               </time>
+              {Boolean(post.frontmatter.revise_date) &&
+                +reviseDate > +publishDate && (
+                  <>
+                    {' | '}
+                    最后修订于{' '}
+                    <time dateTime={post.frontmatter.revise_date}>
+                      {format(reviseDate, 'YYYY-MM-DD')}
+                    </time>
+                  </>
+                )}
             </Timestamp>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
@@ -78,6 +94,7 @@ export const query = graphql`
       frontmatter {
         title
         publish_date
+        revise_date
       }
     }
   }
