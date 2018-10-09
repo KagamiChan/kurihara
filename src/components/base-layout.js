@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
 
+import { theme } from '../utils/style'
 import blogLogo from '../assets/blog-logo.png'
 
 const HeaderWrap = styled.div`
@@ -51,35 +52,37 @@ const Content = styled.div`
 `
 
 const BaseLayout = ({ children }) => (
-  <div>
-    <StaticQuery
-      query={graphql`
-        query LayoutQuery {
-          site {
-            siteMetadata {
-              title
+  <ThemeProvider theme={theme}>
+    <div>
+      <StaticQuery
+        query={graphql`
+          query LayoutQuery {
+            site {
+              siteMetadata {
+                title
+              }
             }
           }
-        }
-      `}
-      render={data => (
-        <Helmet>
-          <title>{data.site.siteMetadata.title}</title>
-          <meta name="description" content="明镜止水的个人日志" />
-          <meta name="keywords" content="明镜止水, HP, BLOG" />
-        </Helmet>
-      )}
-    />
-    <HeaderWrap>
-      <Header>
-        <H1>
-          <H1Link to="/blog">明镜止水</H1Link>
-        </H1>
-        <Nav />
-      </Header>
-    </HeaderWrap>
-    <Content>{children}</Content>
-  </div>
+        `}
+        render={data => (
+          <Helmet>
+            <title>{data.site.siteMetadata.title}</title>
+            <meta name="description" content="明镜止水的个人日志" />
+            <meta name="keywords" content="明镜止水, HP, BLOG" />
+          </Helmet>
+        )}
+      />
+      <HeaderWrap>
+        <Header>
+          <H1>
+            <H1Link to="/blog">明镜止水</H1Link>
+          </H1>
+          <Nav />
+        </Header>
+      </HeaderWrap>
+      <Content>{children}</Content>
+    </div>
+  </ThemeProvider>
 )
 
 BaseLayout.propTypes = {

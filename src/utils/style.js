@@ -20,4 +20,11 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
   return accumulator
 }, {})
 
-export const SOMETHING = 1
+export const theme = {
+  blue: '#00aeef',
+  orange: '#f68e56',
+  green: '#8dc63f',
+  pink: '#f06eaa',
+  black: '#333',
+  grey: '#999',
+}

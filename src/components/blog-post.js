@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { format } from 'date-fns'
 
 import Layout from './base-layout'
+import { rhythm } from '../utils/typography'
 
 const Article = styled.article``
 
@@ -14,7 +15,11 @@ const Content = styled.div``
 
 const Timestamp = styled.div`
   color: #777;
-  font-weight: 600;
+`
+
+const Title = styled.h1`
+  font-weight: 200;
+  font-size: ${rhythm(2)};
 `
 
 class BlogPostTemplate extends Component {
@@ -32,7 +37,7 @@ class BlogPostTemplate extends Component {
     return (
       <Layout>
         <Article>
-          <h1>{post.frontmatter.title}</h1>
+          <Title>{post.frontmatter.title}</Title>
           <Content>
             <Timestamp>
               <time dateTime={post.frontmatter.publish_date}>
