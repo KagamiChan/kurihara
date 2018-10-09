@@ -34,8 +34,8 @@ const H1Link = styled(Link)`
   background-size: contain;
   text-indent: -999px;
   overflow: hidden;
-  width: ${rhythm(6)};
-  height: ${rhythm(3)};
+  width: ${rhythm(4)};
+  height: ${rhythm(2)};
   display: block;
 `
 
@@ -46,7 +46,7 @@ const Nav = styled.nav`
 
 const Content = styled.div`
   margin: 0 0 0 10%;
-  max-width: 960px;
+  max-width: 800px;
   padding: ${rhythm(1)} 0;
   padding-top: 0;
 `

@@ -12,7 +12,7 @@ import { rhythm } from '../utils/typography'
 
 const PostItem = styled(Link)`
   display: block;
-  font-size: ${rhythm(2)};
+  font-size: ${rhythm(1)};
   text-decoration: none;
   color: ${props => props.theme.black};
   margin: -${rhythm(1 / 2)};
@@ -24,12 +24,13 @@ const PostItem = styled(Link)`
   :hover {
     background-color: ${props => rgba(props.theme.blue, 0.1)};
     color: ${props => props.theme.blue};
+    text-decoration: none;
   }
 `
 
 const Time = styled.time`
-  font-size: ${rhythm(1)};
-  margin-left: ${rhythm(1)};
+  font-size: ${rhythm(0.5)};
+  margin-left: ${rhythm(0.5)};
   color: ${props => props.theme.grey};
   font-weight: initial;
 `

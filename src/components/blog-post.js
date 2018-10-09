@@ -29,7 +29,6 @@ const Timestamp = styled.div`
 `
 
 const Title = styled.h1`
-  font-weight: 200;
   font-size: ${rhythm(2)};
 `
 

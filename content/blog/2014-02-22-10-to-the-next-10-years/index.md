@@ -5,7 +5,7 @@ publish_date: '2014-02-22T23:55:51.000+08:00'
 revise_date: '2014-02-22T23:55:51.000+08:00'
 tags:
   - 未分类
-title: '10+: To the next 10 years'
+title: '10+：To the next 10 years'
 ---
 
 ![10y_anni](10y_anni.png)
