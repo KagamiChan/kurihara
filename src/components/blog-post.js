@@ -32,6 +32,7 @@ const Timestamp = styled.div`
 
 const Title = styled.h1`
   font-size: ${rhythm(2)};
+  line-height: ${rhythm(2)};
 `
 
 class BlogPostTemplate extends Component {
