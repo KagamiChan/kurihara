@@ -14,9 +14,9 @@ const HeaderWrap = styled.div`
 `
 
 const Header = styled.div`
-  margin: 0 auto;
+  margin: 0 0 0 10%;
   max-width: 960px;
-  padding: ${rhythm(1)} ${rhythm(3 / 4)};
+  padding: ${rhythm(1)} 0;
   display: flex;
   align-items: center;
 `
@@ -44,9 +44,9 @@ const Nav = styled.nav`
 `
 
 const Content = styled.div`
-  margin: 0 auto;
+  margin: 0 0 0 10%;
   max-width: 960px;
-  padding: ${rhythm(1)} ${rhythm(3 / 4)};
+  padding: ${rhythm(1)} 0;
   padding-top: 0;
 `
 
