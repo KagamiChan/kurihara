@@ -11,7 +11,18 @@ import { rhythm } from '../utils/typography'
 
 const Article = styled.article``
 
-const Content = styled.div``
+const Content = styled.div`
+  color: ${props => props.theme.black};
+
+  a {
+    text-decoration: none;
+    color: ${props => props.theme.black};
+
+    :hover {
+      color: ${props => props.theme.blue};
+    }
+  }
+`
 
 const Timestamp = styled.div`
   color: #777;
