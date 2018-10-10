@@ -11,7 +11,7 @@ title: |
   单身成癌
 ---
 
-[![[Ohys-Raws] Saenai Heroine no Sodatekata - 04 (CX 1280x720 x264 AAC).mp4_snapshot_22.18_[2015.02.06_23.19.19]](Ohys-Raws-Saenai-Heroine-no-Sodatekata-04-CX-1280x720-x264-AAC.mp4_snapshot_22.18_2015.02.06_23.19.19.jpg)](https://blog.kagami.moe/wp-content/uploads/2015/02/Ohys-Raws-Saenai-Heroine-no-Sodatekata-04-CX-1280x720-x264-AAC.mp4_snapshot_22.18_2015.02.06_23.19.19.jpg)
+![[Ohys-Raws] Saenai Heroine no Sodatekata - 04 (CX 1280x720 x264 AAC).mp4_snapshot_22.18_[2015.02.06_23.19.19]](Ohys-Raws-Saenai-Heroine-no-Sodatekata-04-CX-1280x720-x264-AAC.mp4_snapshot_22.18_2015.02.06_23.19.19.jpg)
 
 前阵子流行一种「×× 癌」的说法，个人理解的大意是由于长期处于某种特定的状态而导致的变态化。尽管使用「癌」这样的字眼显得很粗暴，不过我想我还是可以用来自嘲的。下面，简要介绍该癌症在我身上的表现形式。
 

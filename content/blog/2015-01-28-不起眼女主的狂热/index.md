@@ -12,7 +12,7 @@ title: |
   不起眼女主的狂热
 ---
 
-[![[Ohys-Raws] Saenai Heroine no Sodatekata - 02 (CX 1280x720 x264 AAC).mp4_snapshot_22.00_[2015.01.23_23.35.57]](Ohys-Raws-Saenai-Heroine-no-Sodatekata-02-CX-1280x720-x264-AAC.mp4_snapshot_22.00_2015.01.23_23.35.57.jpg)](https://blog.kagami.moe/wp-content/uploads/2015/01/Ohys-Raws-Saenai-Heroine-no-Sodatekata-02-CX-1280x720-x264-AAC.mp4_snapshot_22.00_2015.01.23_23.35.57.jpg)
+![[Ohys-Raws] Saenai Heroine no Sodatekata - 02 (CX 1280x720 x264 AAC).mp4_snapshot_22.00_[2015.01.23_23.35.57]](Ohys-Raws-Saenai-Heroine-no-Sodatekata-02-CX-1280x720-x264-AAC.mp4_snapshot_22.00_2015.01.23_23.35.57.jpg)
 
 本季新番之中最喜欢两部作品，《幸腹涂鸦》和《不起眼女主角的培育方法》。前者是有新房和龙轮的加成，还有梅津泰臣神一样的 OP 设计。后者则是完全地被角色所萌到了，整整一周多整个人都莫名其妙地兴奋和忧愁，一集动画看了四五遍。这样的感觉是好久没有了。
 
