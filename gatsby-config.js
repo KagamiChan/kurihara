@@ -8,25 +8,41 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'posts',
+        name: 'content',
         path: path.resolve(__dirname, './content'),
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-mdx',
       options: {
-        plugins: [
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
             },
           },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
+          { resolve: 'gatsby-remark-prismjs' },
+          { resolve: 'gatsby-remark-copy-linked-files' },
         ],
       },
     },
+    // {
+    //   resolve: 'gatsby-transformer-remark',
+    //   options: {
+    //     plugins: [
+    //       {
+    //         resolve: `gatsby-remark-images`,
+    //         options: {
+    //           maxWidth: 590,
+    //         },
+    //       },
+    //       'gatsby-remark-prismjs',
+    //       'gatsby-remark-copy-linked-files',
+    //     ],
+    //   },
+    // },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',

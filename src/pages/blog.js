@@ -38,7 +38,7 @@ const Time = styled.time`
 export default class BlogIndex extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
-      allMarkdownRemark: PropTypes.object,
+      allMdx: PropTypes.object,
     }).isRequired,
   }
 
@@ -46,7 +46,7 @@ export default class BlogIndex extends React.Component {
     const { data } = this.props
 
     const {
-      allMarkdownRemark: { edges: posts },
+      allMdx: { edges: posts },
     } = data
 
     return (
@@ -66,11 +66,9 @@ export default class BlogIndex extends React.Component {
   }
 }
 
-export const query = graphql`
+export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___publish_date], order: DESC }
-    ) {
+    allMdx(sort: { fields: [frontmatter___publish_date], order: DESC }) {
       edges {
         node {
           fields {

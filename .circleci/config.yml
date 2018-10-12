@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     branches:
-      ignore: gh-pages
+      only: master
 
     docker:
       # specify the version you desire here
