@@ -79,7 +79,7 @@ class BlogPostTemplate extends Component {
 // FIXME: gatsby-mdx use different babel config than gatsby itself
 BlogPostTemplate.prototype.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
+    mdx: PropTypes.object,
   }).isRequired,
 }
 

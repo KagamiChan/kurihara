@@ -2,12 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
 
 import { theme } from '../utils/style'
 import blogLogo from '../assets/blog-logo.png'
+
+const GlobalStyle = createGlobalStyle`
+  @import url(//fonts.googleapis.com/css?family=Open+Sans:300);
+  @import url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);
+
+`
 
 const HeaderWrap = styled.div`
   background: white;
@@ -54,6 +60,7 @@ const Content = styled.div`
 const BaseLayout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <div>
+      <GlobalStyle />
       <StaticQuery
         query={graphql`
           query LayoutQuery {
@@ -69,6 +76,7 @@ const BaseLayout = ({ children }) => (
             <title>{data.site.siteMetadata.title}</title>
             <meta name="description" content="明镜止水的个人日志" />
             <meta name="keywords" content="明镜止水, HP, BLOG" />
+            <script src="//fonts.gstatic.com/ea/timing/v1/mlfont.js" async />
           </Helmet>
         )}
       />
