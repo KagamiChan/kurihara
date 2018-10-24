@@ -8,8 +8,7 @@ tags:
   - 不起眼女主角
   - 二次元阴谋
   - 加藤惠
-title: |
-  不起眼女主的狂热
+title: 不起眼女主的狂热
 ---
 
 ![[Ohys-Raws] Saenai Heroine no Sodatekata - 02 (CX 1280x720 x264 AAC).mp4_snapshot_22.00_[2015.01.23_23.35.57]](Ohys-Raws-Saenai-Heroine-no-Sodatekata-02-CX-1280x720-x264-AAC.mp4_snapshot_22.00_2015.01.23_23.35.57.jpg)

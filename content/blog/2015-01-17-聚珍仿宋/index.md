@@ -8,8 +8,7 @@ tags:
   - 聚珍仿宋
   - 芦苇荡
   - 设计
-title: |
-  聚珍仿宋
+title: 聚珍仿宋
 ---
 
 ![juzhenfangsong](juzhenfangsong.png)

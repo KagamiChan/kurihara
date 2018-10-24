@@ -9,8 +9,7 @@ tags:
   - 日剧
   - 流行旅行车
   - 静思园
-title: |
-  流星ワゴン
+title: 流星ワゴン
 ---
 
 [![Ryusei Wagon EP10 End 720p x265 HEVC-ER.mkv_snapshot_13.09_[2015.04.02_00.48.00]](Ryusei-Wagon-EP10-End-720p-x265-HEVC-ER.mkv_snapshot_13.09_2015.04.02_00.48.00.jpg)](https://blog.kagami.moe/wp-content/uploads/2015/04/Ryusei-Wagon-EP10-End-720p-x265-HEVC-ER.mkv_snapshot_13.09_2015.04.02_00.48.00.jpg)

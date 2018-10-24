@@ -5,8 +5,7 @@ publish_date: '2014-08-30T17:24:57.000+08:00'
 revise_date: '2014-08-30T17:24:57.000+08:00'
 tags:
   - 未分类
-title: |
-  《西文字体》
+title: 《西文字体》
 ---
 
 《西文字体》这本书，[在 Type is beautiful 上推荐过](http://www.typeisbeautiful.com/western-type/)。趁着这次亚马逊搞活动，买回来拜读了。

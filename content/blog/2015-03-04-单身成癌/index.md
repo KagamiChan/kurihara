@@ -7,8 +7,7 @@ tags:
   - 写给2015
   - 单身
   - 未分类
-title: |
-  单身成癌
+title: 单身成癌
 ---
 
 ![[Ohys-Raws] Saenai Heroine no Sodatekata - 04 (CX 1280x720 x264 AAC).mp4_snapshot_22.18_[2015.02.06_23.19.19]](Ohys-Raws-Saenai-Heroine-no-Sodatekata-04-CX-1280x720-x264-AAC.mp4_snapshot_22.18_2015.02.06_23.19.19.jpg)

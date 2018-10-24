@@ -5,8 +5,7 @@ publish_date: '2014-09-10T19:30:00.000+08:00'
 revise_date: '2014-09-10T19:30:00.000+08:00'
 tags:
   - 未分类
-title: |
-  サザンオールスターズ - 東京 VICTORY
+title: サザンオールスターズ - 東京 VICTORY
 ---
 
 这群年龄都在 50+ 上的老年人组合今年又出了一张新单曲。里边的三首歌我都挺喜欢的。
@@ -15,6 +14,7 @@ title: |
 
 去年他们出的《ピースとハイライト》是世界和平主题，歌词和 MV 里边隐喻中日美三国。今年也是顺应时事，主题变成了健康向上的东京奥运以及不断努力的女性群体。算是他们少有的励志型曲子。[巴哈姆特（需科学上网）上的同好翻译了歌词](http://home.gamer.com.tw/creationDetail.php?sn=2583863)，借花献佛如下：
 
+```
 東京 VICTORY
 
 サザンオールスターズ Southern All Stars 南方之星
@@ -142,38 +142,27 @@ TOKYO, The world is one!!
 We got the victory!
 
 We got the victory!
+```
 
 ### 天国オン・ザ・ビーチ
 
 这首歌要说的话,就是他们一如既往的湘南风格,海边,沙滩,男男女女,还顺便有一点工口气。只不过现在都九月了，有点过季了吧。本歌最让我感到惊讶的是 PV 的客串阵容，第一次看的时候不知道，只觉得那几个妹子怎么这么眼熟，之后一查，除了他们自己以外，还有：
 
 - 安倍なつみ
-
 - 飯田圭織
-
 - AKB48（小嶋陽菜、指原莉乃(HKT48)、島崎遥香、渡辺麻友、高橋みなみ、柏木由紀）
-
 - 奥田民生
-
 - ガッツ石松
-
 - 木村カエラ
-
 - 斉藤和義
-
 - DREAMS COME TRUE (吉田美和、中村正人)
-
 - 中澤裕子
-
 - 平井堅
-
 - 星野源
-
 - 増田惠子
-
 - 吉井和哉
 
-![Southern All Stars - Tengoku on the Beach [1440x1080 h264 M-ON! HD].ts*snapshot_02.38*[2014.08.23_15.12.09](Southern-All-Stars-Tengoku-on-the-Beach-1440x1080-h264-M-ON-HD.ts_snapshot_02.38_2014.08.23_15.12.09.jpg)
+![Southern All Stars - Tengoku on the Beach](Southern-All-Stars-Tengoku-on-the-Beach-1440x1080-h264-M-ON-HD.ts_snapshot_02.38_2014.08.23_15.12.09.jpg)
 
 SAS 成功地教会了我什么叫做低调地秀资历和人脉……
 

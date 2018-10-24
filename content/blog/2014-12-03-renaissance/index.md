@@ -7,8 +7,7 @@ tags:
   - 日志
   - 未分类
   - 重生
-title: |
-  Renaissance
+title: Renaissance
 ---
 
 ![renaissance](renaissance.jpg)

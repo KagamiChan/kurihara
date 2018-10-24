@@ -5,8 +5,7 @@ publish_date: '2014-08-16T18:58:44.000+08:00'
 revise_date: '2014-08-16T18:58:44.000+08:00'
 tags:
   - 未分类
-title: |
-  随手记 20140816
+title: 随手记 20140816
 ---
 
 最近开始尝试[中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines)的汉字-拉丁文间隙部分，大意就是人肉加空格。之前试过[自动增加间隙的 han.js](https://github.com/ethantw/Han)，但是感觉不是很舒服。在我眼里有些中文格式推广者太过于……原教旨主义了。
