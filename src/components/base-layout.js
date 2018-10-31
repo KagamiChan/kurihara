@@ -22,7 +22,7 @@ const HeaderWrap = styled.div`
 `
 
 const Header = styled.div`
-  margin: 0 0 0 10%;
+  margin: 0 0 0 ${rhythm(4)};
   max-width: 960px;
   padding: ${rhythm(1 / 3)} 0;
   display: flex;
@@ -52,7 +52,7 @@ const Nav = styled.nav`
 `
 
 const Content = styled.div`
-  margin: 0 0 0 10%;
+  margin: 0 0 0 ${rhythm(4)};
   max-width: 800px;
   padding: ${rhythm(1)} 0;
   padding-top: 0;
