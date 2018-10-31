@@ -1,11 +1,10 @@
 const { each } = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
-const componentWithMDXScope = require('gatsby-mdx/component-with-mdx-scope')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === 'Mdx') {
+  if (node.internal.type === 'MarkdownRemark') {
     const value = createFilePath({ node, getNode, basePath: 'content' })
     createNodeField({
       node,
@@ -19,24 +18,16 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     {
-      allMdx(sort: { fields: [frontmatter___publish_date], order: DESC }) {
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___publish_date], order: DESC }
+      ) {
         edges {
           node {
-            id
-            parent {
-              ... on File {
-                name
-                sourceInstanceName
-              }
-            }
             fields {
               slug
             }
             frontmatter {
               title
-            }
-            code {
-              scope
             }
           }
         }
@@ -49,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
     return Promise.reject(result.errors)
   }
 
-  const posts = result.data.allMdx.edges
+  const posts = result.data.allMarkdownRemark.edges
 
   each(posts, (post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -57,15 +48,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
-      component: componentWithMDXScope(
-        path.resolve(__dirname, 'src/components/blog-post.js'),
-        post.node.code.scope,
-      ),
+      component: path.resolve(__dirname, 'src/components/blog-post.js'),
       context: {
         previous,
         next,
         slug: post.node.fields.slug,
-        id: post.node.id,
       },
     })
   })

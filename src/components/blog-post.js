@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { format } from 'date-fns'
 import { rgba } from 'polished'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 
 import Layout from './base-layout'
 import { rhythm } from '../utils/typography'
@@ -39,9 +38,15 @@ const Title = styled.h1`
 `
 
 class BlogPostTemplate extends Component {
+  static propTypes = {
+    data: PropTypes.shape({
+      markdownRemark: PropTypes.object,
+    }).isRequired,
+  }
+
   render() {
     const { data } = this.props
-    const { mdx: post } = data
+    const { markdownRemark: post } = data
 
     const publishDate = new Date(post.frontmatter.publish_date)
 
@@ -68,7 +73,7 @@ class BlogPostTemplate extends Component {
                   </>
                 )}
             </Timestamp>
-            <MDXRenderer>{post.code.body}</MDXRenderer>
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
         </Article>
       </Layout>
@@ -76,32 +81,23 @@ class BlogPostTemplate extends Component {
   }
 }
 
-// FIXME: gatsby-mdx use different babel config than gatsby itself
-BlogPostTemplate.prototype.propTypes = {
-  data: PropTypes.shape({
-    mdx: PropTypes.object,
-  }).isRequired,
-}
-
 export default BlogPostTemplate
 
-export const pageQuery = graphql`
-  query($slug: String!) {
+export const query = graphql`
+  query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    mdx(fields: { slug: { eq: $slug } }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt
+      html
       frontmatter {
         title
         publish_date
         revise_date
-      }
-      code {
-        body
       }
     }
   }
