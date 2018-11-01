@@ -5,7 +5,6 @@ import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { rgba } from 'polished'
-import 'intersection-observer'
 
 import { commonMargin } from './common'
 import { rhythm } from '../utils/typography'
@@ -135,7 +134,8 @@ class BaseLayout extends Component {
     shortcutVisible: false,
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
+    await import('intersection-observer')
     this.observer = new IntersectionObserver(this.handleIntersect)
     if (this.sentinel.current) {
       this.observer.observe(this.sentinel.current)
