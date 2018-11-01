@@ -4,6 +4,8 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
+import { rgba } from 'polished'
+import 'intersection-observer'
 
 import { commonMargin } from './common'
 import { rhythm } from '../utils/typography'
@@ -14,7 +16,6 @@ import 'prismjs/themes/prism.css'
 const GlobalStyle = createGlobalStyle`
   @import url(//fonts.googleapis.com/css?family=Open+Sans:300);
   @import url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);
-
 `
 
 const HeaderWrap = styled.div`
@@ -89,6 +90,37 @@ const Content = styled.div`
   padding-top: 0;
 `
 
+const Sentinel = styled.div`
+  position: absolute;
+  top: ${rhythm(4)};
+  left: 0;
+`
+
+const Shortcut = styled.a`
+  border-radius: ${rhythm(0.5)};
+  height: ${rhythm(1)};
+  min-width: ${rhythm(1)};
+  transition: 0.3s;
+  background-color: ${props => rgba(props.theme.blue, 0.75)};
+  position: fixed;
+  left: ${rhythm(0.5)};
+  bottom: ${rhythm(1)};
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: ${props => (props.visible ? 1 : 0)};
+  text-decoration: none;
+
+  :hover {
+    background-color: ${props => rgba(props.theme.blue, 1)};
+  }
+
+  svg {
+    width: 0.875em;
+  }
+`
+
 class BaseLayout extends Component {
   static propTypes = {
     data: PropTypes.shape({
@@ -97,8 +129,35 @@ class BaseLayout extends Component {
     children: PropTypes.element.isRequired,
   }
 
+  sentinel = React.createRef()
+
+  state = {
+    shortcutVisible: false,
+  }
+
+  componentDidMount = () => {
+    this.observer = new IntersectionObserver(this.handleIntersect)
+    if (this.sentinel.current) {
+      this.observer.observe(this.sentinel.current)
+    }
+  }
+
+  componentWillUnmount = () => {
+    this.observer.disconnect()
+  }
+
+  handleIntersect = ([{ isIntersecting }]) => {
+    const { shortcutVisible } = this.state
+    if (shortcutVisible !== !isIntersecting) {
+      this.setState({
+        shortcutVisible: !isIntersecting,
+      })
+    }
+  }
+
   render() {
     const { children } = this.props
+    const { shortcutVisible } = this.state
     return (
       <ThemeProvider theme={theme}>
         <div>
@@ -125,9 +184,10 @@ class BaseLayout extends Component {
               </Helmet>
             )}
           />
+          <Sentinel ref={this.sentinel} />
           <HeaderWrap>
             <Header>
-              <H1>
+              <H1 id="blog-title">
                 <H1Link to="/blog">明镜止水</H1Link>
               </H1>
               <Nav>
@@ -159,6 +219,23 @@ class BaseLayout extends Component {
             </Header>
           </HeaderWrap>
           <Content>{children}</Content>
+          <Shortcut
+            visible={shortcutVisible}
+            href="#blog-title"
+            title="回到顶部"
+          >
+            <svg
+              aria-hidden="true"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"
+              />
+            </svg>
+          </Shortcut>
         </div>
       </ThemeProvider>
     )
