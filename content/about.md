@@ -6,6 +6,12 @@ title: 关于我
 
 明镜止水，智人（Homo Sapiens）雄性个体，目前生活在帝都，从事前端开发工作。爱好 ACGN、鼓捣计算机与读书。是单身火系魔法师。会说普通话，白话，英语，粤语。
 
+## 联系方式
+
+- 电子邮件: seki@kagami.me
+- Telegram： [https://t.me/skagami](https://t.me/skagami)
+- Github：[https://github.com/KagamiChan](https://github.com/KagamiChan)
+
 ## 关于我的差不多 100 条
 
 更新时间：2018 年 11 月
