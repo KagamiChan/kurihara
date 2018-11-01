@@ -47,8 +47,40 @@ const H1Link = styled(Link)`
 `
 
 const Nav = styled.nav`
-  display: block;
+  display: flex;
   flex: 1;
+  align-items: center;
+`
+
+const NavItem = styled(Link)`
+  margin-left: ${rhythm(1)};
+  text-decoration: none;
+  color: ${props => props.theme.black};
+  transition: 0.3s;
+  line-height: ${rhythm(1)};
+  display: block;
+  position: relative;
+
+  ::after {
+    width: 100%;
+    height: 1px;
+    background-color: ${props => props.theme.blue};
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+    content: '';
+    transition: 0.3s;
+    opacity: 0;
+  }
+
+  :hover {
+    color: ${props => props.theme.blue};
+
+    ::after {
+      opacity: 1;
+    }
+  }
 `
 
 const Content = styled.div`
@@ -99,7 +131,32 @@ class BaseLayout extends Component {
               <H1>
                 <H1Link to="/blog">明镜止水</H1Link>
               </H1>
-              <Nav />
+              <Nav>
+                <NavItem>
+                  <ruby>
+                    存档
+                    <rp>(</rp>
+                    <rt>Archives</rt>
+                    <rp>)</rp>
+                  </ruby>
+                </NavItem>
+                <NavItem>
+                  <ruby>
+                    清单
+                    <rp>(</rp>
+                    <rt>List</rt>
+                    <rp>)</rp>
+                  </ruby>
+                </NavItem>
+                <NavItem to="/about">
+                  <ruby>
+                    关于
+                    <rp>(</rp>
+                    <rt>About</rt>
+                    <rp>)</rp>
+                  </ruby>
+                </NavItem>
+              </Nav>
             </Header>
           </HeaderWrap>
           <Content>{children}</Content>
