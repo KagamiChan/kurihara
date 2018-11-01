@@ -1,15 +1,26 @@
-const { each } = require('lodash')
+const { each, first, compact, split } = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+
+const TEMPLATES = {
+  blog: path.resolve(__dirname, 'src/components/blog-post.js'),
+  about: path.resolve(__dirname, 'src/components/page.js'),
+}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'MarkdownRemark') {
-    const value = createFilePath({ node, getNode, basePath: 'content' })
+    const p = createFilePath({ node, getNode, basePath: 'content' })
     createNodeField({
       node,
-      value,
+      value: p,
       name: 'slug',
+    })
+
+    createNodeField({
+      node,
+      value: first(compact(split(p, '/'))),
+      name: 'type',
     })
   }
 }
@@ -25,6 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             fields {
               slug
+              type
             }
             frontmatter {
               title
@@ -48,7 +60,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
-      component: path.resolve(__dirname, 'src/components/blog-post.js'),
+      component:
+        TEMPLATES[post.node.fields.type] ||
+        path.resolve(__dirname, 'src/components/page.js'),
       context: {
         previous,
         next,

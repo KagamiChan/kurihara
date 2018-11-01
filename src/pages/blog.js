@@ -70,6 +70,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___publish_date], order: DESC }
+      filter: { fields: { type: { eq: "blog" } } }
     ) {
       edges {
         node {
