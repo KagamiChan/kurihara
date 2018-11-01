@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rgba } from 'polished'
 import { rhythm } from '../utils/typography'
+import { media } from '../utils/style'
 
 export const Article = styled.article``
 
@@ -22,4 +23,9 @@ export const Content = styled.div`
 export const Title = styled.h1`
   font-size: ${rhythm(2)};
   line-height: ${rhythm(2)};
+`
+
+export const commonMargin = css`
+  margin: 0 0 0 ${rhythm(4)};
+  ${media.desktop`margin-left: ${rhythm(2)};`} ${media.tablet`margin-left: 0;`};
 `

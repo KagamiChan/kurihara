@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 
+import { commonMargin } from './common'
 import { rhythm } from '../utils/typography'
 import { theme } from '../utils/style'
 import blogLogo from '../assets/blog-logo.png'
@@ -22,8 +23,7 @@ const HeaderWrap = styled.div`
 `
 
 const Header = styled.div`
-  margin: 0 0 0 ${rhythm(4)};
-  max-width: 960px;
+  ${commonMargin} max-width: 960px;
   padding: ${rhythm(1 / 3)} 0;
   display: flex;
   align-items: center;
@@ -84,8 +84,7 @@ const NavItem = styled(Link)`
 `
 
 const Content = styled.div`
-  margin: 0 0 0 ${rhythm(4)};
-  max-width: 800px;
+  ${commonMargin} max-width: 800px;
   padding: ${rhythm(1)} 0;
   padding-top: 0;
 `

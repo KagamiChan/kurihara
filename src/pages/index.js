@@ -1,10 +1,16 @@
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 import { map, debounce, times } from 'lodash'
 import Helmet from 'react-helmet'
 
 import { rhythm } from '../utils/typography'
+import { media } from '../utils/style'
 import sprite from '../assets/sprite.png'
+
+const commonLeft = css`
+  left: ${rhythm(4)};
+  ${media.desktop`left: ${rhythm(2)};`} ${media.tablet`left: 0;`};
+`
 
 const GlobalStyle = createGlobalStyle`
   html{
@@ -32,8 +38,8 @@ const spriteStyle = `
 const Wrapper = styled.div`
   z-index: 10;
   position: absolute;
-  left: ${rhythm(4)};
   top: ${rhythm(4)};
+  ${commonLeft};
 `
 
 const Title = styled.h1`
@@ -52,9 +58,9 @@ const Footer = styled.div`
   height: 80px;
   position: absolute;
   bottom: 5%;
-  left: ${rhythm(4)};
   margin-left: 20px;
   background-position: -108px -235px;
+  ${commonLeft};
 `
 
 const List = styled.ul`
