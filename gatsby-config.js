@@ -9,10 +9,18 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'posts',
+        name: 'content',
         path: path.resolve(__dirname, './content'),
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: path.resolve(__dirname, './data'),
+      },
+    },
+    'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
