@@ -26,6 +26,7 @@ import {
   startOfWeek,
   startOfDay,
   isSameDay,
+  getMonth,
 } from 'date-fns'
 
 import Layout from '../components/base-layout'
@@ -72,9 +73,10 @@ const Time = styled.time`
 `
 
 const DayCell = styled.rect`
-  fill: #eee;
+  fill: ${props => rgba(props.theme.blue, 0.2 - 0.1 * (props.month % 2))};
   fill: ${props => props.active && props.theme.green};
   fill: ${props => props.selected && props.theme.orange};
+  transition: 0.3s;
   cursor: ${props => props.active && 'pointer'};
 `
 
@@ -114,8 +116,11 @@ const DaysMatrix = React.memo(
                     activeDays.includes(+day) ? onSelectDay(+day) : undefined
                   }
                   date={+day}
+                  month={getMonth(day)}
                   transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
-                />
+                >
+                  <title>{format(day, 'YYYY-MM-DD')}</title>
+                </DayCell>
               ))}
             </g>
           ))}
