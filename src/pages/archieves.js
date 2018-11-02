@@ -9,8 +9,8 @@ import {
   groupBy,
   entries,
   uniq,
-  isEqual,
   memoize,
+  isEqual,
 } from 'lodash'
 import fp from 'lodash/fp'
 import PropTypes from 'prop-types'
@@ -84,52 +84,58 @@ const List = styled.div`
   margin-top: ${rhythm(1)};
 `
 
-const DaysMatrix = React.memo(
-  ({ year, activeDays, activeDay, onSelectDay }) => {
-    const firstDay = new Date(year, 0, 1)
-    const daysOfYear = eachDay(firstDay, endOfYear(firstDay))
-    const weeks = groupBy(
-      daysOfYear,
-      day => +startOfWeek(day, { weekStartsOn: 1 }),
-    )
+const DaysMatrix = ({ year, activeDays, activeDay, onSelectDay }) => {
+  const firstDay = new Date(year, 0, 1)
+  const daysOfYear = eachDay(firstDay, endOfYear(firstDay))
+  const weeks = groupBy(
+    daysOfYear,
+    day => +startOfWeek(day, { weekStartsOn: 1 }),
+  )
 
-    return (
-      <svg viewBox="0 0 530 70" onClick={onSelectDay(0)}>
-        <g>
-          {map(entries(weeks), ([week, days]) => (
-            <g
-              key={week}
-              date={week}
-              transform={`translate(${10 *
-                differenceInCalendarWeeks(+week, firstDay, {
-                  weekStartsOn: 1,
-                })}, 0)`}
-            >
-              {map(days, day => (
-                <DayCell
-                  key={day}
-                  width={8}
-                  height={8}
-                  active={activeDays.includes(+day)}
-                  selected={activeDay === +day}
-                  onClick={
-                    activeDays.includes(+day) ? onSelectDay(+day) : undefined
-                  }
-                  date={+day}
-                  month={getMonth(day)}
-                  transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
-                >
-                  <title>{format(day, 'YYYY-MM-DD')}</title>
-                </DayCell>
-              ))}
-            </g>
-          ))}
-        </g>
-      </svg>
-    )
-  },
-  isEqual,
-)
+  return (
+    <svg viewBox="0 0 530 70" onClick={onSelectDay(0)}>
+      <g>
+        {map(entries(weeks), ([week, days]) => (
+          <g
+            key={week}
+            date={week}
+            transform={`translate(${10 *
+              differenceInCalendarWeeks(+week, firstDay, {
+                weekStartsOn: 1,
+              })}, 0)`}
+          >
+            {map(days, day => (
+              <DayCell
+                key={day}
+                width={8}
+                height={8}
+                active={activeDays.includes(+day)}
+                selected={activeDay === +day}
+                onClick={
+                  activeDays.includes(+day) ? onSelectDay(+day) : undefined
+                }
+                date={+day}
+                month={getMonth(day)}
+                transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
+              >
+                <title>{format(day, 'YYYY-MM-DD')}</title>
+              </DayCell>
+            ))}
+          </g>
+        ))}
+      </g>
+    </svg>
+  )
+}
+
+DaysMatrix.propTypes = {
+  year: PropTypes.number.isRequired,
+  activeDays: PropTypes.arrayOf(PropTypes.number).isRequired,
+  activeDay: PropTypes.number.isRequired,
+  onSelectDay: PropTypes.func.isRequired,
+}
+
+const MemoDaysMatrix = React.memo(DaysMatrix, isEqual)
 
 export default class BlogArchives extends Component {
   static propTypes = {
@@ -141,6 +147,7 @@ export default class BlogArchives extends Component {
   state = {
     activeYear: 0,
     activeDay: 0,
+    init: false,
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => {
@@ -173,9 +180,15 @@ export default class BlogArchives extends Component {
     }))
   })
 
+  componentDidMount = () => {
+    this.setState({
+      init: true,
+    })
+  }
+
   render() {
     const { data } = this.props
-    const { activeYear, activeDay } = this.state
+    const { activeYear, activeDay, init } = this.state
 
     const {
       allMarkdownRemark: { edges: posts },
@@ -191,25 +204,32 @@ export default class BlogArchives extends Component {
       map(posts, p => +startOfDay(p.node.frontmatter.publish_date)),
     )
 
+    const timezone = new Date().getTimezoneOffset()
+
     return (
       <Layout>
-        <Years>
-          {map(range(startYear, endYear + 1), y => (
-            <Year
-              key={y}
-              active={y === activeYear}
-              onClick={this.handleSelectYear(y)}
-            >
-              {y}
-            </Year>
-          ))}
-        </Years>
-        <DaysMatrix
-          year={activeYear}
-          activeDays={activeDays}
-          activeDay={activeDay}
-          onSelectDay={this.handleActiveDay}
-        />
+        {init && (
+          <>
+            <Years>
+              {map(range(startYear, endYear + 1), y => (
+                <Year
+                  key={y}
+                  active={y === activeYear}
+                  onClick={this.handleSelectYear(y)}
+                >
+                  {y}
+                </Year>
+              ))}
+            </Years>
+            <MemoDaysMatrix
+              year={activeYear}
+              activeDays={activeDays}
+              activeDay={activeDay}
+              onSelectDay={this.handleActiveDay}
+              timezone={timezone}
+            />
+          </>
+        )}
         <List>
           {fp.flow(
             fp.filter(
