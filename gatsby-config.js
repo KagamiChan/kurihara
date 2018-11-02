@@ -5,6 +5,7 @@ module.exports = {
     title: '少年读书隙中窥月',
   },
   plugins: [
+    'gatsby-plugin-lodash',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
