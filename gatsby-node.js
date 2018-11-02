@@ -73,3 +73,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   return Promise.resolve()
 }
+
+exports.onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPlugin({
+    name: `babel-plugin-date-fns`,
+  })
+}
