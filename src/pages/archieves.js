@@ -93,7 +93,7 @@ const DaysMatrix = ({ year, activeDays, activeDay, onSelectDay }) => {
   )
 
   return (
-    <svg viewBox="0 0 530 70" onClick={onSelectDay(0)}>
+    <svg viewBox="0 0 540 70" onClick={onSelectDay(0)}>
       <g>
         {map(entries(weeks), ([week, days]) => (
           <g
