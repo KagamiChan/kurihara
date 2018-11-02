@@ -38,5 +38,6 @@ export const FooterWrapper = styled.div`
   a {
     text-decoration: none;
     color: inherit;
+    transition: 0.3s;
   }
 `
