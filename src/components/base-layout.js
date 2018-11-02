@@ -132,7 +132,7 @@ class BaseLayout extends Component {
                 <H1Link to="/blog">明镜止水</H1Link>
               </H1>
               <Nav>
-                <NavItem>
+                <NavItem to="/archieves">
                   <ruby>
                     存档
                     <rp>(</rp>
@@ -140,7 +140,7 @@ class BaseLayout extends Component {
                     <rp>)</rp>
                   </ruby>
                 </NavItem>
-                <NavItem>
+                <NavItem to="./">
                   <ruby>
                     清单
                     <rp>(</rp>

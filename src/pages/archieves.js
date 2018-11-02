@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
-import { map, max, min, range, groupBy, entries, uniq, isEqual } from 'lodash'
+import {
+  map,
+  max,
+  min,
+  range,
+  groupBy,
+  entries,
+  uniq,
+  isEqual,
+  memoize,
+} from 'lodash'
+import fp from 'lodash/fp'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
@@ -14,6 +25,7 @@ import {
   endOfYear,
   startOfWeek,
   startOfDay,
+  isSameDay,
 } from 'date-fns'
 
 import Layout from '../components/base-layout'
@@ -21,6 +33,7 @@ import { rhythm } from '../utils/typography'
 
 const Years = styled.div`
   display: flex;
+  margin-bottom: ${rhythm(1)};
 `
 
 const Year = styled.a`
@@ -59,50 +72,59 @@ const Time = styled.time`
 `
 
 const DayCell = styled.rect`
-  fill: ${props => (props.active ? props.theme.green : '#eee')};
+  fill: #eee;
+  fill: ${props => props.active && props.theme.green};
+  fill: ${props => props.selected && props.theme.orange};
+  cursor: ${props => props.active && 'pointer'};
 `
 
-const DaysMatrix = React.memo(({ year, activeDays }) => {
-  const firstDay = new Date(year, 0, 1)
-  const daysOfYear = eachDay(firstDay, endOfYear(firstDay))
-  const weeks = groupBy(
-    daysOfYear,
-    day => +startOfWeek(day, { weekStartsOn: 1 }),
-  )
+const List = styled.div`
+  margin-top: ${rhythm(1)};
+`
 
-  return (
-    <svg viewBox="0 0 530 70">
-      <g>
-        {map(entries(weeks), ([week, days]) => (
-          <g
-            key={week}
-            date={week}
-            transform={`translate(${10 *
-              differenceInCalendarWeeks(+week, firstDay, {
-                weekStartsOn: 1,
-              })}, 0)`}
-          >
-            {map(days, day => (
-              <DayCell
-                key={day}
-                width={8}
-                height={8}
-                active={activeDays.includes(+day)}
-                date={+day}
-                transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
-              />
-            ))}
-          </g>
-        ))}
-      </g>
-    </svg>
-  )
-}, isEqual)
+const DaysMatrix = React.memo(
+  ({ year, activeDays, activeDay, onSelectDay }) => {
+    const firstDay = new Date(year, 0, 1)
+    const daysOfYear = eachDay(firstDay, endOfYear(firstDay))
+    const weeks = groupBy(
+      daysOfYear,
+      day => +startOfWeek(day, { weekStartsOn: 1 }),
+    )
 
-DaysMatrix.propTypes = {
-  year: PropTypes.number.isRequired,
-  activeDays: PropTypes.arrayOf(PropTypes.number).isRequired,
-}
+    return (
+      <svg viewBox="0 0 530 70" onClick={onSelectDay(0)}>
+        <g>
+          {map(entries(weeks), ([week, days]) => (
+            <g
+              key={week}
+              date={week}
+              transform={`translate(${10 *
+                differenceInCalendarWeeks(+week, firstDay, {
+                  weekStartsOn: 1,
+                })}, 0)`}
+            >
+              {map(days, day => (
+                <DayCell
+                  key={day}
+                  width={8}
+                  height={8}
+                  active={activeDays.includes(+day)}
+                  selected={activeDay === +day}
+                  onClick={
+                    activeDays.includes(+day) ? onSelectDay(+day) : undefined
+                  }
+                  date={+day}
+                  transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
+                />
+              ))}
+            </g>
+          ))}
+        </g>
+      </svg>
+    )
+  },
+  isEqual,
+)
 
 export default class BlogArchives extends Component {
   static propTypes = {
@@ -113,6 +135,7 @@ export default class BlogArchives extends Component {
 
   state = {
     activeYear: 0,
+    activeDay: 0,
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => {
@@ -132,15 +155,22 @@ export default class BlogArchives extends Component {
     return null
   }
 
-  handleSelectYear = y => () => {
+  handleSelectYear = memoize(y => () => {
     this.setState({
       activeYear: y,
     })
-  }
+  })
+
+  handleActiveDay = memoize(day => e => {
+    e.stopPropagation()
+    this.setState(state => ({
+      activeDay: state.activeDay === day ? 0 : day,
+    }))
+  })
 
   render() {
     const { data } = this.props
-    const { activeYear } = this.state
+    const { activeYear, activeDay } = this.state
 
     const {
       allMarkdownRemark: { edges: posts },
@@ -160,22 +190,43 @@ export default class BlogArchives extends Component {
       <Layout>
         <Years>
           {map(range(startYear, endYear + 1), y => (
-            <Year active={y === activeYear} onClick={this.handleSelectYear(y)}>
+            <Year
+              key={y}
+              active={y === activeYear}
+              onClick={this.handleSelectYear(y)}
+            >
               {y}
             </Year>
           ))}
         </Years>
-        <DaysMatrix year={activeYear} activeDays={activeDays} />
-        {map(posts, p => (
-          <div key={p.id}>
-            <PostItem to={p.node.fields.slug}>
-              {p.node.frontmatter.title}
-              <Time dateTime={p.node.frontmatter.publish_date}>
-                {format(p.node.frontmatter.publish_date, 'YYYY-MM-DD')}
-              </Time>
-            </PostItem>
-          </div>
-        ))}
+        <DaysMatrix
+          year={activeYear}
+          activeDays={activeDays}
+          activeDay={activeDay}
+          onSelectDay={this.handleActiveDay}
+        />
+        <List>
+          {fp.flow(
+            fp.filter(
+              p => getYear(p.node.frontmatter.publish_date) === activeYear,
+            ),
+            fp.filter(
+              p =>
+                !activeDay ||
+                isSameDay(p.node.frontmatter.publish_date, activeDay),
+            ),
+            fp.map(p => (
+              <div key={p.node.id}>
+                <PostItem to={p.node.fields.slug}>
+                  {p.node.frontmatter.title}
+                  <Time dateTime={p.node.frontmatter.publish_date}>
+                    {format(p.node.frontmatter.publish_date, 'YYYY-MM-DD')}
+                  </Time>
+                </PostItem>
+              </div>
+            )),
+          )(posts)}
+        </List>
       </Layout>
     )
   }
@@ -189,6 +240,7 @@ export const query = graphql`
     ) {
       edges {
         node {
+          id
           fields {
             slug
           }
