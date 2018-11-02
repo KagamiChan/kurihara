@@ -170,6 +170,7 @@ export default class BlogArchives extends Component {
   handleSelectYear = memoize(y => () => {
     this.setState({
       activeYear: y,
+      activeDay: 0,
     })
   })
 
