@@ -8,16 +8,17 @@ const { format } = require('date-fns')
 const { toLower } = require('lodash')
 const fs = require('fs-extra')
 
-const postsPath = path.resolve(__dirname, '../src/posts')
+const postsPath = path.resolve(__dirname, '../content/blog')
 
 const draft = async date => {
   try {
-    const title = process.argv
-      .slice(2)
-      .join(' ')
-      .split(' ')
-      .map(toLower)
-      .join('-')
+    const title =
+      process.argv
+        .slice(2)
+        .join(' ')
+        .split(' ')
+        .map(toLower)
+        .join('-') || '荷塘月色'
     const directory = path.join(
       postsPath,
       `${format(date, 'YYYY-MM-DD')}-${title}`,
@@ -28,7 +29,7 @@ const draft = async date => {
     const content = matter.stringify(
       '曲曲折折的荷塘上面，弥望的是田田的叶子。',
       {
-        title: process.argv.slice(2).join(' '),
+        title,
         publish_date: format(date),
         revise_date: format(date),
         tags: [],
