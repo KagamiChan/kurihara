@@ -33,7 +33,7 @@ export const commonMargin = css`
 export const FooterWrapper = styled.div`
   font-size: ${rhythm(0.5)};
   padding: ${rhythm(0.5)};
-  margin: ${rhythm(1)};
+  margin: ${rhythm(1)} 0;
 
   a {
     text-decoration: none;
