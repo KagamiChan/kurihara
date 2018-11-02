@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 import { Article, Content, Title } from './common'
 import Layout from './base-layout'
+import Meta from './meta'
 
 class PageTemplate extends Component {
   static propTypes = {
@@ -26,6 +27,7 @@ class PageTemplate extends Component {
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
         </Article>
+        <Meta />
       </Layout>
     )
   }

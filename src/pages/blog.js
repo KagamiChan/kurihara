@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { rgba } from 'polished'
 import { format } from 'date-fns'
 
+import Meta from '../components/meta'
 import Layout from '../components/base-layout'
 import { rhythm } from '../utils/typography'
 
@@ -61,6 +62,7 @@ export default class BlogIndex extends React.Component {
             </PostItem>
           </div>
         ))}
+        <Meta />
       </Layout>
     )
   }

@@ -29,6 +29,7 @@ import {
   getMonth,
 } from 'date-fns'
 
+import Meta from '../components/meta'
 import Layout from '../components/base-layout'
 import { rhythm } from '../utils/typography'
 
@@ -253,6 +254,7 @@ export default class BlogArchives extends Component {
             )),
           )(posts)}
         </List>
+        <Meta />
       </Layout>
     )
   }
