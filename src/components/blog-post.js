@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { format } from 'date-fns'
 
 import Hitokoto from './hitokoto'
+import Comment from './comment'
 import { Article, Content, Title } from './common'
 import Layout from './base-layout'
 import { rhythm } from '../utils/typography'
@@ -56,6 +57,7 @@ class BlogPostTemplate extends Component {
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
         </Article>
+        <Comment />
         <Hitokoto />
       </Layout>
     )

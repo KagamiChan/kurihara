@@ -7,23 +7,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt'
 
 import { rhythm } from '../utils/typography'
+import { FooterWrapper } from './common'
 
-const Wrapper = styled.div`
+const Wrapper = styled(FooterWrapper)`
   ${props => {
     const color = props.theme[sample(['blue', 'green', 'orange', 'pink'])]
     return css`
       background: ${rgba(color, 0.1)};
       color: ${color};
-    `
-  }}
-  font-size: ${rhythm(0.5)};
-  padding: ${rhythm(0.5)};
-  margin: ${rhythm(1)};
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+      a:hover {
+        background-color: ${rgba(color, 0.2)};
+      }
+    `
+  }};
 `
 
 const Content = styled.div`
@@ -75,7 +72,7 @@ class Hitokoto extends Component {
             <Wrapper>
               <Content>{entry.content}</Content>
               <Footer>
-                {entry.author.join(' / ')} - <Source>{entry.source}</Source>{' '}
+                —— {entry.author.join(' / ')} - <Source>{entry.source}</Source>{' '}
                 {entry.link && (
                   <a href={entry.link}>
                     <FontAwesomeIcon icon={faExternalLinkAlt} />

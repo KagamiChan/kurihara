@@ -29,3 +29,14 @@ export const commonMargin = css`
   margin: 0 0 0 ${rhythm(4)};
   ${media.desktop`margin-left: ${rhythm(2)};`} ${media.tablet`margin-left: 0;`};
 `
+
+export const FooterWrapper = styled.div`
+  font-size: ${rhythm(0.5)};
+  padding: ${rhythm(0.5)};
+  margin: ${rhythm(1)};
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+`
