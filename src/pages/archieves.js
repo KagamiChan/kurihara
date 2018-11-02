@@ -29,6 +29,7 @@ import {
   getMonth,
 } from 'date-fns'
 
+import SiteTitle from '../components/site-title'
 import Meta from '../components/meta'
 import Layout from '../components/base-layout'
 import { rhythm } from '../utils/typography'
@@ -210,6 +211,7 @@ export default class BlogArchives extends Component {
 
     return (
       <Layout>
+        <SiteTitle suffix="存档" />
         {init && (
           <>
             <Years>

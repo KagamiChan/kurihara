@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { format } from 'date-fns'
 
+import SiteTitle from './site-title'
 import Hitokoto from './hitokoto'
 import Meta from './meta'
 import { Article, Content, Title } from './common'
@@ -35,6 +36,8 @@ class BlogPostTemplate extends Component {
 
     return (
       <Layout>
+        <SiteTitle suffix={post.frontmatter.title} />
+
         <Article>
           <Title>{post.frontmatter.title}</Title>
           <Content>

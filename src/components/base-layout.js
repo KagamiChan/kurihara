@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
 
+import SiteTitle from './site-title'
 import Shortcut from './shortcut'
 import { commonMargin } from './common'
 import { rhythm } from '../utils/typography'
@@ -103,28 +103,13 @@ class BaseLayout extends Component {
       <ThemeProvider theme={theme}>
         <div>
           <GlobalStyle />
-          <StaticQuery
-            query={graphql`
-              query LayoutQuery {
-                site {
-                  siteMetadata {
-                    title
-                  }
-                }
-              }
-            `}
-            render={data => (
-              <Helmet>
-                <title>{data.site.siteMetadata.title}</title>
-                <meta name="description" content="明镜止水的个人日志" />
-                <meta name="keywords" content="明镜止水, HP, BLOG" />
-                <script
-                  src="//fonts.gstatic.com/ea/timing/v1/mlfont.js"
-                  async
-                />
-              </Helmet>
-            )}
-          />
+
+          <SiteTitle />
+          <Helmet>
+            <meta name="description" content="明镜止水的个人日志" />
+            <meta name="keywords" content="明镜止水, HP, BLOG" />
+            <script src="//fonts.gstatic.com/ea/timing/v1/mlfont.js" async />
+          </Helmet>
 
           <HeaderWrap>
             <Header>
