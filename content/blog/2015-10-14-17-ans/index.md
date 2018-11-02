@@ -9,11 +9,10 @@ tags:
   - 法语
   - 翻译
   - 音乐
-title: 17 岁
+title: 17 ans
 ---
 
-# 17 ans
-
+```
 J'ai eu moi aussi dix-sept ans 我也曾有十七岁
 Le monde n'était pas différent 世界没有任何不同
 Certains n'avaient rien à gagner 有些人什么也不用去争取
@@ -67,6 +66,7 @@ Sans me demander qui j'étais 在第一次爱上我的时候
 La première fois ell' m'a aimé 她没有问我是谁
 J'ai eu moi aussi dix-sept ans 我也有过 17 岁
 Mais qu'ils sont loin mes dix-sept ans 但 17 岁已经离我很远
+```
 
 译注：
 Claude François 于埃及出生，17 岁（1956 年），由于苏伊士运河收归国有事件，随父亲回国，来到法国定居。本歌曲发表于 1975 年，去世前 3 年。
