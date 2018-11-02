@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
-import { map, max, min, range, groupBy, entries } from 'lodash'
+import { map, max, min, range, groupBy, entries, uniq, isEqual } from 'lodash'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
@@ -13,6 +13,7 @@ import {
   differenceInCalendarWeeks,
   endOfYear,
   startOfWeek,
+  startOfDay,
 } from 'date-fns'
 
 import Layout from '../components/base-layout'
@@ -22,9 +23,14 @@ const Years = styled.div`
   display: flex;
 `
 
-const Year = styled.div`
+const Year = styled.a`
   line-height: ${rhythm(1)};
   padding: 0 ${rhythm(0.25)};
+  background: ${props => props.active && props.theme.blue};
+  color: ${props => props.active && '#fff'};
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 `
 
 const PostItem = styled(Link)`
@@ -52,7 +58,11 @@ const Time = styled.time`
   font-weight: initial;
 `
 
-const DaysMatrix = ({ year }) => {
+const DayCell = styled.rect`
+  fill: ${props => (props.active ? props.theme.green : '#eee')};
+`
+
+const DaysMatrix = React.memo(({ year, activeDays }) => {
   const firstDay = new Date(year, 0, 1)
   const daysOfYear = eachDay(firstDay, endOfYear(firstDay))
   const weeks = groupBy(
@@ -73,11 +83,11 @@ const DaysMatrix = ({ year }) => {
               })}, 0)`}
           >
             {map(days, day => (
-              <rect
+              <DayCell
                 key={day}
                 width={8}
                 height={8}
-                fill="#eee"
+                active={activeDays.includes(+day)}
                 date={+day}
                 transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
               />
@@ -87,21 +97,50 @@ const DaysMatrix = ({ year }) => {
       </g>
     </svg>
   )
-}
+}, isEqual)
 
 DaysMatrix.propTypes = {
   year: PropTypes.number.isRequired,
+  activeDays: PropTypes.arrayOf(PropTypes.number).isRequired,
 }
 
-export default class BlogIndex extends React.Component {
+export default class BlogArchives extends Component {
   static propTypes = {
     data: PropTypes.shape({
       allMarkdownRemark: PropTypes.object,
     }).isRequired,
   }
 
+  state = {
+    activeYear: 0,
+  }
+
+  static getDerivedStateFromProps = (nextProps, prevState) => {
+    if (prevState.activeYear === 0) {
+      const { data } = nextProps
+      const {
+        allMarkdownRemark: { edges: posts },
+      } = data
+      const startTime = min(map(posts, 'node.frontmatter.publish_date'))
+      const startYear = getYear(new Date(startTime))
+
+      return {
+        activeYear: startYear,
+      }
+    }
+
+    return null
+  }
+
+  handleSelectYear = y => () => {
+    this.setState({
+      activeYear: y,
+    })
+  }
+
   render() {
     const { data } = this.props
+    const { activeYear } = this.state
 
     const {
       allMarkdownRemark: { edges: posts },
@@ -113,14 +152,20 @@ export default class BlogIndex extends React.Component {
     const startYear = getYear(new Date(startTime))
     const endYear = getYear(new Date(endTime))
 
+    const activeDays = uniq(
+      map(posts, p => +startOfDay(p.node.frontmatter.publish_date)),
+    )
+
     return (
       <Layout>
         <Years>
           {map(range(startYear, endYear + 1), y => (
-            <Year>{y}</Year>
+            <Year active={y === activeYear} onClick={this.handleSelectYear(y)}>
+              {y}
+            </Year>
           ))}
         </Years>
-        <DaysMatrix year={2017} />
+        <DaysMatrix year={activeYear} activeDays={activeDays} />
         {map(posts, p => (
           <div key={p.id}>
             <PostItem to={p.node.fields.slug}>
