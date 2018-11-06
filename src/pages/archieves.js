@@ -37,6 +37,7 @@ import { rhythm } from '../utils/typography'
 const Years = styled.div`
   display: flex;
   margin-bottom: ${rhythm(1)};
+  flex-wrap: wrap;
 `
 
 const Year = styled.a`
@@ -47,6 +48,7 @@ const Year = styled.a`
   border: none;
   cursor: pointer;
   transition: 0.3s;
+  user-select: none;
 `
 
 const PostItem = styled(Link)`
