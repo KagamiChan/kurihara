@@ -20,7 +20,7 @@ const nowYear = new Date().getFullYear()
 const Comment = () => (
   <Wrapper>
     自豪地基于 <a href="https://reactjs.org">React.js</a> 与{' '}
-    <a href="https://gatsbyjs.org">Gatsby.js</a> 驱动 | 托管于 GitHub Pages
+    <a href="https://gatsbyjs.org">Gatsby.js</a> 驱动 | 托管于 Netlify
     <br />
     内容基于{' '}
     <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">
