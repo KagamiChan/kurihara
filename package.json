@@ -13,6 +13,7 @@
     "gatsby": "^2.0.35",
     "gatsby-link": "^2.0.6",
     "gatsby-plugin-lodash": "^3.0.2",
+    "gatsby-plugin-netlify": "^2.0.3",
     "gatsby-plugin-react-helmet": "^3.0.1",
     "gatsby-plugin-sharp": "^2.0.10",
     "gatsby-plugin-styled-components": "^3.0.1",
