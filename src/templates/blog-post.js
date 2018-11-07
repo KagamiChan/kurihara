@@ -6,11 +6,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { format } from 'date-fns'
 
-import SiteTitle from './site-title'
-import Hitokoto from './hitokoto'
-import Meta from './meta'
-import { Article, Content, Title } from './common'
-import Layout from './base-layout'
+import SiteTitle from '../components/site-title'
+import Hitokoto from '../components/hitokoto'
+import Meta from '../components/meta'
+import { Article, Content, Title } from '../components/common'
+import Layout from '../components/base-layout'
 import { rhythm } from '../utils/typography'
 
 const Timestamp = styled.div`

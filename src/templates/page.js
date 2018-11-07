@@ -4,9 +4,9 @@ import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
-import { Article, Content, Title } from './common'
-import Layout from './base-layout'
-import Meta from './meta'
+import { Article, Content, Title } from '../components/common'
+import Layout from '../components/base-layout'
+import Meta from '../components/meta'
 
 class PageTemplate extends Component {
   static propTypes = {

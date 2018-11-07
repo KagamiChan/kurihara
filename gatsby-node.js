@@ -3,8 +3,8 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const TEMPLATES = {
-  blog: path.resolve(__dirname, 'src/components/blog-post.js'),
-  about: path.resolve(__dirname, 'src/components/page.js'),
+  blog: path.resolve(__dirname, 'src/templates/blog-post.js'),
+  about: path.resolve(__dirname, 'src/templates/page.js'),
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: post.node.fields.slug,
       component:
         TEMPLATES[post.node.fields.type] ||
-        path.resolve(__dirname, 'src/components/page.js'),
+        path.resolve(__dirname, 'src/templates/page.js'),
       context: {
         previous,
         next,
