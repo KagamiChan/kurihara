@@ -4,28 +4,24 @@ import BSTheme from 'typography-theme-bootstrap'
 
 BSTheme.plugins = [new CodePlugin()]
 
+const fontFamily = [
+  'source-han-serif-sc',
+  'Times',
+  'Times New Roman',
+  'STSong',
+  'SimSun',
+  'serif',
+  'system-ui',
+]
+
 const typography = new Typography({
   ...BSTheme,
-  bodyFontFamily: [
-    'Open Sans',
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    'Noto Sans SC',
-    'Noto Sans SC Sliced',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'sans-serif',
-  ],
+  headerFontFamily: fontFamily,
+  bodyFontFamily: fontFamily,
   baseFontSize: '20px',
   baseLineHeight: 1.75,
   bodyWeight: 300,
-  headerWeight: 200,
+  headerWeight: 400,
 })
 
 // Hot reload typography in development.

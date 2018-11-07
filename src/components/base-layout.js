@@ -4,6 +4,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
+import '../lib/typekit'
 import SiteTitle from './site-title'
 import Shortcut from './shortcut'
 import { commonMargin } from './common'
@@ -103,12 +104,10 @@ class BaseLayout extends Component {
       <ThemeProvider theme={theme}>
         <div>
           <GlobalStyle />
-
           <SiteTitle />
           <Helmet>
             <meta name="description" content="明镜止水的个人日志" />
             <meta name="keywords" content="明镜止水, HP, BLOG" />
-            <script src="//fonts.gstatic.com/ea/timing/v1/mlfont.js" async />
           </Helmet>
 
           <HeaderWrap>
