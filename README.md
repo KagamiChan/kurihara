@@ -1,8 +1,8 @@
 # Kurihara
 
-next version for https://kagami.moe and https://kagami.me, powered by [React.js](https://reactjs.org), [Gatsby.js](https://www.gatsbyjs.org/) and many other opensource softwares
+Source code for https://kagami.moe and https://kagami.me, powered by [React.js](https://reactjs.org), [Gatsby.js](https://www.gatsbyjs.org/) and many other opensource projects.
 
-Current status: Under development
+Current status: Deployed
 
 ## License
 
