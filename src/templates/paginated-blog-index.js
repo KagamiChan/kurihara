@@ -36,7 +36,7 @@ const Time = styled.time`
 `
 
 const Pagination = styled.div`
-  margin-top: ${rhythm(0.5)};
+  margin: ${rhythm(0.5)} 0;
   padding-top: ${rhythm(0.5)};
   position: sticky;
   bottom: 0;
@@ -123,6 +123,7 @@ export default class BlogPaginated extends React.Component {
           ))}
         </div>
         <Paginator pages={pages} page={page} neighbour={3} />
+        <hr />
         <Meta />
       </Layout>
     )

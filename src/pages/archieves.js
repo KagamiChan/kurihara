@@ -258,6 +258,7 @@ export default class BlogArchives extends Component {
             )),
           )(posts)}
         </List>
+        <hr />
         <Meta />
       </Layout>
     )

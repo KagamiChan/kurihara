@@ -1,27 +1,14 @@
 import React, { Component } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import { get, size, sample } from 'lodash'
-import styled, { css } from 'styled-components'
-import { rgba } from 'polished'
+import { get, size } from 'lodash'
+import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt'
 
-import { rhythm } from '../utils/typography'
 import { FooterWrapper } from './common'
+import { rhythm } from '../utils/typography'
 
-const Wrapper = styled(FooterWrapper)`
-  ${props => {
-    const color = props.theme[sample(['blue', 'green', 'orange', 'pink'])]
-    return css`
-      background: ${rgba(color, 0.1)};
-      color: ${color};
-
-      a:hover {
-        background-color: ${rgba(color, 0.2)};
-      }
-    `
-  }};
-`
+const Wrapper = styled(FooterWrapper)``
 
 const Content = styled.div`
   font-weight: 400;

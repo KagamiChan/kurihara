@@ -60,8 +60,9 @@ class BlogPostTemplate extends Component {
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
         </Article>
-        <Meta />
+        <hr />
         <Hitokoto />
+        <Meta />
       </Layout>
     )
   }

@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
-import { rhythm } from '../utils/typography'
 
 import { FooterWrapper } from './common'
 
 const Wrapper = styled(FooterWrapper)`
-  background: ${props => rgba(props.theme.blue, 0.1)};
-  color: ${props => props.theme.blue};
-  margin-top: ${rhythm(2)};
+  margin-bottom: 0;
 
   a:hover {
     background-color: ${props => rgba(props.theme.blue, 0.2)};
@@ -20,7 +17,8 @@ const nowYear = new Date().getFullYear()
 const Comment = () => (
   <Wrapper>
     自豪地基于 <a href="https://reactjs.org">React.js</a> 与{' '}
-    <a href="https://gatsbyjs.org">Gatsby.js</a> 驱动 | 托管于 Netlify
+    <a href="https://gatsbyjs.org">Gatsby.js</a> 驱动 | 托管于 Netlify |{' '}
+    <a href="/rss.xml">RSS 订阅可用</a>
     <br />
     内容基于{' '}
     <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">

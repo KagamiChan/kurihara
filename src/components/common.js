@@ -32,12 +32,16 @@ export const commonMargin = css`
 
 export const FooterWrapper = styled.div`
   font-size: ${rhythm(0.5)};
-  padding: ${rhythm(0.5)};
   margin: ${rhythm(1)} 0;
 
   a {
     text-decoration: none;
     color: inherit;
     transition: 0.3s;
+
+    :hover {
+      color: ${props => props.theme.blue};
+      background-color: ${props => rgba(props.theme.blue, 0.1)};
+    }
   }
 `

@@ -27,6 +27,7 @@ class PageTemplate extends Component {
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
         </Article>
+        <hr />
         <Meta />
       </Layout>
     )
