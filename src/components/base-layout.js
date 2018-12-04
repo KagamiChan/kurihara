@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { I18nextProvider, withNamespaces } from 'react-i18next'
+import i18n from '../i18n'
 
 import '../lib/typekit'
 import SiteTitle from './site-title'
@@ -90,6 +92,14 @@ const Content = styled.div`
   padding-top: 0;
 `
 
+const Navigation = withNamespaces(['ui'])(({ t }) => (
+  <Nav>
+    <NavItem to="/archieves">{t('Archives')}</NavItem>
+    <NavItem to="./">{t('List')}</NavItem>
+    <NavItem to="/about">{t('About')}</NavItem>
+  </Nav>
+))
+
 class BaseLayout extends Component {
   static propTypes = {
     data: PropTypes.shape({
@@ -102,50 +112,27 @@ class BaseLayout extends Component {
     const { children } = this.props
     return (
       <ThemeProvider theme={theme}>
-        <div>
-          <GlobalStyle />
-          <SiteTitle />
-          <Helmet>
-            <meta name="description" content="明镜止水的个人日志" />
-            <meta name="keywords" content="明镜止水, HP, BLOG" />
-          </Helmet>
+        <I18nextProvider i18n={i18n}>
+          <div>
+            <GlobalStyle />
+            <SiteTitle />
+            <Helmet>
+              <meta name="description" content="明镜止水的个人日志" />
+              <meta name="keywords" content="明镜止水, HP, BLOG" />
+            </Helmet>
 
-          <HeaderWrap>
-            <Header>
-              <H1 id="blog-title">
-                <H1Link to="/blog">明镜止水</H1Link>
-              </H1>
-              <Nav>
-                <NavItem to="/archieves">
-                  <ruby>
-                    存档
-                    <rp>(</rp>
-                    <rt>Archives</rt>
-                    <rp>)</rp>
-                  </ruby>
-                </NavItem>
-                <NavItem to="./">
-                  <ruby>
-                    清单
-                    <rp>(</rp>
-                    <rt>List</rt>
-                    <rp>)</rp>
-                  </ruby>
-                </NavItem>
-                <NavItem to="/about">
-                  <ruby>
-                    关于
-                    <rp>(</rp>
-                    <rt>About</rt>
-                    <rp>)</rp>
-                  </ruby>
-                </NavItem>
-              </Nav>
-            </Header>
-          </HeaderWrap>
-          <Content>{children}</Content>
-          <Shortcut />
-        </div>
+            <HeaderWrap>
+              <Header>
+                <H1 id="blog-title">
+                  <H1Link to="/blog">明镜止水</H1Link>
+                </H1>
+                <Navigation />
+              </Header>
+            </HeaderWrap>
+            <Content>{children}</Content>
+            <Shortcut />
+          </div>
+        </I18nextProvider>
       </ThemeProvider>
     )
   }
