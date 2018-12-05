@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import { withNamespaces } from 'react-i18next'
-import { map } from 'lodash'
-import { rhythm } from '../utils/typography'
+import { map, find } from 'lodash'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage'
+import { Popover, Position } from '@blueprintjs/core'
 
+import { rhythm } from '../utils/typography'
 import { FooterWrapper } from './common'
 
 const Wrapper = styled(FooterWrapper)`
@@ -41,25 +45,59 @@ const Switches = styled.div`
 `
 
 const Switch = styled.div`
-  margin-right: ${rhythm(0.5)};
+  margin: ${rhythm(0.5)};
   cursor: pointer;
 
   color: ${props => props.active && props.theme.blue};
 `
 
-const LanguageSwitch = withNamespaces()(({ i18n }) => (
-  <Switches>
-    {map(LANGUAGES, ({ display, value }) => (
-      <Switch
-        active={i18n.language === value}
-        key={value}
-        onClick={() => i18n.changeLanguage(value)}
-      >
-        {display}
-      </Switch>
-    ))}
-  </Switches>
-))
+const LangugeIndicator = styled(Popover)`
+  cursor: pointer;
+`
+
+const LanguageSwitch = withNamespaces()(
+  class LanguageSwitch extends Component {
+    static propTypes = {
+      i18n: PropTypes.shape({
+        changeLanguage: PropTypes.func,
+        language: PropTypes.string,
+      }).isRequired,
+    }
+
+    render() {
+      const { i18n } = this.props
+      return (
+        <LangugeIndicator
+          interactionKind="hover"
+          position={Position.TOP_LEFT}
+          wrapperTagName="div"
+        >
+          <div>
+            <FontAwesomeIcon icon={faLanguage} />{' '}
+            {
+              (
+                find(LANGUAGES, ({ value }) =>
+                  i18n.language.startsWith(value),
+                ) || {}
+              ).display
+            }
+          </div>
+          <Switches>
+            {map(LANGUAGES, ({ display, value }) => (
+              <Switch
+                active={i18n.language === value}
+                key={value}
+                onClick={() => i18n.changeLanguage(value)}
+              >
+                {display}
+              </Switch>
+            ))}
+          </Switches>
+        </LangugeIndicator>
+      )
+    }
+  },
+)
 
 const Comment = () => (
   <Wrapper>
