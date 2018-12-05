@@ -5,7 +5,6 @@ import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { I18nextProvider, withNamespaces } from 'react-i18next'
 import i18n from '../i18n'
-import '@blueprintjs/core/src/components/popover/_popover.scss'
 
 import '../lib/typekit'
 import SiteTitle from './site-title'
@@ -14,7 +13,9 @@ import { commonMargin } from './common'
 import { rhythm } from '../utils/typography'
 import { theme } from '../utils/style'
 import blogLogo from '../assets/blog-logo.png'
+
 import 'prismjs/themes/prism.css'
+import '../assets/blueprint.scss'
 
 const GlobalStyle = createGlobalStyle`
   @import url(//fonts.googleapis.com/css?family=Open+Sans:300);
