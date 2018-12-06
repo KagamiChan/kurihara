@@ -5,6 +5,7 @@ import styled, {
   css,
   ThemeProvider,
 } from 'styled-components'
+import { rgba } from 'polished'
 import { map, debounce, times } from 'lodash'
 import Helmet from 'react-helmet'
 import { withNamespaces, I18nextProvider } from 'react-i18next'
@@ -37,15 +38,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-// const spriteStyle = `
-//   text-indent: -999px;
-//   overflow: hidden;
-//   display: block;
-//   background-image: url('${sprite}');
-//   background-size: 800px 270px;
-//   background-repeat: no-repeat;
-// `
-
 const Wrapper = styled.div`
   z-index: 10;
   position: absolute;
@@ -74,13 +66,15 @@ const ListItem = styled.li`
   float: left;
   padding: 0;
   margin: 0;
+  margin-left: ${rhythm(-0.5)};
 `
 
 const LinkItem = styled.a`
   text-decoration: none;
   color: inherit;
   display: block;
-  margin-right: ${rhythm(0.5)};
+  margin: ${rhythm(0.25)};
+  padding: ${rhythm(0.25)};
   transition: 0.3s;
   font-weight: 200;
   font-size: ${rhythm(0.8)};
@@ -89,6 +83,11 @@ const LinkItem = styled.a`
 
   :hover {
     color: ${props => colorList[props.index % colorList.length]};
+  }
+
+  :active {
+    background-color: ${props =>
+      rgba(colorList[props.index % colorList.length], 0.1)};
   }
 `
 
