@@ -19,10 +19,6 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react!!
     },
-
-    react: {
-      wait: true,
-    },
   })
 
 export default i18n
