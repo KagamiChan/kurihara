@@ -50,7 +50,8 @@
     "typography": "^0.16.17",
     "typography-breakpoint-constants": "^0.15.10",
     "typography-plugin-code": "^0.16.11",
-    "typography-theme-bootstrap": "^0.16.7"
+    "typography-theme-bootstrap": "^0.16.7",
+    "word-count": "^0.2.2"
   },
   "keywords": [
     "gatsby",

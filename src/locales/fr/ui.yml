@@ -10,3 +10,4 @@ zhihu: Zhihu
 weibo: Weibo
 twitter: Twitter
 github: GitHub
+'{{minutes}} min': '{{minutes}} min'

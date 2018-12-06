@@ -4,43 +4,15 @@ import { map, range } from 'lodash'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
-import { format } from 'date-fns'
 
 import Meta from '../components/meta'
 import Layout from '../components/base-layout'
+import PostItem from '../components/post-item'
 import { rhythm } from '../utils/typography'
-
-const PostItem = styled(Link)`
-  display: block;
-  font-size: ${rhythm(1)};
-  text-decoration: none;
-  color: ${props => props.theme.black};
-  margin: -${rhythm(1 / 2)};
-  padding: ${rhythm(1 / 2)};
-  transition: 0.3s;
-  line-height: 100%;
-  font-weight: 200;
-
-  :hover {
-    background-color: ${props => rgba(props.theme.blue, 0.1)};
-    color: ${props => props.theme.blue};
-    text-decoration: none;
-  }
-`
-
-const Time = styled.time`
-  font-size: ${rhythm(0.5)};
-  margin-left: ${rhythm(0.5)};
-  color: ${props => props.theme.grey};
-  font-weight: initial;
-`
 
 const Pagination = styled.div`
   margin: ${rhythm(0.5)} 0;
   padding-top: ${rhythm(0.5)};
-  position: sticky;
-  bottom: 0;
-  background: #fff;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -112,14 +84,7 @@ export default class BlogPaginated extends React.Component {
       <Layout>
         <div>
           {map(items, p => (
-            <div key={p.id}>
-              <PostItem to={p.node.fields.slug}>
-                {p.node.frontmatter.title}
-                <Time dateTime={p.node.frontmatter.publish_date}>
-                  {format(p.node.frontmatter.publish_date, 'YYYY-MM-DD')}
-                </Time>
-              </PostItem>
-            </div>
+            <PostItem key={p.id} post={p} />
           ))}
         </div>
         <Paginator pages={pages} page={page} neighbour={3} />

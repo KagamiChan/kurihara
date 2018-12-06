@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
 import {
   map,
@@ -32,6 +31,7 @@ import {
 import SiteTitle from '../components/site-title'
 import Meta from '../components/meta'
 import Layout from '../components/base-layout'
+import PostItem from '../components/post-item'
 import { rhythm } from '../utils/typography'
 
 const Years = styled.div`
@@ -49,31 +49,6 @@ const Year = styled.a`
   cursor: pointer;
   transition: 0.3s;
   user-select: none;
-`
-
-const PostItem = styled(Link)`
-  display: block;
-  font-size: ${rhythm(1)};
-  text-decoration: none;
-  color: ${props => props.theme.black};
-  margin: -${rhythm(1 / 2)};
-  padding: ${rhythm(1 / 2)};
-  transition: 0.3s;
-  line-height: 100%;
-  font-weight: 200;
-
-  :hover {
-    background-color: ${props => rgba(props.theme.blue, 0.1)};
-    color: ${props => props.theme.blue};
-    text-decoration: none;
-  }
-`
-
-const Time = styled.time`
-  font-size: ${rhythm(0.5)};
-  margin-left: ${rhythm(0.5)};
-  color: ${props => props.theme.grey};
-  font-weight: initial;
 `
 
 const DayCell = styled.rect`
@@ -246,16 +221,7 @@ export default class BlogArchives extends Component {
                 !activeDay ||
                 isSameDay(p.node.frontmatter.publish_date, activeDay),
             ),
-            fp.map(p => (
-              <div key={p.node.id}>
-                <PostItem to={p.node.fields.slug}>
-                  {p.node.frontmatter.title}
-                  <Time dateTime={p.node.frontmatter.publish_date}>
-                    {format(p.node.frontmatter.publish_date, 'YYYY-MM-DD')}
-                  </Time>
-                </PostItem>
-              </div>
-            )),
+            fp.map(p => <PostItem key={p.node.id} post={p} />),
           )(posts)}
         </List>
         <hr />
@@ -276,6 +242,10 @@ export const query = graphql`
           id
           fields {
             slug
+            timeToRead {
+              words
+              minutes
+            }
           }
           frontmatter {
             title

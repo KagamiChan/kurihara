@@ -4,18 +4,20 @@ const fs = require('fs-extra')
 const glob = require('glob')
 const yaml = require('js-yaml')
 const { createFilePath } = require('gatsby-source-filesystem')
+const wordCount = require('word-count')
 
 const TEMPLATES = {
   blog: path.resolve(__dirname, 'src/templates/blog-post.js'),
   about: path.resolve(__dirname, 'src/templates/page.js'),
 }
 
-const ITEM_PER_PAGE = 16
+const ITEM_PER_PAGE = 10
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'MarkdownRemark') {
     const p = createFilePath({ node, getNode, basePath: 'content' })
+
     createNodeField({
       node,
       value: p,
@@ -26,6 +28,18 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       value: first(compact(split(p, '/'))),
       name: 'type',
+    })
+
+    const words = wordCount(node.rawMarkdownBody)
+    const WORD_PER_MINUTE = 160
+
+    createNodeField({
+      node,
+      value: {
+        words,
+        minutes: Math.round(words / WORD_PER_MINUTE),
+      },
+      name: 'timeToRead',
     })
   }
 }
@@ -42,6 +56,10 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
               type
+              timeToRead {
+                words
+                minutes
+              }
             }
             frontmatter {
               title
