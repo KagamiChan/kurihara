@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { format } from 'date-fns'
+import { withNamespaces } from 'react-i18next'
 
 import SiteTitle from '../components/site-title'
 import Hitokoto from '../components/hitokoto'
@@ -19,15 +20,17 @@ const Timestamp = styled.div`
   font-weight: 200;
 `
 
+@withNamespaces(['ui'])
 class BlogPostTemplate extends Component {
   static propTypes = {
     data: PropTypes.shape({
       markdownRemark: PropTypes.object,
     }).isRequired,
+    t: PropTypes.func.isRequired,
   }
 
   render() {
-    const { data } = this.props
+    const { data, t } = this.props
     const { markdownRemark: post } = data
 
     const publishDate = new Date(post.frontmatter.publish_date)
@@ -42,7 +45,7 @@ class BlogPostTemplate extends Component {
           <Title>{post.frontmatter.title}</Title>
           <Content>
             <Timestamp>
-              发布于{' '}
+              {t('Posted')}{' '}
               <time dateTime={post.frontmatter.publish_date}>
                 {format(publishDate, 'YYYY-MM-DD')}
               </time>
@@ -50,7 +53,7 @@ class BlogPostTemplate extends Component {
                 +reviseDate > +publishDate && (
                   <>
                     {' | '}
-                    最后修订于{' '}
+                    {t('Last revised')}{' '}
                     <time dateTime={post.frontmatter.revise_date}>
                       {format(reviseDate, 'YYYY-MM-DD')}
                     </time>
