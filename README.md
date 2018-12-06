@@ -2,7 +2,11 @@
 
 Source code for https://kagami.moe and https://kagami.me, powered by [React.js](https://reactjs.org), [Gatsby.js](https://www.gatsbyjs.org/) and many other opensource projects.
 
-Current status: Deployed
+Current status: Deployed on Netlify
+
+_Kurihara_ is named after the main heroine of Anime _Momokuri_(ももくり)
+
+![](https://raw.githubusercontent.com/KagamiChan/kurihara/master/content/blog/2018-11-03-project-kurihara/Momokuri.png)
 
 ## License
 
