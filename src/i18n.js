@@ -14,7 +14,7 @@ i18n
     ns: ['ui'],
     defaultNS: 'ui',
 
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
 
     interpolation: {
       escapeValue: false, // not needed for react!!
