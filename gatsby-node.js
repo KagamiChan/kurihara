@@ -1,5 +1,8 @@
-const { each, first, compact, split, chunk, filter } = require('lodash')
+const { each, first, compact, split, chunk, filter, map } = require('lodash')
 const path = require('path')
+const fs = require('fs-extra')
+const glob = require('glob')
+const yaml = require('js-yaml')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const TEMPLATES = {
@@ -107,5 +110,20 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
     name: `babel-plugin-date-fns`,
+  })
+}
+
+exports.onPostBuild = () => {
+  const files = glob.sync(path.join(__dirname, '/src/locales/**/*.yml'))
+  map(files, file => {
+    const content = fs.readFileSync(file, 'utf8')
+    const dest = path
+      .resolve(
+        __dirname,
+        'public',
+        path.relative(path.join(__dirname, 'src'), file),
+      )
+      .replace(/yml$/, 'json')
+    fs.outputJsonSync(dest, yaml.safeLoad(content))
   })
 }
