@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import { withNamespaces } from 'react-i18next'
-import { map, find } from 'lodash'
+import { map, find, memoize } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage'
-import { faHourglass } from '@fortawesome/free-solid-svg-icons/faHourglass'
 import { Popover, Position } from '@blueprintjs/core'
 
 import { rhythm } from '../utils/typography'
@@ -47,18 +46,24 @@ const LangugeIndicator = styled(Popover)`
   cursor: pointer;
 `
 
-const LanguageSwitch = withNamespaces([], { wait: false })(
+const LanguageSwitch = withNamespaces(['ui'], {
+  wait: false,
+})(
   class LanguageSwitch extends Component {
     static propTypes = {
       i18n: PropTypes.shape({
         changeLanguage: PropTypes.func,
         language: PropTypes.string,
       }).isRequired,
-      tReady: PropTypes.bool.isRequired,
     }
 
+    handleChangeLanguage = memoize(lng => () => {
+      const { i18n } = this.props
+      i18n.changeLanguage(lng)
+    })
+
     render() {
-      const { i18n, tReady } = this.props
+      const { i18n } = this.props
       const currentLanguage = find(LANGUAGES, ({ value }) =>
         i18n.language?.startsWith(value),
       )?.display
@@ -69,15 +74,14 @@ const LanguageSwitch = withNamespaces([], { wait: false })(
           wrapperTagName="div"
         >
           <div>
-            <FontAwesomeIcon icon={tReady ? faLanguage : faHourglass} />{' '}
-            {currentLanguage}
+            <FontAwesomeIcon icon={faLanguage} /> {currentLanguage}
           </div>
           <Switches>
             {map(LANGUAGES, ({ display, value }) => (
               <Switch
                 active={i18n.language === value}
                 key={value}
-                onClick={() => i18n.changeLanguage(value)}
+                onClick={this.handleChangeLanguage(value)}
               >
                 {display}
               </Switch>
