@@ -1,11 +1,22 @@
 import React from 'react'
-import styled, { createGlobalStyle, css } from 'styled-components'
+import PropTypes from 'prop-types'
+import styled, {
+  createGlobalStyle,
+  css,
+  ThemeProvider,
+} from 'styled-components'
 import { map, debounce, times } from 'lodash'
 import Helmet from 'react-helmet'
+import { withNamespaces, I18nextProvider } from 'react-i18next'
 
+import LanguageSwitch from '../components/language-switch'
 import { rhythm } from '../utils/typography'
-import { media } from '../utils/style'
-import sprite from '../assets/sprite.png'
+import { media, theme } from '../utils/style'
+import i18n from '../i18n'
+
+import '../assets/blueprint.scss'
+
+const colorList = [theme.blue, theme.green, theme.pink, theme.orange]
 
 const commonLeft = css`
   left: ${rhythm(4)};
@@ -26,14 +37,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const spriteStyle = `
-  text-indent: -999px;
-  overflow: hidden;
-  display: block;
-  background-image: url('${sprite}');
-  background-size: 800px 270px;
-  background-repeat: no-repeat;
-`
+// const spriteStyle = `
+//   text-indent: -999px;
+//   overflow: hidden;
+//   display: block;
+//   background-image: url('${sprite}');
+//   background-size: 800px 270px;
+//   background-repeat: no-repeat;
+// `
 
 const Wrapper = styled.div`
   z-index: 10;
@@ -43,28 +54,17 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.h1`
-  ${spriteStyle} width: 300px;
-  height: 72px;
-  background-position: 0px 0px;
-
-  :hover {
-    background-position: 0px -72px;
-    cursor: pointer;
-  }
+  font-size: ${rhythm(2)};
+  font-weight: 200;
 `
 
 const Footer = styled.div`
-  ${spriteStyle} width: 450px;
-  height: 80px;
   position: absolute;
   bottom: 5%;
-  margin-left: 20px;
-  background-position: -108px -235px;
   ${commonLeft};
 `
 
 const List = styled.ul`
-  padding: 0 0 0 4px;
   margin: 0;
 `
 
@@ -77,22 +77,25 @@ const ListItem = styled.li`
 `
 
 const LinkItem = styled.a`
-  ${spriteStyle} height: 46px;
-  width: ${props => props.width}px;
-  background-position: ${props => props.positionX || 0}px -144px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  margin-right: ${rhythm(0.5)};
+  transition: 0.3s;
+  font-weight: 200;
+  font-size: ${rhythm(0.8)};
+
+  cursor: pointer;
 
   :hover {
-    background-position-y: -190px;
-    cursor: pointer;
+    color: ${props => colorList[props.index % colorList.length]};
   }
 `
 
 const Canvas = styled.canvas`
-  z-index: 0;
+  z-index: -1;
   position: absolute;
 `
-
-const colorList = ['#00aeef', '#f68e56', '#8dc63f', '#f06eaa']
 
 const drawFlower = (ctx, x0, y0, r, theta, style) => {
   ctx.beginPath()
@@ -119,40 +122,39 @@ const links = [
   {
     name: 'blog',
     url: '/blog',
-    width: 88,
-    positionX: -4,
   },
   {
     name: 'zhihu',
-    width: 88,
     url: 'https://www.zhihu.com/people/kagamichan',
-    positionX: -90,
   },
   {
     name: 'weibo',
     url: 'https://weibo.com/coolszm',
-    width: 88,
-    positionX: -178,
   },
   {
     name: 'twitter',
     url: 'https://twitter.com/seki_kagami',
-    width: 122,
-    positionX: -266,
   },
   {
     name: 'github',
     url: 'https://github.com/kagamichan',
-    width: 122,
-    positionX: -388,
   },
 ]
 
-export default class Index extends React.Component {
+export default
+@withNamespaces(['ui'])
+class Index extends React.Component {
+  static propTypes = {
+    t: PropTypes.func.isRequired,
+  }
+
   canvas = React.createRef()
 
   drawCanvas = debounce(() => {
     const canvas = this.canvas.current
+    if (!canvas) {
+      return
+    }
     const ctx = canvas.getContext('2d')
 
     const pr = window.devicePixelRatio || 1
@@ -197,33 +199,36 @@ export default class Index extends React.Component {
   }
 
   render() {
+    const { t } = this.props
     return (
-      <>
-        <Wrapper>
-          <Helmet>
-            <title>明镜止水::春擬き</title>
-          </Helmet>
-          <Title title="冴えない HP の育てかた">明镜止水</Title>
-          <GlobalStyle />
-          <nav>
-            <List>
-              {map(links, link => (
-                <ListItem key={link.name}>
-                  <LinkItem
-                    href={link.url}
-                    width={link.width}
-                    positionX={link.positionX}
-                  >
-                    {link.name}
-                  </LinkItem>
-                </ListItem>
-              ))}
-            </List>
-          </nav>
-        </Wrapper>
-        <Footer>鏡 ＠ がんばらないプロジェクト/翠星製作所</Footer>
-        <Canvas ref={this.canvas} />
-      </>
+      <ThemeProvider theme={theme}>
+        <I18nextProvider i18n={i18n}>
+          <>
+            <Wrapper>
+              <Helmet>
+                <title>明镜止水::春擬き</title>
+              </Helmet>
+              <Title title="明镜止水">明镜止水</Title>
+              <GlobalStyle />
+              <nav>
+                <List>
+                  {map(links, (link, i) => (
+                    <ListItem key={link.name}>
+                      <LinkItem href={link.url} index={i}>
+                        {t(link.name)}
+                      </LinkItem>
+                    </ListItem>
+                  ))}
+                </List>
+              </nav>
+            </Wrapper>
+            <Footer>
+              <LanguageSwitch />鏡 ＠ がんばらないプロジェクト/翠星製作所
+            </Footer>
+            <Canvas ref={this.canvas} />
+          </>
+        </I18nextProvider>
+      </ThemeProvider>
     )
   }
 }

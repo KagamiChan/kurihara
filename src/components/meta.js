@@ -1,15 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import { withNamespaces, Trans } from 'react-i18next'
-import { map, find } from 'lodash'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage'
-import { Popover, Position } from '@blueprintjs/core'
 
-import { rhythm } from '../utils/typography'
 import { FooterWrapper } from './common'
+import LanguageSwitch from './language-switch'
 
 const Wrapper = styled(FooterWrapper)`
   margin-bottom: 0;
@@ -20,80 +15,6 @@ const Wrapper = styled(FooterWrapper)`
 `
 
 const nowYear = new Date().getFullYear()
-
-const LANGUAGES = [
-  {
-    display: '简体中文',
-    value: 'zh-CN',
-  },
-  {
-    display: '日本語',
-    value: 'ja',
-  },
-  {
-    display: 'English',
-    value: 'en',
-  },
-  {
-    display: 'Français',
-    value: 'fr',
-  },
-]
-
-const Switches = styled.div`
-  display: flex;
-`
-
-const Switch = styled.div`
-  margin: ${rhythm(0.5)};
-  cursor: pointer;
-
-  color: ${props => props.active && props.theme.blue};
-`
-
-const LangugeIndicator = styled(Popover)`
-  cursor: pointer;
-`
-
-const LanguageSwitch = withNamespaces()(
-  class LanguageSwitch extends Component {
-    static propTypes = {
-      i18n: PropTypes.shape({
-        changeLanguage: PropTypes.func,
-        language: PropTypes.string,
-      }).isRequired,
-    }
-
-    render() {
-      const { i18n } = this.props
-      const currentLanguage = find(LANGUAGES, ({ value }) =>
-        i18n.language.startsWith(value),
-      )?.display
-      return (
-        <LangugeIndicator
-          interactionKind="hover"
-          position={Position.TOP_LEFT}
-          wrapperTagName="div"
-        >
-          <div>
-            <FontAwesomeIcon icon={faLanguage} /> {currentLanguage}
-          </div>
-          <Switches>
-            {map(LANGUAGES, ({ display, value }) => (
-              <Switch
-                active={i18n.language === value}
-                key={value}
-                onClick={() => i18n.changeLanguage(value)}
-              >
-                {display}
-              </Switch>
-            ))}
-          </Switches>
-        </LangugeIndicator>
-      )
-    }
-  },
-)
 
 /* eslint-disable prettier/prettier */
 const Comment = withNamespaces()(() => (
