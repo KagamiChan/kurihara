@@ -60,7 +60,7 @@ const LanguageSwitch = withNamespaces([], { wait: false })(
     render() {
       const { i18n, tReady } = this.props
       const currentLanguage = find(LANGUAGES, ({ value }) =>
-        i18n.language.startsWith(value),
+        i18n.language?.startsWith(value),
       )?.display
       return (
         <LangugeIndicator
