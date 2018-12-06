@@ -66,6 +66,9 @@ const LanguageSwitch = withNamespaces()(
 
     render() {
       const { i18n } = this.props
+      const currentLanguage = find(LANGUAGES, ({ value }) =>
+        i18n.language.startsWith(value),
+      )?.display
       return (
         <LangugeIndicator
           interactionKind="hover"
@@ -73,14 +76,7 @@ const LanguageSwitch = withNamespaces()(
           wrapperTagName="div"
         >
           <div>
-            <FontAwesomeIcon icon={faLanguage} />{' '}
-            {
-              (
-                find(LANGUAGES, ({ value }) =>
-                  i18n.language.startsWith(value),
-                ) || {}
-              ).display
-            }
+            <FontAwesomeIcon icon={faLanguage} /> {currentLanguage}
           </div>
           <Switches>
             {map(LANGUAGES, ({ display, value }) => (
