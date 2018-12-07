@@ -46,6 +46,7 @@
     "react-helmet": "^5.2.0",
     "react-i18next": "^8.3.8",
     "react-typography": "^0.16.13",
+    "replace-in-file": "^3.4.2",
     "styled-components": "^4.1.2",
     "typography": "^0.16.17",
     "typography-breakpoint-constants": "^0.15.10",
@@ -66,6 +67,7 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/**/*.js",
+    "strip": "node scripts/content-strip.js",
     "draft": "node scripts/draft.js"
   },
   "devDependencies": {
