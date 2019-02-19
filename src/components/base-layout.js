@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { I18nextProvider, withTranslation } from 'react-i18next'
+import { I18nextProvider, withNamespaces } from 'react-i18next'
 import i18n from '../i18n'
 
 import '../lib/typekit'
@@ -94,7 +94,7 @@ const Content = styled.div`
   padding-top: 0;
 `
 
-const Navigation = withTranslation(['ui'])(({ t }) => (
+const Navigation = withNamespaces(['ui'])(({ t }) => (
   <Nav>
     <NavItem to="/archieves">{t('Archives')}</NavItem>
     <NavItem to="./">{t('List')}</NavItem>

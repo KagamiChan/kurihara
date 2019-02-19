@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
-import { withTranslation, Trans } from 'react-i18next'
+import { withNamespaces, Trans } from 'react-i18next'
 
 import { FooterWrapper } from './common'
 import LanguageSwitch from './language-switch'
@@ -17,7 +17,7 @@ const Wrapper = styled(FooterWrapper)`
 const nowYear = new Date().getFullYear()
 
 /* eslint-disable prettier/prettier */
-const Comment = withTranslation()(() => (
+const Comment = withNamespaces()(() => (
   <Wrapper>
     <LanguageSwitch />
     <div>

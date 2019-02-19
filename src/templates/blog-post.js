@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { format } from 'date-fns'
-import { withTranslation } from 'react-i18next'
+import { withNamespaces } from 'react-i18next'
 
 import SiteTitle from '../components/site-title'
 import Hitokoto from '../components/hitokoto'
@@ -20,7 +20,7 @@ const Timestamp = styled.div`
   font-weight: 200;
 `
 
-@withTranslation(['ui'])
+@withNamespaces(['ui'])
 class BlogPostTemplate extends Component {
   static propTypes = {
     data: PropTypes.shape({

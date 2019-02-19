@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import { format } from 'date-fns'
-import { withTranslation } from 'react-i18next'
+import { withNamespaces } from 'react-i18next'
 
 import { rhythm } from '../utils/typography'
 
@@ -32,7 +32,7 @@ const Property = styled.span`
   font-weight: initial;
 `
 
-const PostItem = withTranslation(['ui'])(({ post, t }) => (
+const PostItem = withNamespaces(['ui'])(({ post, t }) => (
   <Item to={post.node.fields.slug}>
     <div>{post.node.frontmatter.title}</div>
     <Property>

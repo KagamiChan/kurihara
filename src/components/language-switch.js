@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
-import { withTranslation } from 'react-i18next'
+import { withNamespaces } from 'react-i18next'
 import { map, find, memoize } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage'
@@ -46,7 +46,7 @@ const LangugeIndicator = styled(Popover)`
   cursor: pointer;
 `
 
-const LanguageSwitch = withTranslation(['ui'], {
+const LanguageSwitch = withNamespaces(['ui'], {
   wait: false,
 })(
   class LanguageSwitch extends Component {
