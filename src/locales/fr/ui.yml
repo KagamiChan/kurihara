@@ -11,3 +11,4 @@ weibo: Weibo
 twitter: Twitter
 github: GitHub
 '{{minutes}} min': '{{minutes}} min'
+draft_status: Cet article est dans l'état brouillon

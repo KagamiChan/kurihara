@@ -11,3 +11,4 @@ weibo: 新浪微博
 twitter: Twitter
 github: GitHub
 '{{minutes}} min': '{{minutes}} 分钟'
+draft_status: 该日志处于草稿状态

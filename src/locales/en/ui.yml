@@ -11,3 +11,4 @@ weibo: Weibo
 twitter: Twitter
 github: GitHub
 '{{minutes}} min': '{{minutes}} min'
+draft_status: This article is in draft status

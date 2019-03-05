@@ -20,6 +20,10 @@ const Timestamp = styled.div`
   font-weight: 200;
 `
 
+const Notice = styled.div`
+  color: ${props => props.theme.blue};
+`
+
 @withNamespaces(['ui'])
 class BlogPostTemplate extends Component {
   static propTypes = {
@@ -59,6 +63,7 @@ class BlogPostTemplate extends Component {
                     </time>
                   </>
                 )}
+              {!!post.frontmatter.draft && <Notice>{t('draft_status')}</Notice>}
             </Timestamp>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Content>
@@ -88,6 +93,7 @@ export const query = graphql`
         title
         publish_date
         revise_date
+        draft
       }
     }
   }
