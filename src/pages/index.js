@@ -8,7 +8,7 @@ import styled, {
 import { rgba } from 'polished'
 import { map, debounce, times } from 'lodash'
 import Helmet from 'react-helmet'
-import { withNamespaces, I18nextProvider } from 'react-i18next'
+import { withTranslation, I18nextProvider } from 'react-i18next'
 
 import LanguageSwitch from '../components/language-switch'
 import { rhythm } from '../utils/typography'
@@ -141,7 +141,7 @@ const links = [
 ]
 
 export default
-@withNamespaces(['ui'])
+@withTranslation(['ui'])
 class Index extends React.Component {
   static propTypes = {
     t: PropTypes.func.isRequired,
