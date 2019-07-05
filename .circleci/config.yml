@@ -17,10 +17,6 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - run: sudo apt-get update
-
-      - run: sudo apt-get install fonts-wqy-microhei
-
       - checkout
 
       # Download and cache dependencies
@@ -30,11 +26,28 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - run:
+          name: 'Install fonts'
+          command: |
+            mkdir -p /tmp/fonts
+            pushd /tmp/fonts
+            wget -N https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Bold.otf
+            wget -N https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-ExtraLight.otf
+            wget -N https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Heavy.otf
+            wget -N https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Light.otf
+            wget -N https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Medium.otf
+            wget -N https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-Regular.otf
+            wget -N https://raw.githubusercontent.com/adobe-fonts/source-han-serif/release/OTF/SimplifiedChinese/SourceHanSerifSC-SemiBold.otf
+            sudo cp -r *.otf /usr/share/fonts/
+            sudo fc-cache
+            popd
+
       - run: yarn install --frozen-lockfile
 
       - save_cache:
           paths:
             - node_modules
+            - /tmp/fonts
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
       - run: yarn lint
@@ -76,6 +89,7 @@ jobs:
             - "54:a1:e6:30:c5:24:ab:42:dc:89:6f:73:5f:ec:f4:c7"
 
       - run:
+          name: 'Configure Git'
           command: |
             git config --global user.email "bot@kagami.me"
             git config --global user.name "Llenn ちゃん"
