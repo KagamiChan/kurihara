@@ -17,6 +17,10 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - run: sudo apt-get update
+
+      - run: sudo apt-get install fonts-wqy-microhei
+
       - checkout
 
       # Download and cache dependencies
@@ -37,10 +41,10 @@ jobs:
 
       - run: yarn build
 
-      - run: yarn test
+      - run: yarn test -u
 
       - store_artifacts:
-          path: ./specs/__image_snapshots__/__diff_output__
+          path: ./specs/__image_snapshots__
           destination: build
 
 
