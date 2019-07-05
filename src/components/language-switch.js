@@ -72,6 +72,8 @@ const LanguageSwitch = withTranslation(['ui'], {
           interactionKind="hover"
           position={Position.TOP_LEFT}
           wrapperTagName="div"
+          className="language-switch"
+          w
         >
           <div>
             <FontAwesomeIcon icon={faLanguage} /> {currentLanguage}
@@ -81,6 +83,8 @@ const LanguageSwitch = withTranslation(['ui'], {
               <Switch
                 active={i18n.language === value}
                 key={value}
+                className="language-switch-item"
+                data-testid={value}
                 onClick={this.handleChangeLanguage(value)}
               >
                 {display}
