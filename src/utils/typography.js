@@ -6,6 +6,7 @@ BSTheme.plugins = [new CodePlugin()]
 
 const fontFamily = [
   'source-han-serif-sc',
+  'Source Han Serif SC',
   'Times',
   'Times New Roman',
   'STSong',
