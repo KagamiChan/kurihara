@@ -35,7 +35,7 @@ describe('homepage', () => {
 describe('post', () => {
   it('displays posts', async () => {
     await page.goto('http://127.0.0.1:5000/blog/2015-01-17-juzhen-fangsong/')
-    await page.waitFor(100) // i18n may take sometime
+    await page.waitFor(300) // i18n may take some time
     await expectSnapshot('post-juzhen-fangsong')
   })
 })
