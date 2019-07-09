@@ -7,6 +7,7 @@ const expectSnapshot = async id => {
   const image = await page.screenshot()
   expect(image).toMatchImageSnapshot({
     customSnapshotIdentifier: id,
+    failureThreshold: 0.03,
   })
 }
 
