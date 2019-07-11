@@ -418,14 +418,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-syntax-dynamic-import@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-dynamic-import/-/plugin-syntax-dynamic-import-7.0.0.tgz#6dfb7d8b6c3be14ce952962f658f3b7eb54c33ee"
-  integrity sha512-Gt9xNyRrCHCiyX/ZxDGOcBnlJl0I3IWicpZRC4CdC0P5a/I07Ya2OAMEBU+J7GmRFVmIetqEYRko6QYRuKOESw==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.0.0"
-
-"@babel/plugin-syntax-dynamic-import@^7.2.0":
+"@babel/plugin-syntax-dynamic-import@^7.0.0", "@babel/plugin-syntax-dynamic-import@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-dynamic-import/-/plugin-syntax-dynamic-import-7.2.0.tgz#69c159ffaf4998122161ad8ebc5e6d1f55df8612"
   integrity sha512-mVxuJ0YroI/h/tbFTPGZR8cv6ai+STMKNBq0f8hFxsxWjl94qqhsb+wXbpNMDPU3cfR1TIsVFzU3nXyZMqyK4w==
@@ -2610,10 +2603,10 @@ babel-preset-fbjs@^3.1.2:
     "@babel/plugin-transform-template-literals" "^7.0.0"
     babel-plugin-syntax-trailing-function-commas "^7.0.0-beta.0"
 
-babel-preset-gatsby@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.2.1.tgz#c6a5da3efdcaca5be0ea551704d50246c8af049e"
-  integrity sha512-Eeyh7mjL++WYrSIYOegO94V895xb+mcGPwtSFZWNFJ74x86nizDetQelKYXDXojR2iE5vhlxBA1qmjgdEcPLTQ==
+babel-preset-gatsby@^0.2.1, babel-preset-gatsby@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.2.2.tgz#cbfc079db8f104770a7293e2e53843c627785cef"
+  integrity sha512-e5iVB57ZlyXh+HV/zReDUX+2T/vuMzdDny+i4u8Cx2ZkFyyhlBK9Vb1NsLoJUu2KD7J2kZ1crwNWJRJlTyaFDg==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.0.0"
     "@babel/plugin-syntax-dynamic-import" "^7.0.0"
