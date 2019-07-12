@@ -6733,10 +6733,10 @@ gatsby-page-utils@^0.0.3:
     micromatch "^3.1.10"
     slash "^1.0.0"
 
-gatsby-plugin-feed@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.3.3.tgz#b4d329ec1de96ec3c2cd5e176bd2751430c66fdf"
-  integrity sha512-+6x3st71rZvVbJtmlKK+Ioc25+d8BPIYze+CdZ6eLzpFgUm3XVuMoqLkVlwK2DCJex9nQk/MmbFmxYwR2++1DA==
+gatsby-plugin-feed@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.3.4.tgz#a107aafd1f73d76b531e00b7baf947f873df446a"
+  integrity sha512-RGbv9xkKujCrsKh6M8TtD/xnc6pH/rm+HOa1pv+xNB48b9SCWSIKkxAQnReXUY9EIHHDYKXqY0wsFSU6y6ljUA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@hapi/joi" "^15.0.0"
