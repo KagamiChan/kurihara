@@ -6,7 +6,7 @@
   "author": "kagami <moe.pascal@gmail.com>",
   "dependencies": {
     "@blueprintjs/core": "^3.17.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/fontawesome-svg-core": "^1.2.20",
     "@fortawesome/free-solid-svg-icons": "^5.10.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "date-fns": "^1.30.1",
