@@ -31,7 +31,7 @@
     "gatsby-transformer-sharp": "^2.2.5",
     "gatsby-transformer-yaml": "^2.2.4",
     "gray-matter": "^4.0.2",
-    "i18next": "^17.0.8",
+    "i18next": "^17.0.9",
     "i18next-browser-languagedetector": "^3.0.1",
     "i18next-xhr-backend": "^3.0.0",
     "intersection-observer": "^0.7.0",
