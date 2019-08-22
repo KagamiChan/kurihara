@@ -28,7 +28,7 @@
     "gatsby-remark-prismjs": "^3.3.8",
     "gatsby-source-filesystem": "^2.1.14",
     "gatsby-transformer-remark": "^2.6.15",
-    "gatsby-transformer-sharp": "^2.2.7",
+    "gatsby-transformer-sharp": "^2.2.10",
     "gatsby-transformer-yaml": "^2.2.6",
     "gray-matter": "^4.0.2",
     "i18next": "^17.0.11",
