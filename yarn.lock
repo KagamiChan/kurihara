@@ -7123,12 +7123,12 @@ gatsby-graphiql-explorer@^0.2.4:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-link@^2.2.6, gatsby-link@^2.2.7:
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.2.7.tgz#5f6b5fa7e25a5af0bf11ff6ba4425be58c117bf2"
-  integrity sha512-roFLJJIKE35Y7Weofft9e6GkP75t/JImRdu1eE0U4xbyVBpmp5CxRcTrC267oMoT0Ev2kAJep0MK+3KheEDGcA==
+gatsby-link@^2.2.6, gatsby-link@^2.2.8:
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.2.8.tgz#45a973385ae7ef3f235f013e3746b3107aa15aca"
+  integrity sha512-bwhBSc6WtUn2rJsqku2k3b6QQjCrH9uqTp8FHXybE5R6piezCVHFzXwqKMLjx1cOFRjgu4+nDuwPShX29BFO+g==
   dependencies:
-    "@babel/runtime" "^7.0.0"
+    "@babel/runtime" "^7.5.5"
     "@types/reach__router" "^1.2.4"
     prop-types "^15.7.2"
 
