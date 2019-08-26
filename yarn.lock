@@ -7122,7 +7122,7 @@ fs-exists-sync@^0.1.0:
   resolved "https://registry.yarnpkg.com/fs-exists-sync/-/fs-exists-sync-0.1.0.tgz#982d6893af918e72d08dec9e8673ff2b5a8d6add"
   integrity sha1-mC1ok6+RjnLQjeyehnP/K1qNat0=
 
-fs-extra@^4.0.2, fs-extra@^4.0.3:
+fs-extra@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.3.tgz#0d852122e5bc5beb453fb028e9c0c9bf36340c94"
   integrity sha512-q6rbdDd1o2mAnQreO7YADIxf/Whx4AHBiRf6d+/cVT8h44ss+lHgxf1FemcqDnQt9X3ct4McHr+JMGlYSsK7Cg==
@@ -7321,16 +7321,16 @@ gatsby-plugin-lodash@^3.1.5:
     babel-plugin-lodash "^3.3.4"
     lodash-webpack-plugin "^0.11.5"
 
-gatsby-plugin-netlify@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.1.6.tgz#11552af8f8594b810ab82e196e2f4e4bb552a943"
-  integrity sha512-c42TamI8ym11OoH9H+Ns/karnJ/wP3k3El77SwRfExEvvxqzM3Aoehzk8WjQ2VkTp+U9WKiiZ6fusTJCA3QeMg==
+gatsby-plugin-netlify@^2.1.10:
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.1.10.tgz#299064ed82984bc2c11dd5ab08474a818dd462bd"
+  integrity sha512-ApB1+y/rYGbMy6lSwgam0hHDj5TmCSQWMG2n4MaV8VwtW+p9JOxwf6zWquhzasSrjnwWSKCkYmWf1DMKsqyh1g==
   dependencies:
-    "@babel/runtime" "^7.0.0"
-    fs-extra "^4.0.2"
+    "@babel/runtime" "^7.5.5"
+    fs-extra "^8.1.0"
     kebab-hash "^0.1.2"
-    lodash "^4.17.14"
-    webpack-assets-manifest "^3.0.2"
+    lodash "^4.17.15"
+    webpack-assets-manifest "^3.1.1"
 
 gatsby-plugin-page-creator@^2.1.11:
   version "2.1.11"
@@ -17165,10 +17165,10 @@ webidl-conversions@^4.0.2:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==
 
-webpack-assets-manifest@^3.0.2:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/webpack-assets-manifest/-/webpack-assets-manifest-3.1.0.tgz#5c540606e061a39e314042059c854a38bc696911"
-  integrity sha512-YHrK/iSWrUvLFEYfwozuIvL2kAa+SAXjBdS7fkx7BuOBBR/zas9e83+AIsTSwrCIEpF7Zpx/cOTqKypkObLP8g==
+webpack-assets-manifest@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/webpack-assets-manifest/-/webpack-assets-manifest-3.1.1.tgz#39bbc3bf2ee57fcd8ba07cda51c9ba4a3c6ae1de"
+  integrity sha512-JV9V2QKc5wEWQptdIjvXDUL1ucbPLH2f27toAY3SNdGZp+xSaStAgpoMcvMZmqtFrBc9a5pTS1058vxyMPOzRQ==
   dependencies:
     chalk "^2.0"
     lodash.get "^4.0"
