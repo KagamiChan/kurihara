@@ -93,7 +93,7 @@
     "jest-puppeteer": "^4.3.0",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
-    "puppeteer": "^1.19.0",
+    "puppeteer": "^1.20.0",
     "serve": "^11.1.0"
   },
   "husky": {
