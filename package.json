@@ -29,7 +29,7 @@
     "gatsby-source-filesystem": "^2.1.24",
     "gatsby-transformer-remark": "^2.6.23",
     "gatsby-transformer-sharp": "^2.2.15",
-    "gatsby-transformer-yaml": "^2.2.9",
+    "gatsby-transformer-yaml": "^2.2.10",
     "gray-matter": "^4.0.2",
     "i18next": "^17.0.16",
     "i18next-browser-languagedetector": "^3.0.3",
