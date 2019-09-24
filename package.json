@@ -9,7 +9,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "date-fns": "^1.30.1",
+    "date-fns": "^2.2.1",
     "fs-extra": "^8.1.0",
     "gatsby": "^2.15.21",
     "gatsby-link": "^2.2.13",
