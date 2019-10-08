@@ -9,7 +9,6 @@ import { rgba } from 'polished'
 import { map, debounce, times } from 'lodash'
 import Helmet from 'react-helmet'
 import { withTranslation, I18nextProvider } from 'react-i18next'
-import qs from 'qs'
 
 import LanguageSwitch from '../components/language-switch'
 import { rhythm } from '../utils/typography'
@@ -167,11 +166,8 @@ class Index extends React.Component {
     ctx.globalAlpha = 0.25
 
     ctx.clearRect(0, 0, w, h)
-    const isTesting = qs.parse(window.location.search, {
-      ignoreQueryPrefix: true,
-    }).testing
-    const randomNess = () => (isTesting ? 1 : Math.random())
-    const index = isTesting ? 0 : Math.floor(Math.random() * 4)
+    const randomNess = () => Math.random()
+    const index = Math.floor(Math.random() * 4)
     times(30, () =>
       drawFlower(
         ctx,

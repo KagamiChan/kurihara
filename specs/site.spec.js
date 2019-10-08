@@ -1,6 +1,6 @@
 describe('homepage', () => {
   beforeEach(async () => {
-    await page.goto('http://127.0.0.1:5000/?testing=1')
+    await page.goto('http://127.0.0.1:5000/')
   })
 
   it('display', async () => {
