@@ -17,6 +17,8 @@ module.exports = {
     'react/prefer-stateless-function': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'prettier/prettier': 'error',
+    'react/state-in-constructor': 'off',
+    'react/static-property-placement': 'off',
   },
   settings: {
     'import/resolver': {

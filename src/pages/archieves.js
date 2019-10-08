@@ -123,12 +123,6 @@ DaysMatrix.propTypes = {
 const MemoDaysMatrix = React.memo(DaysMatrix, isEqual)
 
 export default class BlogArchives extends Component {
-  static propTypes = {
-    data: PropTypes.shape({
-      allMarkdownRemark: PropTypes.object,
-    }).isRequired,
-  }
-
   state = {
     activeYear: 0,
     activeDay: 0,
@@ -165,6 +159,12 @@ export default class BlogArchives extends Component {
       activeDay: state.activeDay === day ? 0 : day,
     }))
   })
+
+  static propTypes = {
+    data: PropTypes.shape({
+      allMarkdownRemark: PropTypes.object,
+    }).isRequired,
+  }
 
   componentDidMount = () => {
     this.setState({

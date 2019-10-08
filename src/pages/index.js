@@ -143,10 +143,6 @@ const links = [
 export default
 @withTranslation(['ui'])
 class Index extends React.Component {
-  static propTypes = {
-    t: PropTypes.func.isRequired,
-  }
-
   canvas = React.createRef()
 
   drawCanvas = debounce(() => {
@@ -180,6 +176,10 @@ class Index extends React.Component {
     )
   }, 50)
 
+  static propTypes = {
+    t: PropTypes.func.isRequired,
+  }
+
   componentDidMount = () => {
     if (typeof window !== 'undefined') {
       this.drawCanvas()
@@ -190,7 +190,7 @@ class Index extends React.Component {
     }
   }
 
-  componentWillMount = () => {
+  componentWillUnmount = () => {
     if (typeof window !== 'undefined') {
       document.removeEventListener('click', this.drawCanvas)
       document.removeEventListener('touchstart', this.drawCanvas)

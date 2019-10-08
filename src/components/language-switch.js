@@ -50,17 +50,17 @@ const LanguageSwitch = withTranslation(['ui'], {
   wait: false,
 })(
   class LanguageSwitch extends Component {
+    handleChangeLanguage = memoize(lng => () => {
+      const { i18n } = this.props
+      i18n.changeLanguage(lng)
+    })
+
     static propTypes = {
       i18n: PropTypes.shape({
         changeLanguage: PropTypes.func,
         language: PropTypes.string,
       }).isRequired,
     }
-
-    handleChangeLanguage = memoize(lng => () => {
-      const { i18n } = this.props
-      i18n.changeLanguage(lng)
-    })
 
     render() {
       const { i18n } = this.props
