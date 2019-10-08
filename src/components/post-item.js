@@ -37,7 +37,7 @@ const PostItem = withTranslation(['ui'])(({ post, t }) => (
     <div>{post.node.frontmatter.title}</div>
     <Property>
       <time dateTime={post.node.frontmatter.publish_date}>
-        {format(post.node.frontmatter.publish_date, 'YYYY-MM-DD')}
+        {format(new Date(post.node.frontmatter.publish_date), 'yyyy-MM-dd')}
       </time>
       <span> • </span>
       <span>

@@ -51,7 +51,7 @@ class BlogPostTemplate extends Component {
             <Timestamp>
               {t('Posted')}{' '}
               <time dateTime={post.frontmatter.publish_date}>
-                {format(publishDate, 'YYYY-MM-DD')}
+                {format(new Date(publishDate), 'yyyy-MM-dd')}
               </time>
               {Boolean(post.frontmatter.revise_date) &&
                 +reviseDate > +publishDate && (
@@ -59,7 +59,7 @@ class BlogPostTemplate extends Component {
                     {' | '}
                     {t('Last revised')}{' '}
                     <time dateTime={post.frontmatter.revise_date}>
-                      {format(reviseDate, 'YYYY-MM-DD')}
+                      {format(new Date(reviseDate), 'yyyy-MM-dd')}
                     </time>
                   </>
                 )}

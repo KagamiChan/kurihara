@@ -21,7 +21,7 @@ const draft = async date => {
         .join('-') || '荷塘月色'
     const directory = path.join(
       postsPath,
-      `${format(date, 'YYYY-MM-DD')}-${title}`,
+      `${format(date, 'yyyy-MM-dd')}-${title}`,
     )
 
     await fs.ensureDir(directory)

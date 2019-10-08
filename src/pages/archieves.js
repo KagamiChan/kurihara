@@ -18,7 +18,7 @@ import { rgba } from 'polished'
 import {
   format,
   getYear,
-  eachDay,
+  eachDayOfInterval,
   getDay,
   differenceInCalendarWeeks,
   endOfYear,
@@ -65,7 +65,10 @@ const List = styled.div`
 
 const DaysMatrix = ({ year, activeDays, activeDay, onSelectDay }) => {
   const firstDay = new Date(year, 0, 1)
-  const daysOfYear = eachDay(firstDay, endOfYear(firstDay))
+  const daysOfYear = eachDayOfInterval({
+    start: firstDay,
+    end: endOfYear(firstDay),
+  })
   const weeks = groupBy(
     daysOfYear,
     day => +startOfWeek(day, { weekStartsOn: 1 }),
@@ -83,23 +86,26 @@ const DaysMatrix = ({ year, activeDays, activeDay, onSelectDay }) => {
                 weekStartsOn: 1,
               })}, 0)`}
           >
-            {map(days, day => (
-              <DayCell
-                key={day}
-                width={8}
-                height={8}
-                active={activeDays.includes(+day)}
-                selected={activeDay === +day}
-                onClick={
-                  activeDays.includes(+day) ? onSelectDay(+day) : undefined
-                }
-                date={+day}
-                month={getMonth(day)}
-                transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
-              >
-                <title>{format(day, 'YYYY-MM-DD')}</title>
-              </DayCell>
-            ))}
+            {map(days, time => {
+              const day = new Date(time)
+              return (
+                <DayCell
+                  key={+day}
+                  width={8}
+                  height={8}
+                  active={activeDays.includes(+day)}
+                  selected={activeDay === +day}
+                  onClick={
+                    activeDays.includes(+day) ? onSelectDay(+day) : undefined
+                  }
+                  date={+day}
+                  month={getMonth(day)}
+                  transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
+                >
+                  <title>{format(day, 'yyyy-MM-dd')}</title>
+                </DayCell>
+              )
+            })}
           </g>
         ))}
       </g>
@@ -181,7 +187,7 @@ export default class BlogArchives extends Component {
     const endYear = getYear(new Date(endTime))
 
     const activeDays = uniq(
-      map(posts, p => +startOfDay(p.node.frontmatter.publish_date)),
+      map(posts, p => +startOfDay(new Date(p.node.frontmatter.publish_date))),
     )
 
     const timezone = new Date().getTimezoneOffset()
@@ -214,12 +220,14 @@ export default class BlogArchives extends Component {
         <List>
           {fp.flow(
             fp.filter(
-              p => getYear(p.node.frontmatter.publish_date) === activeYear,
+              p =>
+                getYear(new Date(p.node.frontmatter.publish_date)) ===
+                activeYear,
             ),
             fp.filter(
               p =>
                 !activeDay ||
-                isSameDay(p.node.frontmatter.publish_date, activeDay),
+                isSameDay(new Date(p.node.frontmatter.publish_date), activeDay),
             ),
             fp.map(p => <PostItem key={p.node.id} post={p} />),
           )(posts)}
