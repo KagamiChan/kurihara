@@ -6,14 +6,6 @@ describe('homepage', () => {
   it('display', async () => {
     await expect(page).toMatchElement('#site-title')
   })
-
-  it('language switch works', async () => {
-    await page.hover('.language-switch .bp3-popover-target')
-    await page.waitFor('.language-switch .bp3-popover-open')
-    await page.waitFor(500) // possible animations
-
-    await page.click('.language-switch-item[data-testid="ja"]')
-  })
 })
 
 describe('post', () => {

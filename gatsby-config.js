@@ -8,7 +8,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-lodash',
-    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

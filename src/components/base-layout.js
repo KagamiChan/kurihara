@@ -15,7 +15,6 @@ import { theme } from '../utils/style'
 import blogLogo from '../assets/blog-logo.png'
 
 import 'prismjs/themes/prism.css'
-import '../assets/blueprint.scss'
 
 const GlobalStyle = createGlobalStyle`
   @import url(//fonts.googleapis.com/css?family=Open+Sans:300);
