@@ -2964,10 +2964,10 @@ babel-preset-fbjs@^3.1.2:
     "@babel/plugin-transform-template-literals" "^7.0.0"
     babel-plugin-syntax-trailing-function-commas "^7.0.0-beta.0"
 
-babel-preset-gatsby@^0.2.18:
-  version "0.2.18"
-  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.2.18.tgz#9c823a3b1944e449e8836b808db4d6334bec067a"
-  integrity sha512-shJDlx0Fgof1mb8jHM1EOgAcf/k7utMBiQYp+6me8L5J6DNLjJqfNUoHroqwSZjGLvr7cF0siKF9pxVrQ5J2uA==
+babel-preset-gatsby@^0.2.18, babel-preset-gatsby@^0.2.20:
+  version "0.2.20"
+  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.2.20.tgz#0ea93dab2a0d0e780e914e8d845021b670c53c17"
+  integrity sha512-vKDeNhszAjTiHpgIyzLOxf9NCY9Jbw7k2yi6m4i9b9uPySCU19b/oRifYA0bC5cRj76vfoicSjykFGuwjj0Tyw==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.5.5"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
