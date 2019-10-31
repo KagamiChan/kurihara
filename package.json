@@ -43,7 +43,7 @@
     "react-i18next": "11.0.0",
     "react-typography": "^0.16.19",
     "replace-in-file": "^4.2.0",
-    "styled-components": "^4.4.0",
+    "styled-components": "^4.4.1",
     "typography": "^0.16.19",
     "typography-breakpoint-constants": "^0.16.19",
     "typography-plugin-code": "^0.16.19",
