@@ -3077,10 +3077,10 @@ babel-preset-fbjs@^3.1.2:
     "@babel/plugin-transform-template-literals" "^7.0.0"
     babel-plugin-syntax-trailing-function-commas "^7.0.0-beta.0"
 
-babel-preset-gatsby@^0.2.21:
-  version "0.2.21"
-  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.2.21.tgz#38c885be17264dc22e191a970208a0a1a2eccd95"
-  integrity sha512-AAemLYsdsWO0NetN1FX67m8kDifk0KUUvwsBuyKoF6zptGExO3PqosJpUELhBP+5t2J5VV/Pl8JPJWOIqbpE6w==
+babel-preset-gatsby@^0.2.21, babel-preset-gatsby@^0.2.22:
+  version "0.2.22"
+  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.2.22.tgz#116cd8d7982f07b8063c783ac3ad3bc849ce3238"
+  integrity sha512-ORVZZ2cGT+JLH5szbEyDlO8+opqdZ176KaKm2Bkn/dZrN0BMkFW4ZNLHDx+gaUQyv/AqW61D+qlJUN9zSUzNKQ==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.7.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
@@ -3089,7 +3089,7 @@ babel-preset-gatsby@^0.2.21:
     "@babel/preset-env" "^7.7.1"
     "@babel/preset-react" "^7.7.0"
     "@babel/runtime" "^7.7.2"
-    babel-plugin-dynamic-import-node "^1.2.0"
+    babel-plugin-dynamic-import-node "^2.3.0"
     babel-plugin-macros "^2.6.1"
     babel-plugin-transform-react-remove-prop-types "^0.4.24"
 
