@@ -10,7 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.1.7",
     "date-fns": "^2.8.1",
     "fs-extra": "^8.1.0",
-    "gatsby": "^2.18.2",
+    "gatsby": "^2.18.3",
     "gatsby-link": "^2.2.23",
     "gatsby-plugin-feed": "^2.3.21",
     "gatsby-plugin-google-analytics": "^2.1.28",
