@@ -43,7 +43,7 @@
     "react-helmet": "^5.2.1",
     "react-i18next": "11.2.3",
     "react-typography": "^0.16.19",
-    "replace-in-file": "^4.2.0",
+    "replace-in-file": "^5.0.2",
     "styled-components": "^4.4.1",
     "typography": "^0.16.19",
     "typography-breakpoint-constants": "^0.16.19",
