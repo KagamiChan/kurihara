@@ -68,7 +68,7 @@
     "draft": "node scripts/draft.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
+    "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-decorators": "^7.7.4",
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@commitlint/cli": "^8.2.0",
