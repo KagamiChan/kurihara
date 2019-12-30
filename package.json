@@ -13,7 +13,7 @@
     "fs-extra": "^8.1.0",
     "gatsby": "^2.18.16",
     "gatsby-link": "^2.2.27",
-    "gatsby-plugin-feed": "^2.3.23",
+    "gatsby-plugin-feed": "^2.3.25",
     "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-lodash": "^3.1.18",
     "gatsby-plugin-netlify": "^2.1.27",
