@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import { colors } from 'tailwindcss/defaultTheme'
 
 const sizes = {
   giant: 1920,
@@ -21,10 +22,10 @@ export const media = Object.keys(sizes).reduce((accumulator, label) => {
 }, {})
 
 export const theme = {
-  blue: '#00aeef',
-  orange: '#f68e56',
-  green: '#8dc63f',
-  pink: '#f06eaa',
-  black: '#333',
-  grey: '#999',
+  blue: colors.blue[500],
+  orange: colors.orange[500],
+  green: colors.green[500],
+  pink: colors.pink[500],
+  black: colors.black,
+  grey: colors.gray[500],
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { I18nextProvider, withTranslation } from 'react-i18next'
 import i18n from '../i18n'
 
@@ -15,11 +15,7 @@ import { theme } from '../utils/style'
 import blogLogo from '../assets/blog-logo.png'
 
 import 'prismjs/themes/prism.css'
-
-const GlobalStyle = createGlobalStyle`
-  @import url(//fonts.googleapis.com/css?family=Open+Sans:300);
-  @import url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);
-`
+import '../assets/style.css'
 
 const HeaderWrap = styled.div`
   background: white;
@@ -115,7 +111,6 @@ class BaseLayout extends Component {
       <ThemeProvider theme={theme}>
         <I18nextProvider i18n={i18n}>
           <div>
-            <GlobalStyle />
             <SiteTitle />
             <Helmet>
               <meta name="description" content="明镜止水的个人日志" />

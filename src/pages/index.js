@@ -15,6 +15,8 @@ import { rhythm } from '../utils/typography'
 import { media, theme } from '../utils/style'
 import i18n from '../i18n'
 
+import '../assets/style.css'
+
 const colorList = [theme.blue, theme.green, theme.pink, theme.orange]
 
 const commonLeft = css`
