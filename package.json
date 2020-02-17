@@ -28,7 +28,7 @@
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-remark": "^2.6.50",
     "gatsby-transformer-sharp": "^2.3.14",
-    "gatsby-transformer-yaml": "^2.2.24",
+    "gatsby-transformer-yaml": "^2.2.25",
     "gray-matter": "^4.0.2",
     "i18next": "^19.1.0",
     "i18next-browser-languagedetector": "^4.0.1",
