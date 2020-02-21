@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, {
   createGlobalStyle,
   css,
@@ -8,7 +7,7 @@ import styled, {
 import { rgba } from 'polished'
 import { map, debounce, times } from 'lodash'
 import Helmet from 'react-helmet'
-import { withTranslation, I18nextProvider } from 'react-i18next'
+import { I18nextProvider, useTranslation } from 'react-i18next'
 
 import LanguageSwitch from '../components/language-switch'
 import { rhythm } from '../utils/typography'
@@ -138,9 +137,38 @@ const links = [
   },
 ]
 
-export default
-@withTranslation(['ui'])
-class Index extends React.Component {
+const PageContent = () => {
+  const { t } = useTranslation(['ui'])
+  return (
+    <>
+      <Wrapper>
+        <Helmet>
+          <title>明镜止水::春擬き</title>
+        </Helmet>
+        <Title id="site-title" title="明镜止水">
+          明镜止水
+        </Title>
+        <GlobalStyle />
+        <nav>
+          <List>
+            {map(links, (link, i) => (
+              <ListItem key={link.name}>
+                <LinkItem href={link.url} index={i}>
+                  {t(link.name)}
+                </LinkItem>
+              </ListItem>
+            ))}
+          </List>
+        </nav>
+      </Wrapper>
+      <Footer>
+        <LanguageSwitch />鏡 ＠ がんばらないプロジェクト/翠星製作所
+      </Footer>
+    </>
+  )
+}
+
+export default class Index extends React.Component {
   canvas = React.createRef()
 
   drawCanvas = debounce(() => {
@@ -174,10 +202,6 @@ class Index extends React.Component {
     )
   }, 50)
 
-  static propTypes = {
-    t: PropTypes.func.isRequired,
-  }
-
   componentDidMount = () => {
     if (typeof window !== 'undefined') {
       this.drawCanvas()
@@ -197,34 +221,11 @@ class Index extends React.Component {
   }
 
   render() {
-    const { t } = this.props
     return (
       <ThemeProvider theme={theme}>
         <I18nextProvider i18n={i18n}>
           <>
-            <Wrapper>
-              <Helmet>
-                <title>明镜止水::春擬き</title>
-              </Helmet>
-              <Title id="site-title" title="明镜止水">
-                明镜止水
-              </Title>
-              <GlobalStyle />
-              <nav>
-                <List>
-                  {map(links, (link, i) => (
-                    <ListItem key={link.name}>
-                      <LinkItem href={link.url} index={i}>
-                        {t(link.name)}
-                      </LinkItem>
-                    </ListItem>
-                  ))}
-                </List>
-              </nav>
-            </Wrapper>
-            <Footer>
-              <LanguageSwitch />鏡 ＠ がんばらないプロジェクト/翠星製作所
-            </Footer>
+            <PageContent />
             <Canvas ref={this.canvas} />
           </>
         </I18nextProvider>

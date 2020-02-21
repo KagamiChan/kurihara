@@ -1,3 +1,6 @@
+//@ts-check
+
+/** @type { import("@types/eslint").Linter.Config } */
 module.exports = {
   env: {
     browser: true,
@@ -5,11 +8,17 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['airbnb', 'prettier', 'prettier/react'],
-  parser: 'babel-eslint',
-  plugins: ['import', 'react', 'prettier'],
+  extends: [
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/typescript',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['import', 'react', 'prettier', '@typescript-eslint'],
   rules: {
-    semi: ['error', 'never'],
     'react/jsx-filename-extension': 'off',
     'no-underscore-dangle': ['error', { allow: ['__'], allowAfterThis: true }],
     'no-confusing-arrow': 'off',
@@ -19,14 +28,6 @@ module.exports = {
     'prettier/prettier': 'error',
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.es'],
-        paths: [__dirname],
-      },
-    },
   },
   globals: {
     graphql: true,
