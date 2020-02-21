@@ -22,6 +22,8 @@ module.exports = {
         path: path.resolve(__dirname, './data'),
       },
     },
+    'gatsby-plugin-typegen',
+    'gatsby-plugin-typescript',
     'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-transformer-remark',
