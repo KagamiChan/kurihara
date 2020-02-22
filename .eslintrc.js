@@ -28,6 +28,17 @@ module.exports = {
     'prettier/prettier': 'error',
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        ts: 'never',
+        tsx: 'never',
+        js: 'never',
+        jsx: 'never',
+      },
+    ],
+    'import/prefer-default-export': 'off',
   },
   globals: {
     graphql: true,

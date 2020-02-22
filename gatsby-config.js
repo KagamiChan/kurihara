@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/camelcase */
+
 const path = require('path')
 
 module.exports = {
@@ -22,7 +24,18 @@ module.exports = {
         path: path.resolve(__dirname, './data'),
       },
     },
-    'gatsby-plugin-typegen',
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        fileName: 'types/graphql-types.ts',
+        documentPaths: [
+          './src/**/*.{ts,tsx,js}',
+          './gatsby/**/*.{ts,tsx,js}',
+          './.cache/fragments/*.js',
+          './node_modules/gatsby-*/**/*.js',
+        ],
+      },
+    },
     'gatsby-plugin-typescript',
     'gatsby-transformer-yaml',
     {
@@ -61,7 +74,7 @@ module.exports = {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
-          {
+          query FeedMeta {
             site {
               siteMetadata {
                 title
@@ -86,7 +99,7 @@ module.exports = {
                 ],
               })),
             query: `
-              {
+              query FeedContent {
                 allMarkdownRemark(
                   limit: 20,
                   sort: { order: DESC, fields: [frontmatter___publish_date] },
