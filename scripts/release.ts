@@ -19,6 +19,8 @@ const main = async () => {
       )
     }
 
+    console.info(`Deploying to ${process.env.GITHUB_REPOSITORY}`)
+
     await ghpages.publish(path.resolve(__dirname, '../public'), {
       branch: 'release',
       silent: true,

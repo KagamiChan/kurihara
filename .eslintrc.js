@@ -22,7 +22,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'no-underscore-dangle': ['error', { allow: ['__'], allowAfterThis: true }],
     'no-confusing-arrow': 'off',
-    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
     'react/prefer-stateless-function': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'prettier/prettier': 'error',
