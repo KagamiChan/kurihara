@@ -67,8 +67,8 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
     "test": "jest",
     "lint": "eslint src/**/*.js",
-    "strip": "node scripts/content-strip.js",
-    "draft": "node scripts/draft.js"
+    "strip": "ts-node --project tsconfig.cli.json scripts/content-strip.ts",
+    "draft": "ts-node --project tsconfig.cli.json scripts/draft.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

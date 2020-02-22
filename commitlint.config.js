@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, @typescript-eslint/no-var-requires */
 
 const { get } = require('lodash')
 const conventional = require('@commitlint/config-conventional')

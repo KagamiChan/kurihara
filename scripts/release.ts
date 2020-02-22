@@ -7,7 +7,7 @@ declare module 'gh-pages' {
   }
 }
 
-const main = async () => {
+const main = async (): Promise<void> => {
   try {
     const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_ACTOR } = process.env
     if (!GITHUB_TOKEN) {

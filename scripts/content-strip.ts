@@ -1,11 +1,11 @@
-const replaceInFile = require('replace-in-file')
+import replaceInFile from 'replace-in-file'
 
 const files = process.argv.slice(2)
 
 /**
  * Squirrel could accidently leave backspace character (u0008) in markdown contents, breaking browser rss renderer
  */
-const main = async () => {
+const main = async (): Promise<void> => {
   try {
     await replaceInFile({
       files,

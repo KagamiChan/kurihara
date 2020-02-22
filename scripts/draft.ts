@@ -2,15 +2,15 @@
  * util to create a blank blog post
  * usage: node draft.js hello world
  */
-const matter = require('gray-matter')
-const path = require('path')
-const { format } = require('date-fns')
-const { toLower } = require('lodash')
-const fs = require('fs-extra')
+import matter from 'gray-matter'
+import path from 'path'
+import { format } from 'date-fns'
+import { toLower } from 'lodash'
+import fs from 'fs-extra'
 
 const postsPath = path.resolve(__dirname, '../content/blog')
 
-const draft = async date => {
+const draft = async (date: Date): Promise<void> => {
   try {
     const title =
       process.argv
@@ -30,8 +30,8 @@ const draft = async date => {
       '曲曲折折的荷塘上面，弥望的是田田的叶子。',
       {
         title,
-        publish_date: format(date),
-        revise_date: format(date),
+        publish_date: format(date, `yyyy-MM-dd'T'HH:mm:ss.SSSxxx`), // eslint-disable-line @typescript-eslint/camelcase
+        revise_date: format(date, `yyyy-MM-dd'T'HH:mm:ss.SSSxxx`), // eslint-disable-line @typescript-eslint/camelcase
         tags: [],
         draft: true,
       },
