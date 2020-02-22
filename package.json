@@ -62,7 +62,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-links && gh-pages --dotfiles -d public",
+    "deploy": "ts-node --project tsconfig.cli.json scripts/release.ts",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
     "test": "jest",
@@ -77,6 +77,8 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/eslint": "^6.1.8",
+    "@types/gh-pages": "^2.0.1",
+    "@types/node": "^13.7.4",
     "@types/react": "^16.9.19",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
@@ -98,6 +100,7 @@
     "prettier": "^1.19.1",
     "puppeteer": "^2.1.1",
     "serve": "^11.3.0",
+    "ts-node": "^8.6.2",
     "typescript": "^3.8.2",
     "webpack": "^4.41.6"
   },
