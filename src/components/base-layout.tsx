@@ -7,7 +7,7 @@ import i18n from '../i18n'
 
 import '../lib/typekit'
 import { SiteTitle } from './site-title'
-import Shortcut from './shortcut'
+import { Shortcut } from './shortcut'
 import { commonMargin } from './common'
 import { rhythm } from '../utils/typography'
 import { theme } from '../utils/style'
@@ -100,7 +100,7 @@ const Navigation = withTranslation(['ui'])(({ t }) => (
   </Nav>
 ))
 
-export const BaseLayout: FC<void> = ({ children }) => (
+export const BaseLayout: FC<{}> = ({ children }) => (
   <ThemeProvider theme={theme}>
     <I18nextProvider i18n={i18n}>
       <div>

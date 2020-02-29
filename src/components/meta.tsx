@@ -17,7 +17,7 @@ const Wrapper = styled(FooterWrapper)`
 const nowYear = new Date().getFullYear()
 
 /* eslint-disable prettier/prettier */
-export const Meta: FC<void> = () => (
+export const Meta: FC<{}> = () => (
   <Wrapper>
     <LanguageSwitch />
     <div>

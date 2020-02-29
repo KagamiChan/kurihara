@@ -45,7 +45,7 @@ const LangugeIndicator = styled.div`
   cursor: pointer;
 `
 
-export const LanguageSwitch: FC<void> = () => {
+export const LanguageSwitch: FC<{}> = () => {
   const { i18n } = useTranslation()
 
   return (
