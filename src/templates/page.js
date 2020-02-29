@@ -5,8 +5,8 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import { Article, Content, Title } from '../components/common'
-import Layout from '../components/base-layout'
-import Meta from '../components/meta'
+import { BaseLayout } from '../components/base-layout'
+import { Meta } from '../components/meta'
 
 class PageTemplate extends Component {
   static propTypes = {
@@ -20,7 +20,7 @@ class PageTemplate extends Component {
     const { markdownRemark: post } = data
 
     return (
-      <Layout>
+      <BaseLayout>
         <Article>
           <Title>{post.frontmatter.title}</Title>
           <Content>
@@ -29,7 +29,7 @@ class PageTemplate extends Component {
         </Article>
         <hr />
         <Meta />
-      </Layout>
+      </BaseLayout>
     )
   }
 }

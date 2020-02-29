@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 
-import Meta from '../components/meta'
-import Layout from '../components/base-layout'
-import PostItem from '../components/post-item'
+import { Meta } from '../components/meta'
+import { BaseLayout } from '../components/base-layout'
+import { PostItem } from '../components/post-item'
 import { rhythm } from '../utils/typography'
 
 const Pagination = styled.div`
@@ -81,7 +81,7 @@ export default class BlogPaginated extends React.Component {
     const { items, page, pages } = pageContext
 
     return (
-      <Layout>
+      <BaseLayout>
         <div>
           {map(items, p => (
             <PostItem key={p.id} post={p} />
@@ -90,7 +90,7 @@ export default class BlogPaginated extends React.Component {
         <Paginator pages={pages} page={page} neighbour={3} />
         <hr />
         <Meta />
-      </Layout>
+      </BaseLayout>
     )
   }
 }

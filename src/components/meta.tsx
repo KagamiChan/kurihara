@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
-import { withTranslation, Trans } from 'react-i18next'
+import { Trans } from 'react-i18next'
 
 import { FooterWrapper } from './common'
-import LanguageSwitch from './language-switch'
+import { LanguageSwitch } from './language-switch'
 
 const Wrapper = styled(FooterWrapper)`
   margin-bottom: 0;
@@ -17,7 +17,7 @@ const Wrapper = styled(FooterWrapper)`
 const nowYear = new Date().getFullYear()
 
 /* eslint-disable prettier/prettier */
-const Comment = withTranslation()(() => (
+export const Meta: FC<void> = () => (
   <Wrapper>
     <LanguageSwitch />
     <div>
@@ -32,7 +32,5 @@ const Comment = withTranslation()(() => (
     </div>
     <div>2013-{nowYear} 鏡 ＠ がんばらないプロジェクト / 夜ノ森工房</div>
   </Wrapper>
-))
+)
 /* eslint-enable prettier/prettier */
-
-export default Comment

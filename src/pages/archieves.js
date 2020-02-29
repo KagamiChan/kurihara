@@ -28,10 +28,10 @@ import {
   getMonth,
 } from 'date-fns'
 
-import SiteTitle from '../components/site-title'
-import Meta from '../components/meta'
-import Layout from '../components/base-layout'
-import PostItem from '../components/post-item'
+import { SiteTitle } from '../components/site-title'
+import { Meta } from '../components/meta'
+import { BaseLayout } from '../components/base-layout'
+import { PostItem } from '../components/post-item'
 import { rhythm } from '../utils/typography'
 
 const Years = styled.div`
@@ -193,7 +193,7 @@ export default class BlogArchives extends Component {
     const timezone = new Date().getTimezoneOffset()
 
     return (
-      <Layout>
+      <BaseLayout>
         <SiteTitle suffix="存档" />
         {init && (
           <>
@@ -234,7 +234,7 @@ export default class BlogArchives extends Component {
         </List>
         <hr />
         <Meta />
-      </Layout>
+      </BaseLayout>
     )
   }
 }

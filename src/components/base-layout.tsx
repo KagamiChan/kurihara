@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { FC } from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
@@ -7,7 +6,7 @@ import { I18nextProvider, withTranslation } from 'react-i18next'
 import i18n from '../i18n'
 
 import '../lib/typekit'
-import SiteTitle from './site-title'
+import { SiteTitle } from './site-title'
 import Shortcut from './shortcut'
 import { commonMargin } from './common'
 import { rhythm } from '../utils/typography'
@@ -101,42 +100,28 @@ const Navigation = withTranslation(['ui'])(({ t }) => (
   </Nav>
 ))
 
-class BaseLayout extends Component {
-  static propTypes = {
-    data: PropTypes.shape({
-      site: PropTypes.object,
-    }).isRequired,
-    children: PropTypes.element.isRequired,
-  }
+export const BaseLayout: FC<void> = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <I18nextProvider i18n={i18n}>
+      <div>
+        <GlobalStyle />
+        <SiteTitle />
+        <Helmet>
+          <meta name="description" content="明镜止水的个人日志" />
+          <meta name="keywords" content="明镜止水, HP, BLOG" />
+        </Helmet>
 
-  render() {
-    const { children } = this.props
-    return (
-      <ThemeProvider theme={theme}>
-        <I18nextProvider i18n={i18n}>
-          <div>
-            <GlobalStyle />
-            <SiteTitle />
-            <Helmet>
-              <meta name="description" content="明镜止水的个人日志" />
-              <meta name="keywords" content="明镜止水, HP, BLOG" />
-            </Helmet>
-
-            <HeaderWrap>
-              <Header>
-                <H1 id="blog-title">
-                  <H1Link to="/blog">明镜止水</H1Link>
-                </H1>
-                <Navigation />
-              </Header>
-            </HeaderWrap>
-            <Content>{children}</Content>
-            <Shortcut />
-          </div>
-        </I18nextProvider>
-      </ThemeProvider>
-    )
-  }
-}
-
-export default BaseLayout
+        <HeaderWrap>
+          <Header>
+            <H1 id="blog-title">
+              <H1Link to="/blog">明镜止水</H1Link>
+            </H1>
+            <Navigation />
+          </Header>
+        </HeaderWrap>
+        <Content>{children}</Content>
+        <Shortcut />
+      </div>
+    </I18nextProvider>
+  </ThemeProvider>
+)

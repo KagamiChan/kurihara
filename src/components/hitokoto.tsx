@@ -23,7 +23,7 @@ const Footer = styled.div`
 
 const Source = styled.span``
 
-const Hitokoto: FunctionComponent = () => {
+export const Hitokoto: FunctionComponent<void> = () => {
   const order = useMemo(() => Math.random(), [])
 
   const data = useStaticQuery<HitokotoQuery>(graphql`
@@ -58,5 +58,3 @@ const Hitokoto: FunctionComponent = () => {
     </Wrapper>
   )
 }
-
-export default Hitokoto

@@ -7,11 +7,11 @@ import styled from 'styled-components'
 import { format } from 'date-fns'
 import { withTranslation } from 'react-i18next'
 
-import SiteTitle from '../components/site-title'
-import Hitokoto from '../components/hitokoto'
-import Meta from '../components/meta'
+import { SiteTitle } from '../components/site-title'
+import { Hitokoto } from '../components/hitokoto'
+import { Meta } from '../components/meta'
 import { Article, Content, Title } from '../components/common'
-import Layout from '../components/base-layout'
+import { BaseLayout } from '../components/base-layout'
 import { rhythm } from '../utils/typography'
 
 const Timestamp = styled.div`
@@ -42,7 +42,7 @@ class BlogPostTemplate extends Component {
     const reviseDate = new Date(post.frontmatter.revise_date)
 
     return (
-      <Layout>
+      <BaseLayout>
         <SiteTitle suffix={post.frontmatter.title} />
 
         <Article>
@@ -70,7 +70,7 @@ class BlogPostTemplate extends Component {
         <hr />
         <Hitokoto />
         <Meta />
-      </Layout>
+      </BaseLayout>
     )
   }
 }

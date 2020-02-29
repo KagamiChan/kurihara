@@ -9,7 +9,7 @@ import { map, debounce, times } from 'lodash'
 import Helmet from 'react-helmet'
 import { I18nextProvider, useTranslation } from 'react-i18next'
 
-import LanguageSwitch from '../components/language-switch'
+import { LanguageSwitch } from '../components/language-switch'
 import { rhythm } from '../utils/typography'
 import { media, theme } from '../utils/style'
 import i18n from '../i18n'
