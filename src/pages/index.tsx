@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent, useRef, useCallback, useEffect } from 'react'
 import styled, {
   createGlobalStyle,
   css,
@@ -18,7 +18,8 @@ const colorList = [theme.blue, theme.green, theme.pink, theme.orange]
 
 const commonLeft = css`
   left: ${rhythm(4)};
-  ${media.desktop`left: ${rhythm(2)};`} ${media.tablet`left: 0;`};
+  ${media.desktop`left: ${rhythm(2)};`}
+  ${media.tablet`left: 0;`}
 `
 
 const GlobalStyle = createGlobalStyle`
@@ -66,7 +67,7 @@ const ListItem = styled.li`
   margin-left: ${rhythm(-0.5)};
 `
 
-const LinkItem = styled.a`
+const LinkItem = styled.a<{ index: number }>`
   text-decoration: none;
   color: inherit;
   display: block;
@@ -93,7 +94,14 @@ const Canvas = styled.canvas`
   position: absolute;
 `
 
-const drawFlower = (ctx, x0, y0, r, theta, style) => {
+const drawFlower = (
+  ctx: CanvasRenderingContext2D,
+  x0: number,
+  y0: number,
+  r: number,
+  theta: number,
+  style: string,
+): void => {
   ctx.beginPath()
   times(5, i => {
     const a0 = ((theta + 72 * i) / 180) * Math.PI
@@ -137,7 +145,7 @@ const links = [
   },
 ]
 
-const PageContent = () => {
+const PageContent: FunctionComponent<{}> = () => {
   const { t } = useTranslation(['ui'])
   return (
     <>
@@ -168,68 +176,76 @@ const PageContent = () => {
   )
 }
 
-export default class Index extends React.Component {
-  canvas = React.createRef()
+const Index: FunctionComponent<{}> = () => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
-  drawCanvas = debounce(() => {
-    const canvas = this.canvas.current
-    if (!canvas) {
-      return
-    }
-    const ctx = canvas.getContext('2d')
+  const drawCanvas = useCallback(
+    debounce(() => {
+      const canvas = canvasRef.current
+      if (!canvas) {
+        return
+      }
+      const ctx = canvas.getContext('2d')
 
-    const pr = window.devicePixelRatio || 1
-    const w = window.innerWidth
-    const h = window.innerHeight
+      if (!ctx) {
+        return
+      }
 
-    canvas.width = w * pr
-    canvas.height = h * pr
-    ctx.scale(pr, pr)
-    ctx.globalAlpha = 0.25
+      const pr = window.devicePixelRatio || 1
+      const w = window.innerWidth
+      const h = window.innerHeight
 
-    ctx.clearRect(0, 0, w, h)
-    const randomNess = () => Math.random()
-    const index = Math.floor(Math.random() * 4)
-    times(30, () =>
-      drawFlower(
-        ctx,
-        0.5 * w + w * Math.sin(randomNess() - 0.5),
-        h * randomNess(),
-        0.02 * h + 0.02 * w * randomNess(),
-        360 * randomNess(),
-        colorList[index],
-      ),
-    )
-  }, 50)
+      canvas.width = w * pr
+      canvas.height = h * pr
+      ctx.scale(pr, pr)
+      ctx.globalAlpha = 0.25
 
-  componentDidMount = () => {
+      ctx.clearRect(0, 0, w, h)
+      const randomNess = () => Math.random()
+      const index = Math.floor(Math.random() * 4)
+      times(30, () =>
+        drawFlower(
+          ctx,
+          0.5 * w + w * Math.sin(randomNess() - 0.5),
+          h * randomNess(),
+          0.02 * h + 0.02 * w * randomNess(),
+          360 * randomNess(),
+          colorList[index],
+        ),
+      )
+    }, 50),
+    [],
+  )
+
+  useEffect(() => {
+    // Skips SSR
     if (typeof window !== 'undefined') {
-      this.drawCanvas()
+      drawCanvas()
 
-      document.addEventListener('click', this.drawCanvas)
-      document.addEventListener('touchstart', this.drawCanvas)
-      window.addEventListener('resize', this.drawCanvas)
+      document.addEventListener('click', drawCanvas)
+      document.addEventListener('touchstart', drawCanvas)
+      window.addEventListener('resize', drawCanvas)
     }
-  }
 
-  componentWillUnmount = () => {
-    if (typeof window !== 'undefined') {
-      document.removeEventListener('click', this.drawCanvas)
-      document.removeEventListener('touchstart', this.drawCanvas)
-      window.removeEventListener('resize', this.drawCanvas)
+    return (): void => {
+      if (typeof window !== 'undefined') {
+        document.removeEventListener('click', drawCanvas)
+        document.removeEventListener('touchstart', drawCanvas)
+        window.removeEventListener('resize', drawCanvas)
+      }
     }
-  }
+  }, [])
 
-  render() {
-    return (
-      <ThemeProvider theme={theme}>
-        <I18nextProvider i18n={i18n}>
-          <>
-            <PageContent />
-            <Canvas ref={this.canvas} />
-          </>
-        </I18nextProvider>
-      </ThemeProvider>
-    )
-  }
+  return (
+    <ThemeProvider theme={theme}>
+      <I18nextProvider i18n={i18n}>
+        <>
+          <PageContent />
+          <Canvas ref={canvasRef} />
+        </>
+      </I18nextProvider>
+    </ThemeProvider>
+  )
 }
+
+export default Index

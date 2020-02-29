@@ -1,18 +1,7 @@
-import React, { Component } from 'react'
+import React, { FC, useState, useEffect, MouseEventHandler } from 'react'
 import { graphql } from 'gatsby'
-import {
-  map,
-  max,
-  min,
-  range,
-  groupBy,
-  entries,
-  uniq,
-  memoize,
-  isEqual,
-} from 'lodash'
+import { map, max, min, range, groupBy, entries, uniq, isEqual } from 'lodash'
 import fp from 'lodash/fp'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import {
@@ -34,13 +23,15 @@ import { BaseLayout } from '../components/base-layout'
 import { PostItem } from '../components/post-item'
 import { rhythm } from '../utils/typography'
 
+import { ArchiveQuery } from '../../types/graphql-types'
+
 const Years = styled.div`
   display: flex;
   margin-bottom: ${rhythm(1)};
   flex-wrap: wrap;
 `
 
-const Year = styled.a`
+const Year = styled.a<{ active: boolean }>`
   line-height: ${rhythm(1)};
   padding: 0 ${rhythm(0.25)};
   background: ${props => props.active && props.theme.blue};
@@ -51,7 +42,11 @@ const Year = styled.a`
   user-select: none;
 `
 
-const DayCell = styled.rect`
+const DayCell = styled.rect<{
+  active: boolean
+  month: number
+  selected: boolean
+}>`
   fill: ${props => rgba(props.theme.blue, 0.2 - 0.1 * (props.month % 2))};
   fill: ${props => props.active && props.theme.green};
   fill: ${props => props.selected && props.theme.orange};
@@ -63,7 +58,19 @@ const List = styled.div`
   margin-top: ${rhythm(1)};
 `
 
-const DaysMatrix = ({ year, activeDays, activeDay, onSelectDay }) => {
+interface DaysMatrixProps {
+  year: number
+  activeDays: number[]
+  activeDay: number
+  onSelectDay: (day: number) => MouseEventHandler
+}
+
+const DaysMatrix: FC<DaysMatrixProps> = ({
+  year,
+  activeDays,
+  activeDay,
+  onSelectDay,
+}) => {
   const firstDay = new Date(year, 0, 1)
   const daysOfYear = eachDayOfInterval({
     start: firstDay,
@@ -80,7 +87,6 @@ const DaysMatrix = ({ year, activeDays, activeDay, onSelectDay }) => {
         {map(entries(weeks), ([week, days]) => (
           <g
             key={week}
-            date={week}
             transform={`translate(${10 *
               differenceInCalendarWeeks(+week, firstDay, {
                 weekStartsOn: 1,
@@ -98,7 +104,6 @@ const DaysMatrix = ({ year, activeDays, activeDay, onSelectDay }) => {
                   onClick={
                     activeDays.includes(+day) ? onSelectDay(+day) : undefined
                   }
-                  date={+day}
                   month={getMonth(day)}
                   transform={`translate(0, ${10 * ((getDay(day) + 6) % 7)})`}
                 >
@@ -113,131 +118,105 @@ const DaysMatrix = ({ year, activeDays, activeDay, onSelectDay }) => {
   )
 }
 
-DaysMatrix.propTypes = {
-  year: PropTypes.number.isRequired,
-  activeDays: PropTypes.arrayOf(PropTypes.number).isRequired,
-  activeDay: PropTypes.number.isRequired,
-  onSelectDay: PropTypes.func.isRequired,
-}
-
 const MemoDaysMatrix = React.memo(DaysMatrix, isEqual)
 
-export default class BlogArchives extends Component {
-  state = {
-    activeYear: 0,
-    activeDay: 0,
-    init: false,
-  }
+interface Props {
+  data: ArchiveQuery
+}
 
-  static getDerivedStateFromProps = (nextProps, prevState) => {
-    if (prevState.activeYear === 0) {
-      const { data } = nextProps
-      const {
-        allMarkdownRemark: { edges: posts },
-      } = data
-      const startTime = min(map(posts, 'node.frontmatter.publish_date'))
-      const startYear = getYear(new Date(startTime))
+type Post = ArchiveQuery['allMarkdownRemark']['edges'][number]
 
-      return {
-        activeYear: startYear,
-      }
-    }
+const BlogArchives: FC<Props> = ({ data }) => {
+  const [activeYear, setActiveYear] = useState(0)
+  const [activeDay, setActiveDay] = useState(0)
+  const [init, setInit] = useState(false)
 
-    return null
-  }
-
-  handleSelectYear = memoize(y => () => {
-    this.setState({
-      activeYear: y,
-      activeDay: 0,
-    })
-  })
-
-  handleActiveDay = memoize(day => e => {
-    e.stopPropagation()
-    this.setState(state => ({
-      activeDay: state.activeDay === day ? 0 : day,
-    }))
-  })
-
-  static propTypes = {
-    data: PropTypes.shape({
-      allMarkdownRemark: PropTypes.object,
-    }).isRequired,
-  }
-
-  componentDidMount = () => {
-    this.setState({
-      init: true,
-    })
-  }
-
-  render() {
-    const { data } = this.props
-    const { activeYear, activeDay, init } = this.state
-
+  useEffect(() => {
     const {
       allMarkdownRemark: { edges: posts },
     } = data
-
     const startTime = min(map(posts, 'node.frontmatter.publish_date'))
-    const endTime = max(map(posts, 'node.frontmatter.publish_date'))
-
     const startYear = getYear(new Date(startTime))
-    const endYear = getYear(new Date(endTime))
 
-    const activeDays = uniq(
-      map(posts, p => +startOfDay(new Date(p.node.frontmatter.publish_date))),
-    )
+    setActiveYear(startYear)
+  }, [data])
 
-    const timezone = new Date().getTimezoneOffset()
+  useEffect(() => {
+    // Skips SSR because the Calendar is timezone dependent
+    if (typeof window !== 'undefined') {
+      setInit(true)
+    }
+  })
 
-    return (
-      <BaseLayout>
-        <SiteTitle suffix="存档" />
-        {init && (
-          <>
-            <Years>
-              {map(range(startYear, endYear + 1), y => (
-                <Year
-                  key={y}
-                  active={y === activeYear}
-                  onClick={this.handleSelectYear(y)}
-                >
-                  {y}
-                </Year>
-              ))}
-            </Years>
-            <MemoDaysMatrix
-              year={activeYear}
-              activeDays={activeDays}
-              activeDay={activeDay}
-              onSelectDay={this.handleActiveDay}
-              timezone={timezone}
-            />
-          </>
-        )}
-        <List>
-          {fp.flow(
-            fp.filter(
-              p =>
-                getYear(new Date(p.node.frontmatter.publish_date)) ===
-                activeYear,
-            ),
-            fp.filter(
-              p =>
-                !activeDay ||
-                isSameDay(new Date(p.node.frontmatter.publish_date), activeDay),
-            ),
-            fp.map(p => <PostItem key={p.node.id} post={p} />),
-          )(posts)}
-        </List>
-        <hr />
-        <Meta />
-      </BaseLayout>
-    )
-  }
+  const {
+    allMarkdownRemark: { edges: posts },
+  } = data
+
+  const startTime = min(map(posts, 'node.frontmatter.publish_date'))
+  const endTime = max(map(posts, 'node.frontmatter.publish_date'))
+
+  const startYear = getYear(new Date(startTime))
+  const endYear = getYear(new Date(endTime))
+
+  const activeDays = uniq(
+    map(posts, p => +startOfDay(new Date(p.node.frontmatter?.publish_date))),
+  )
+
+  const timezone = new Date().getTimezoneOffset()
+
+  return (
+    <BaseLayout>
+      <SiteTitle suffix="存档" />
+      {init && (
+        <>
+          <Years>
+            {map(range(startYear, endYear + 1), y => (
+              <Year
+                key={y}
+                active={y === activeYear}
+                onClick={() => {
+                  setActiveYear(y)
+                  setActiveDay(0)
+                }}
+              >
+                {y}
+              </Year>
+            ))}
+          </Years>
+          <MemoDaysMatrix
+            year={activeYear}
+            activeDays={activeDays}
+            activeDay={activeDay}
+            onSelectDay={day => e => {
+              e.stopPropagation()
+              setActiveDay(activeDay === day ? 0 : day)
+            }}
+            key={timezone}
+          />
+        </>
+      )}
+      <List>
+        {fp.flow(
+          fp.filter<Post>(
+            p =>
+              getYear(new Date(p.node.frontmatter?.publish_date)) ===
+              activeYear,
+          ),
+          fp.filter<Post>(
+            p =>
+              !activeDay ||
+              isSameDay(new Date(p.node.frontmatter?.publish_date), activeDay),
+          ),
+          fp.map(p => <PostItem key={p.node.id} post={p} />),
+        )(posts)}
+      </List>
+      <hr />
+      <Meta />
+    </BaseLayout>
+  )
 }
+
+export default BlogArchives
 
 export const query = graphql`
   query Archive {
