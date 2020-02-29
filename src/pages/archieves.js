@@ -240,7 +240,7 @@ export default class BlogArchives extends Component {
 }
 
 export const query = graphql`
-  query {
+  query Archive {
     allMarkdownRemark(
       sort: { fields: [frontmatter___publish_date], order: DESC }
       filter: { fields: { type: { eq: "blog" } } }

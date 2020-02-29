@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 const SiteTitle = ({ suffix }) => (
   <StaticQuery
     query={graphql`
-      query {
+      query SiteTitle {
         site {
           siteMetadata {
             title

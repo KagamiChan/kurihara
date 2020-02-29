@@ -38,7 +38,7 @@ class Hitokoto extends Component {
     return (
       <StaticQuery
         query={graphql`
-          query {
+          query Hitokoto {
             allHitokotoYaml {
               edges {
                 node {
