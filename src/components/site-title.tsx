@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
 
 export interface Props {
-  suffix?: string
+  suffix?: string | null
 }
 
 export const SiteTitle: FC<Props> = ({ suffix }) => {

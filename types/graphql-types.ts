@@ -2415,6 +2415,7 @@ export type SitePageContextItemsFilterListInput = {
 };
 
 export type SitePageContextItemsNode = {
+  id?: Maybe<Scalars['String']>,
   fields?: Maybe<SitePageContextItemsNodeFields>,
   frontmatter?: Maybe<SitePageContextItemsNodeFrontmatter>,
 };
@@ -2442,6 +2443,7 @@ export type SitePageContextItemsNodeFieldsTimeToReadFilterInput = {
 };
 
 export type SitePageContextItemsNodeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
   fields?: Maybe<SitePageContextItemsNodeFieldsFilterInput>,
   frontmatter?: Maybe<SitePageContextItemsNodeFrontmatterFilterInput>,
 };
@@ -2457,6 +2459,7 @@ export type SitePageContextItemsNodeFrontmatterFilterInput = {
 };
 
 export type SitePageContextPrevious = {
+  id?: Maybe<Scalars['String']>,
   fields?: Maybe<SitePageContextPreviousFields>,
   frontmatter?: Maybe<SitePageContextPreviousFrontmatter>,
 };
@@ -2484,6 +2487,7 @@ export type SitePageContextPreviousFieldsTimeToReadFilterInput = {
 };
 
 export type SitePageContextPreviousFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
   fields?: Maybe<SitePageContextPreviousFieldsFilterInput>,
   frontmatter?: Maybe<SitePageContextPreviousFrontmatterFilterInput>,
 };
@@ -2604,6 +2608,8 @@ export type SitePageFieldsEnum =
   'context___next' |
   'context___limit' |
   'context___items' |
+  'context___items___node___id' |
+  'context___previous___id' |
   'context___previous___fields___slug' |
   'context___previous___fields___type' |
   'context___previous___frontmatter___title' |
@@ -3247,10 +3253,13 @@ export type FeedContentQuery = { allMarkdownRemark: { edges: Array<{ node: (
 export type CreatePagesQueryVariables = {};
 
 
-export type CreatePagesQuery = { allMarkdownRemark: { edges: Array<{ node: { fields: Maybe<(
+export type CreatePagesQuery = { allMarkdownRemark: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'id'>
+        & { fields: Maybe<(
           Pick<MarkdownRemarkFields, 'slug' | 'type'>
           & { timeToRead: Maybe<Pick<MarkdownRemarkFieldsTimeToRead, 'words' | 'minutes'>> }
-        )>, frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'publish_date'>> } }> } };
+        )>, frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'publish_date'>> }
+      ) }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

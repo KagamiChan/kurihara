@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import Link from 'gatsby-link'
 import { map, range } from 'lodash'
 import PropTypes from 'prop-types'
@@ -10,6 +10,8 @@ import { BaseLayout } from '../components/base-layout'
 import { PostItem } from '../components/post-item'
 import { rhythm } from '../utils/typography'
 
+import { CreatePagesQuery } from '../../types/graphql-types'
+
 const Pagination = styled.div`
   margin: ${rhythm(0.5)} 0;
   padding-top: ${rhythm(0.5)};
@@ -18,7 +20,7 @@ const Pagination = styled.div`
   align-items: center;
 `
 
-const PageLink = styled(Link)`
+const PageLink = styled(Link)<{ active: boolean }>`
   padding: 0 ${rhythm(0.5)};
   text-decoration: none;
   background: ${props => props.active && props.theme.blue};
@@ -37,7 +39,17 @@ const Ellipsis = styled.div`
   padding: 0 ${rhythm(0.5)};
 `
 
-const Paginator = ({ pages, page, neighbour }) => (
+interface PaginatorProps {
+  pages: number
+  page: number
+  neighbour: number
+}
+
+const Paginator: FunctionComponent<PaginatorProps> = ({
+  pages,
+  page,
+  neighbour,
+}) => (
   <Pagination>
     <PageLink active={page === 1} to="/blog">
       1
@@ -66,31 +78,29 @@ Paginator.propTypes = {
   neighbour: PropTypes.number.isRequired,
 }
 
-export default class BlogPaginated extends React.Component {
-  static propTypes = {
-    pageContext: PropTypes.shape({
-      items: PropTypes.array,
-      page: PropTypes.number,
-      pages: PropTypes.number,
-    }).isRequired,
-  }
-
-  render() {
-    const { pageContext } = this.props
-
-    const { items, page, pages } = pageContext
-
-    return (
-      <BaseLayout>
-        <div>
-          {map(items, p => (
-            <PostItem key={p.id} post={p} />
-          ))}
-        </div>
-        <Paginator pages={pages} page={page} neighbour={3} />
-        <hr />
-        <Meta />
-      </BaseLayout>
-    )
+interface Props {
+  pageContext: {
+    items: CreatePagesQuery['allMarkdownRemark']['edges']
+    page: number
+    pages: number
   }
 }
+
+const BlogPaginated: FunctionComponent<Props> = ({
+  pageContext: { items, page, pages },
+}) => {
+  return (
+    <BaseLayout>
+      <div>
+        {map(items, p => (
+          <PostItem key={p.node.id} post={p} />
+        ))}
+      </div>
+      <Paginator pages={pages} page={page} neighbour={3} />
+      <hr />
+      <Meta />
+    </BaseLayout>
+  )
+}
+
+export default BlogPaginated

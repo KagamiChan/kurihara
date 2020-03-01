@@ -8,8 +8,8 @@ import { CreatePagesQuery, MarkdownRemark } from '../types/graphql-types'
 const SRC = path.resolve(__dirname, '../src')
 
 const TEMPLATES = {
-  blog: path.resolve(SRC, 'templates/blog-post.js'),
-  about: path.resolve(SRC, 'templates/page.js'),
+  blog: path.resolve(SRC, 'templates/blog-post.tsx'),
+  about: path.resolve(SRC, 'templates/page.tsx'),
 }
 
 const ITEM_PER_PAGE = 10
@@ -62,6 +62,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
       ) {
         edges {
           node {
+            id
             fields {
               slug
               type
@@ -102,7 +103,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
       createPage({
         path: index === 0 ? '/blog' : `/blog/page/${page}`,
-        component: path.resolve(SRC, 'templates/paginated-blog-index.js'),
+        component: path.resolve(SRC, 'templates/paginated-blog-index.tsx'),
         context: {
           page,
           total: posts?.length,
@@ -125,7 +126,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
       path: post?.node?.fields?.slug!,
       component:
         TEMPLATES[post?.node?.fields?.type as keyof typeof TEMPLATES] ||
-        path.resolve(SRC, 'templates/page.js'),
+        path.resolve(SRC, 'templates/page.tsx'),
       context: {
         previous,
         slug: post?.node?.fields?.slug,
