@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-require('ts-node').register({ files: true, project: './tsconfig.cli.json' })
+require('@babel/register')({
+  presets: [
+    require.resolve('@babel/preset-env'),
+    require.resolve('@babel/preset-typescript'),
+  ],
+  extensions: ['.js', '.ts', '.tsx'],
+})
 
 const { createPages, onCreateNode } = require('./gatsby/node')
 
