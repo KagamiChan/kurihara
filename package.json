@@ -66,7 +66,7 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
     "test": "jest",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.{js,ts,tsx}",
     "strip": "ts-node --project tsconfig.cli.json scripts/content-strip.ts",
     "draft": "ts-node --project tsconfig.cli.json scripts/draft.ts"
   },
