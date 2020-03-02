@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@reach/router": "^1.2.1",
-    "date-fns": "^2.9.0",
+    "date-fns": "^2.10.0",
     "fs-extra": "^8.1.0",
     "gatsby": "^2.19.17",
     "gatsby-link": "^2.2.27",
