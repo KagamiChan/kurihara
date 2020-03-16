@@ -71,7 +71,7 @@
     "draft": "ts-node --project tsconfig.cli.json scripts/draft.ts"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.6",
+    "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/register": "^7.8.6",
     "@commitlint/cli": "^8.3.5",
