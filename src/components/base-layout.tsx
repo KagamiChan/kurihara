@@ -58,7 +58,7 @@ const Nav = styled.nav`
 const NavItem = styled(Link)`
   margin-left: ${rhythm(1)};
   text-decoration: none;
-  color: ${props => props.theme.black};
+  color: ${(props) => props.theme.black};
   transition: 0.3s;
   line-height: ${rhythm(1)};
   display: block;
@@ -67,7 +67,7 @@ const NavItem = styled(Link)`
   ::after {
     width: 100%;
     height: 1px;
-    background-color: ${props => props.theme.blue};
+    background-color: ${(props) => props.theme.blue};
     position: absolute;
     left: 0;
     bottom: 0;
@@ -78,7 +78,7 @@ const NavItem = styled(Link)`
   }
 
   :hover {
-    color: ${props => props.theme.blue};
+    color: ${(props) => props.theme.blue};
 
     ::after {
       opacity: 1;

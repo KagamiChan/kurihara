@@ -15,13 +15,13 @@ import { rhythm } from '../utils/typography'
 import { BlogPostBySlugQuery } from '../../types/graphql-types'
 
 const Timestamp = styled.div`
-  color: ${props => props.theme.grey};
+  color: ${(props) => props.theme.grey};
   margin-bottom: ${rhythm(1)};
   font-weight: 200;
 `
 
 const Notice = styled.div`
-  color: ${props => props.theme.blue};
+  color: ${(props) => props.theme.blue};
 `
 
 interface Props {

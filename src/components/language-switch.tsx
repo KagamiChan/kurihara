@@ -37,8 +37,8 @@ const Switch = styled.div<{ active: boolean }>`
   margin: ${rhythm(0.25)};
   cursor: pointer;
 
-  color: ${props => props.active && props.theme.blue};
-  background-color: ${props => props.active && rgba(props.theme.blue, 0.1)};
+  color: ${(props) => props.active && props.theme.blue};
+  background-color: ${(props) => props.active && rgba(props.theme.blue, 0.1)};
 `
 
 const LangugeIndicator = styled.div`

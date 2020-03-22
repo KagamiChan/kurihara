@@ -18,7 +18,7 @@ const Button = styled.a<{ visible: boolean }>`
   height: ${rhythm(1)};
   min-width: ${rhythm(1)};
   transition: 0.3s;
-  background-color: ${props => rgba(props.theme.blue, 0.75)};
+  background-color: ${(props) => rgba(props.theme.blue, 0.75)};
   position: fixed;
   left: ${rhythm(0.5)};
   bottom: ${rhythm(1)};
@@ -26,11 +26,11 @@ const Button = styled.a<{ visible: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: ${props => (props.visible ? 1 : 0)};
+  opacity: ${(props) => (props.visible ? 1 : 0)};
   text-decoration: none;
 
   :hover {
-    background-color: ${props => rgba(props.theme.blue, 1)};
+    background-color: ${(props) => rgba(props.theme.blue, 1)};
   }
 `
 

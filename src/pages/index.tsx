@@ -80,11 +80,11 @@ const LinkItem = styled.a<{ index: number }>`
   cursor: pointer;
 
   :hover {
-    color: ${props => colorList[props.index % colorList.length]};
+    color: ${(props) => colorList[props.index % colorList.length]};
   }
 
   :active {
-    background-color: ${props =>
+    background-color: ${(props) =>
       rgba(colorList[props.index % colorList.length], 0.1)};
   }
 `
@@ -103,7 +103,7 @@ const drawFlower = (
   style: string,
 ): void => {
   ctx.beginPath()
-  times(5, i => {
+  times(5, (i) => {
     const a0 = ((theta + 72 * i) / 180) * Math.PI
     const a1 = ((theta + 72 * i + 72) / 180) * Math.PI
     const a0x = x0 + r * Math.cos(a0)

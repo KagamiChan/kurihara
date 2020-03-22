@@ -12,7 +12,7 @@ const Item = styled(Link)`
   display: block;
   font-size: ${rhythm(0.75)};
   text-decoration: none;
-  color: ${props => props.theme.black};
+  color: ${(props) => props.theme.black};
   margin: 0 -${rhythm(1 / 2)};
   padding: ${rhythm(1 / 2)};
   transition: 0.3s;
@@ -20,15 +20,15 @@ const Item = styled(Link)`
   font-weight: 200;
 
   :hover {
-    background-color: ${props => rgba(props.theme.blue, 0.1)};
-    color: ${props => props.theme.blue};
+    background-color: ${(props) => rgba(props.theme.blue, 0.1)};
+    color: ${(props) => props.theme.blue};
     text-decoration: none;
   }
 `
 
 const Property = styled.span`
   font-size: ${rhythm(0.5)};
-  color: ${props => props.theme.grey};
+  color: ${(props) => props.theme.grey};
   font-weight: initial;
 `
 

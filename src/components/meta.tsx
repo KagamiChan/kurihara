@@ -10,7 +10,7 @@ const Wrapper = styled(FooterWrapper)`
   margin-bottom: 0;
 
   a:hover {
-    background-color: ${props => rgba(props.theme.blue, 0.1)};
+    background-color: ${(props) => rgba(props.theme.blue, 0.1)};
   }
 `
 

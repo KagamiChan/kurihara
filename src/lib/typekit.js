@@ -1,4 +1,4 @@
-const install = d => {
+const install = (d) => {
   const config = {
     kitId: 'vkp6jvo',
     scriptTimeout: 3000,

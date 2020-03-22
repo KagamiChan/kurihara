@@ -34,8 +34,8 @@ const Years = styled.div`
 const Year = styled.a<{ active: boolean }>`
   line-height: ${rhythm(1)};
   padding: 0 ${rhythm(0.25)};
-  background: ${props => props.active && props.theme.blue};
-  color: ${props => props.active && '#fff'};
+  background: ${(props) => props.active && props.theme.blue};
+  color: ${(props) => props.active && '#fff'};
   border: none;
   cursor: pointer;
   transition: 0.3s;
@@ -47,11 +47,11 @@ const DayCell = styled.rect<{
   month: number
   selected: boolean
 }>`
-  fill: ${props => rgba(props.theme.blue, 0.2 - 0.1 * (props.month % 2))};
-  fill: ${props => props.active && props.theme.green};
-  fill: ${props => props.selected && props.theme.orange};
+  fill: ${(props) => rgba(props.theme.blue, 0.2 - 0.1 * (props.month % 2))};
+  fill: ${(props) => props.active && props.theme.green};
+  fill: ${(props) => props.selected && props.theme.orange};
   transition: 0.3s;
-  cursor: ${props => props.active && 'pointer'};
+  cursor: ${(props) => props.active && 'pointer'};
 `
 
 const List = styled.div`
@@ -78,7 +78,7 @@ const DaysMatrix: FC<DaysMatrixProps> = ({
   })
   const weeks = groupBy(
     daysOfYear,
-    day => +startOfWeek(day, { weekStartsOn: 1 }),
+    (day) => +startOfWeek(day, { weekStartsOn: 1 }),
   )
 
   return (
@@ -87,12 +87,14 @@ const DaysMatrix: FC<DaysMatrixProps> = ({
         {map(entries(weeks), ([week, days]) => (
           <g
             key={week}
-            transform={`translate(${10 *
+            transform={`translate(${
+              10 *
               differenceInCalendarWeeks(+week, firstDay, {
                 weekStartsOn: 1,
-              })}, 0)`}
+              })
+            }, 0)`}
           >
-            {map(days, time => {
+            {map(days, (time) => {
               const day = new Date(time)
               return (
                 <DayCell
@@ -159,7 +161,7 @@ const BlogArchives: FC<Props> = ({ data }) => {
   const endYear = getYear(new Date(endTime))
 
   const activeDays = uniq(
-    map(posts, p => +startOfDay(new Date(p.node.frontmatter?.publish_date))),
+    map(posts, (p) => +startOfDay(new Date(p.node.frontmatter?.publish_date))),
   )
 
   const timezone = new Date().getTimezoneOffset()
@@ -170,7 +172,7 @@ const BlogArchives: FC<Props> = ({ data }) => {
       {init && (
         <>
           <Years>
-            {map(range(startYear, endYear + 1), y => (
+            {map(range(startYear, endYear + 1), (y) => (
               <Year
                 key={y}
                 active={y === activeYear}
@@ -187,7 +189,7 @@ const BlogArchives: FC<Props> = ({ data }) => {
             year={activeYear}
             activeDays={activeDays}
             activeDay={activeDay}
-            onSelectDay={day => e => {
+            onSelectDay={(day) => (e) => {
               e.stopPropagation()
               setActiveDay(activeDay === day ? 0 : day)
             }}
@@ -198,16 +200,16 @@ const BlogArchives: FC<Props> = ({ data }) => {
       <List>
         {fp.flow(
           fp.filter<Post>(
-            p =>
+            (p) =>
               getYear(new Date(p.node.frontmatter?.publish_date)) ===
               activeYear,
           ),
           fp.filter<Post>(
-            p =>
+            (p) =>
               !activeDay ||
               isSameDay(new Date(p.node.frontmatter?.publish_date), activeDay),
           ),
-          fp.map(p => <PostItem key={p.node.id} post={p} />),
+          fp.map((p) => <PostItem key={p.node.id} post={p} />),
         )(posts)}
       </List>
       <hr />

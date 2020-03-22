@@ -23,14 +23,15 @@ const Pagination = styled.div`
 const PageLink = styled(Link)<{ active: boolean }>`
   padding: 0 ${rhythm(0.5)};
   text-decoration: none;
-  background: ${props => props.active && props.theme.blue};
-  color: ${props => props.theme.black};
-  color: ${props => props.active && '#fff'};
+  background: ${(props) => props.active && props.theme.blue};
+  color: ${(props) => props.theme.black};
+  color: ${(props) => props.active && '#fff'};
   transition: 0.3s;
 
   :hover {
-    background-color: ${props => !props.active && rgba(props.theme.blue, 0.1)};
-    color: ${props => !props.active && props.theme.blue};
+    background-color: ${(props) =>
+      !props.active && rgba(props.theme.blue, 0.1)};
+    color: ${(props) => !props.active && props.theme.blue};
     text-decoration: none;
   }
 `
@@ -57,7 +58,7 @@ const Paginator: FunctionComponent<PaginatorProps> = ({
     {page > neighbour + 1 && <Ellipsis>…</Ellipsis>}
     {map(
       range(Math.max(page - neighbour, 2), Math.min(page + neighbour, pages)),
-      p => (
+      (p) => (
         <PageLink active={page === p} to={`/blog/page/${p}`}>
           {p}
         </PageLink>
@@ -92,7 +93,7 @@ const BlogPaginated: FunctionComponent<Props> = ({
   return (
     <BaseLayout>
       <div>
-        {map(items, p => (
+        {map(items, (p) => (
           <PostItem key={p.node.id} post={p} />
         ))}
       </div>
