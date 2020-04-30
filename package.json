@@ -36,7 +36,7 @@
     "i18next": "^19.4.1",
     "i18next-browser-languagedetector": "^4.1.1",
     "i18next-xhr-backend": "^3.2.2",
-    "intersection-observer": "^0.7.0",
+    "intersection-observer": "^0.10.0",
     "lodash": "^4.17.15",
     "polished": "^3.5.1",
     "prismjs": "^1.20.0",
