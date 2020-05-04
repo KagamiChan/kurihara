@@ -6,7 +6,7 @@ import styled, {
 } from 'styled-components'
 import { rgba } from 'polished'
 import { map, debounce, times } from 'lodash'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { I18nextProvider, useTranslation } from 'react-i18next'
 
 import { LanguageSwitch } from '../components/language-switch'

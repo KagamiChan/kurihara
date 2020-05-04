@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { I18nextProvider, withTranslation } from 'react-i18next'
 import i18n from '../i18n'
