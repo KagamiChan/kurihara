@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import { useTranslation } from 'react-i18next'
@@ -48,13 +48,15 @@ const LangugeIndicator = styled.div`
 export const LanguageSwitch: FC<{}> = () => {
   const { i18n } = useTranslation()
 
+  const currentLanguage = useMemo(() => i18n.language, [i18n.language])
+
   return (
     <LangugeIndicator className="language-switch">
       <Switches>
         <FontAwesomeIcon icon={faLanguage} />
         {map(LANGUAGES, ({ display, value }) => (
           <Switch
-            active={i18n.language === value}
+            active={currentLanguage === value}
             key={value}
             className="language-switch-item"
             data-testid={value}
