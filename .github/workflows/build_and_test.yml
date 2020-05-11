@@ -18,6 +18,11 @@ jobs:
       with:
         node-version: '13.x'
 
+    - name: Installing puppeteer dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgbm1
+
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
