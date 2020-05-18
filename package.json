@@ -82,7 +82,7 @@
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/fs-extra": "^8.1.0",
     "@types/gh-pages": "^2.2.0",
-    "@types/lodash": "^4.14.150",
+    "@types/lodash": "^4.14.151",
     "@types/node": "^13.13.5",
     "@types/prettier": "^2.0.0",
     "@types/prismjs": "^1.16.1",
