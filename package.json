@@ -48,6 +48,8 @@
     "react-typography": "^0.16.19",
     "replace-in-file": "^6.0.0",
     "styled-components": "^5.1.1",
+    "tailwindcss": "^1.4.6",
+    "twin.macro": "^1.1.2",
     "typography": "^0.16.19",
     "typography-breakpoint-constants": "^0.16.19",
     "typography-plugin-code": "^0.16.19",
