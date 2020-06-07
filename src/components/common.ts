@@ -1,47 +1,84 @@
 import styled, { css } from 'styled-components'
-import { rgba } from 'polished'
-import { rhythm } from '../utils/typography'
-import { media } from '../utils/style'
+import tw from 'twin.macro'
 
 export const Article = styled.article``
 
+export const commonMargin = css`
+  ${tw`ml-0 md:ml-12`}
+`
+
+export const commonLink = css`
+  ${tw`text-blue-500 duration-100`}
+
+  :hover {
+    ${tw`bg-blue-100`}
+  }
+`
+
 export const Content = styled.div`
-  color: ${(props) => props.theme.black};
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    ${tw`leading-relaxed font-medium mb-4`}
+  }
+
+  h1 {
+    ${tw`text-4xl`}
+  }
+
+  h2 {
+    ${tw`text-3xl`}
+  }
+
+  h3 {
+    ${tw`text-2xl`}
+  }
+
+  h4 {
+    ${tw`text-xl`}
+  }
+
+  h5 {
+    ${tw`text-lg`}
+  }
 
   a:not(.gatsby-resp-image-link) {
-    text-decoration: none;
-    color: ${(props) => props.theme.blue};
-    transition: 0.3s;
+    ${commonLink}
+  }
 
-    :hover {
-      color: ${(props) => props.theme.blue};
-      background-color: ${(props) => rgba(props.theme.blue, 0.1)};
-    }
+  p {
+    ${tw`mb-4`}
+    ${tw`leading-relaxed`}
+  }
+
+  ol {
+    ${tw`list-decimal list-inside`}
+  }
+
+  ul {
+    ${tw`list-disc list-inside`}
+  }
+
+  li {
+    ${tw`mb-2`}
+  }
+
+  hr {
+    ${tw`mb-4`}
   }
 `
 
 export const Title = styled.h1`
-  font-size: ${rhythm(2)};
-  line-height: ${rhythm(2)};
-`
-
-export const commonMargin = css`
-  margin: 0 0 0 ${rhythm(4)};
-  ${media.desktop`margin-left: ${rhythm(2)};`} ${media.tablet`margin-left: 0;`};
+  ${tw`leading-relaxed font-medium mb-4 text-6xl`}
 `
 
 export const FooterWrapper = styled.div`
-  font-size: ${rhythm(0.5)};
-  margin: ${rhythm(1)} 0;
+  ${tw`mt-4 mb-4`}
 
   a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s;
-
-    :hover {
-      color: ${(props) => props.theme.blue};
-      background-color: ${(props) => rgba(props.theme.blue, 0.1)};
-    }
+    ${commonLink}
   }
 `

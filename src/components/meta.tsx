@@ -1,17 +1,13 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { rgba } from 'polished'
 import { Trans } from 'react-i18next'
+import tw from 'twin.macro'
 
 import { FooterWrapper } from './common'
 import { LanguageSwitch } from './language-switch'
 
 const Wrapper = styled(FooterWrapper)`
-  margin-bottom: 0;
-
-  a:hover {
-    background-color: ${(props) => rgba(props.theme.blue, 0.1)};
-  }
+  ${tw`mb-0`}
 `
 
 const nowYear = new Date().getFullYear()

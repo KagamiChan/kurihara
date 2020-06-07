@@ -710,6 +710,7 @@ export type FileFieldsEnum =
   'childMarkdownRemark___htmlAst' |
   'childMarkdownRemark___excerptAst' |
   'childMarkdownRemark___headings' |
+  'childMarkdownRemark___headings___id' |
   'childMarkdownRemark___headings___value' |
   'childMarkdownRemark___headings___depth' |
   'childMarkdownRemark___timeToRead' |
@@ -1404,8 +1405,8 @@ export type ImageSharpFluid = {
   sizes: Scalars['String'];
   originalImg?: Maybe<Scalars['String']>;
   originalName?: Maybe<Scalars['String']>;
-  presentationWidth?: Maybe<Scalars['Int']>;
-  presentationHeight?: Maybe<Scalars['Int']>;
+  presentationWidth: Scalars['Int'];
+  presentationHeight: Scalars['Int'];
 };
 
 export type ImageSharpFluidFilterInput = {
@@ -1499,8 +1500,8 @@ export type ImageSharpSizes = {
   sizes: Scalars['String'];
   originalImg?: Maybe<Scalars['String']>;
   originalName?: Maybe<Scalars['String']>;
-  presentationWidth?: Maybe<Scalars['Int']>;
-  presentationHeight?: Maybe<Scalars['Int']>;
+  presentationWidth: Scalars['Int'];
+  presentationHeight: Scalars['Int'];
 };
 
 export type ImageSharpSizesFilterInput = {
@@ -1572,11 +1573,13 @@ export type MarkdownExcerptFormats =
   'MARKDOWN';
 
 export type MarkdownHeading = {
+  id?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['String']>;
   depth?: Maybe<Scalars['Int']>;
 };
 
 export type MarkdownHeadingFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
   value?: Maybe<StringQueryOperatorInput>;
   depth?: Maybe<IntQueryOperatorInput>;
 };
@@ -1690,6 +1693,7 @@ export type MarkdownRemarkFieldsEnum =
   'htmlAst' |
   'excerptAst' |
   'headings' |
+  'headings___id' |
   'headings___value' |
   'headings___depth' |
   'timeToRead' |
@@ -1904,6 +1908,7 @@ export type PageInfo = {
   itemCount: Scalars['Int'];
   pageCount: Scalars['Int'];
   perPage?: Maybe<Scalars['Int']>;
+  totalCount: Scalars['Int'];
 };
 
 export type Potrace = {
@@ -2079,6 +2084,8 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<DateQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2210,6 +2217,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Date']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2220,6 +2229,14 @@ export type Site = Node & {
 
 
 export type SiteBuildTimeArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SitePortArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2412,6 +2429,8 @@ export type SiteFieldsEnum =
   'siteMetadata___title' |
   'siteMetadata___description' |
   'siteMetadata___siteUrl' |
+  'port' |
+  'host' |
   'polyfill' |
   'pathPrefix' |
   'id' |
@@ -2504,6 +2523,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<DateQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2849,7 +2870,18 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___documentPaths' |
   'pluginCreator___pluginOptions___maxWidth' |
-  'pluginCreator___pluginOptions___pathToConfigModule' |
+  'pluginCreator___pluginOptions___pathPrefix' |
+  'pluginCreator___pluginOptions___wrapperStyle' |
+  'pluginCreator___pluginOptions___backgroundColor' |
+  'pluginCreator___pluginOptions___linkImagesToOriginal' |
+  'pluginCreator___pluginOptions___showCaptions' |
+  'pluginCreator___pluginOptions___markdownCaptions' |
+  'pluginCreator___pluginOptions___withWebp' |
+  'pluginCreator___pluginOptions___tracedSVG' |
+  'pluginCreator___pluginOptions___loading' |
+  'pluginCreator___pluginOptions___disableBgImageOnAlpha' |
+  'pluginCreator___pluginOptions___disableBgImage' |
+  'pluginCreator___pluginOptions___ignoreFileExtensions' |
   'pluginCreator___pluginOptions___trackingId' |
   'pluginCreator___pluginOptions___query' |
   'pluginCreator___pluginOptions___feeds' |
@@ -3050,6 +3082,18 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___name' |
   'pluginOptions___plugins___version' |
   'pluginOptions___plugins___pluginOptions___maxWidth' |
+  'pluginOptions___plugins___pluginOptions___pathPrefix' |
+  'pluginOptions___plugins___pluginOptions___wrapperStyle' |
+  'pluginOptions___plugins___pluginOptions___backgroundColor' |
+  'pluginOptions___plugins___pluginOptions___linkImagesToOriginal' |
+  'pluginOptions___plugins___pluginOptions___showCaptions' |
+  'pluginOptions___plugins___pluginOptions___markdownCaptions' |
+  'pluginOptions___plugins___pluginOptions___withWebp' |
+  'pluginOptions___plugins___pluginOptions___tracedSVG' |
+  'pluginOptions___plugins___pluginOptions___loading' |
+  'pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha' |
+  'pluginOptions___plugins___pluginOptions___disableBgImage' |
+  'pluginOptions___plugins___pluginOptions___ignoreFileExtensions' |
   'pluginOptions___plugins___browserAPIs' |
   'pluginOptions___plugins___pluginFilepath' |
   'pluginOptions___name' |
@@ -3057,7 +3101,18 @@ export type SitePluginFieldsEnum =
   'pluginOptions___fileName' |
   'pluginOptions___documentPaths' |
   'pluginOptions___maxWidth' |
-  'pluginOptions___pathToConfigModule' |
+  'pluginOptions___pathPrefix' |
+  'pluginOptions___wrapperStyle' |
+  'pluginOptions___backgroundColor' |
+  'pluginOptions___linkImagesToOriginal' |
+  'pluginOptions___showCaptions' |
+  'pluginOptions___markdownCaptions' |
+  'pluginOptions___withWebp' |
+  'pluginOptions___tracedSVG' |
+  'pluginOptions___loading' |
+  'pluginOptions___disableBgImageOnAlpha' |
+  'pluginOptions___disableBgImage' |
+  'pluginOptions___ignoreFileExtensions' |
   'pluginOptions___trackingId' |
   'pluginOptions___query' |
   'pluginOptions___feeds' |
@@ -3186,7 +3241,18 @@ export type SitePluginPluginOptions = {
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   maxWidth?: Maybe<Scalars['Int']>;
-  pathToConfigModule?: Maybe<Scalars['String']>;
+  pathPrefix?: Maybe<Scalars['String']>;
+  wrapperStyle?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
+  showCaptions?: Maybe<Scalars['Boolean']>;
+  markdownCaptions?: Maybe<Scalars['Boolean']>;
+  withWebp?: Maybe<Scalars['Boolean']>;
+  tracedSVG?: Maybe<Scalars['Boolean']>;
+  loading?: Maybe<Scalars['String']>;
+  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
+  disableBgImage?: Maybe<Scalars['Boolean']>;
+  ignoreFileExtensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   trackingId?: Maybe<Scalars['String']>;
   query?: Maybe<Scalars['String']>;
   feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>;
@@ -3216,7 +3282,18 @@ export type SitePluginPluginOptionsFilterInput = {
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
-  pathToConfigModule?: Maybe<StringQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  wrapperStyle?: Maybe<StringQueryOperatorInput>;
+  backgroundColor?: Maybe<StringQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  showCaptions?: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
+  withWebp?: Maybe<BooleanQueryOperatorInput>;
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>;
+  loading?: Maybe<StringQueryOperatorInput>;
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>;
+  ignoreFileExtensions?: Maybe<StringQueryOperatorInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
   query?: Maybe<StringQueryOperatorInput>;
   feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>;
@@ -3249,10 +3326,34 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
   maxWidth?: Maybe<Scalars['Int']>;
+  pathPrefix?: Maybe<Scalars['String']>;
+  wrapperStyle?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
+  linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
+  showCaptions?: Maybe<Scalars['Boolean']>;
+  markdownCaptions?: Maybe<Scalars['Boolean']>;
+  withWebp?: Maybe<Scalars['Boolean']>;
+  tracedSVG?: Maybe<Scalars['Boolean']>;
+  loading?: Maybe<Scalars['String']>;
+  disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
+  disableBgImage?: Maybe<Scalars['Boolean']>;
+  ignoreFileExtensions?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  wrapperStyle?: Maybe<StringQueryOperatorInput>;
+  backgroundColor?: Maybe<StringQueryOperatorInput>;
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
+  showCaptions?: Maybe<BooleanQueryOperatorInput>;
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
+  withWebp?: Maybe<BooleanQueryOperatorInput>;
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>;
+  loading?: Maybe<StringQueryOperatorInput>;
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>;
+  ignoreFileExtensions?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
@@ -3371,6 +3472,8 @@ export type GatsbyImageSharpFixed_NoBase64Fragment = Pick<ImageSharpFixed, 'widt
 export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
 export type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
 
 export type GatsbyImageSharpFluid_TracedSvgFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 

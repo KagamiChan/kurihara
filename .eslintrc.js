@@ -24,7 +24,6 @@ module.exports = {
     'no-confusing-arrow': 'off',
     'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
     'react/prefer-stateless-function': 'off',
-    'jsx-a11y/anchor-is-valid': 'off',
     'prettier/prettier': 'error',
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
@@ -40,6 +39,8 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
   globals: {
     graphql: true,

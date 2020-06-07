@@ -27,6 +27,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-graphql-codegen',
       options: {
+        codegen: process.env.NODE_ENV !== 'development',
         fileName: 'types/graphql-types.ts',
         documentPaths: [
           './src/**/*.{ts,tsx,js}',
@@ -58,12 +59,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-128304723-1',
@@ -87,7 +82,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map(edge => ({
+              allMarkdownRemark.edges.map((edge) => ({
                 ...edge.node.frontmatter,
                 description: edge.node.excerpt,
                 url: site.siteMetadata.siteUrl + edge.node.fields.slug,

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { map, max, min, range, groupBy, entries, uniq, isEqual } from 'lodash'
 import fp from 'lodash/fp'
 import styled from 'styled-components'
-import { rgba } from 'polished'
 import {
   format,
   getYear,
@@ -16,46 +15,43 @@ import {
   isSameDay,
   getMonth,
 } from 'date-fns'
+import tw from 'twin.macro'
 
 import { SiteTitle } from '../components/site-title'
 import { Meta } from '../components/meta'
 import { BaseLayout } from '../components/base-layout'
 import { PostItem } from '../components/post-item'
-import { rhythm } from '../utils/typography'
+import { withKeyboardA11y } from '../utils/with-keyboard-a11y'
 
 import { ArchiveQuery } from '../../types/graphql-types'
 
 const Years = styled.div`
-  display: flex;
-  margin-bottom: ${rhythm(1)};
-  flex-wrap: wrap;
+  ${tw`flex flex-wrap mb-4`}
 `
 
-const Year = styled.a<{ active: boolean }>`
-  line-height: ${rhythm(1)};
-  padding: 0 ${rhythm(0.25)};
-  background: ${(props) => props.active && props.theme.blue};
-  color: ${(props) => props.active && '#fff'};
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-  user-select: none;
-`
+const Year = withKeyboardA11y(styled.a<{ active: boolean }>`
+  ${tw`p-2 text-blue-500 duration-100 cursor-pointer`}
 
-const DayCell = styled.rect<{
+  ${(props) => props.active && tw`border border-blue-500`}
+
+  :hover {
+    ${(props) => !props.active && tw`bg-blue-100`}
+  }
+`)
+
+const DayCell = withKeyboardA11y(styled.rect<{
   active: boolean
   month: number
   selected: boolean
 }>`
-  fill: ${(props) => rgba(props.theme.blue, 0.2 - 0.1 * (props.month % 2))};
-  fill: ${(props) => props.active && props.theme.green};
-  fill: ${(props) => props.selected && props.theme.orange};
-  transition: 0.3s;
-  cursor: ${(props) => props.active && 'pointer'};
-`
+  ${tw`fill-current duration-100`}
+  ${(props) => (props.month % 2 ? tw`text-gray-200` : tw`text-gray-300`)};
+  ${(props) => props.active && tw`text-green-500 cursor-pointer`}
+  ${(props) => props.selected && tw`text-orange-500`};
+`)
 
 const List = styled.div`
-  margin-top: ${rhythm(1)};
+  ${tw`mt-8 mb-4`}
 `
 
 interface DaysMatrixProps {
@@ -103,6 +99,8 @@ const DaysMatrix: FC<DaysMatrixProps> = ({
                   height={8}
                   active={activeDays.includes(+day)}
                   selected={activeDay === +day}
+                  tabIndex={activeDays.includes(+day) ? 0 : undefined}
+                  role={activeDays.includes(+day) ? 'button' : undefined}
                   onClick={
                     activeDays.includes(+day) ? onSelectDay(+day) : undefined
                   }
@@ -174,6 +172,8 @@ const BlogArchives: FC<Props> = ({ data }) => {
           <Years>
             {map(range(startYear, endYear + 1), (y) => (
               <Year
+                tabIndex={0}
+                role="button"
                 key={y}
                 active={y === activeYear}
                 onClick={() => {
