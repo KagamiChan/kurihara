@@ -4,6 +4,7 @@ import { get, size } from 'lodash'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt'
+import tw from 'twin.macro'
 
 import { FooterWrapper } from './common'
 import { HitokotoQuery } from '../../types/graphql-types'
@@ -11,13 +12,11 @@ import { HitokotoQuery } from '../../types/graphql-types'
 const Wrapper = styled(FooterWrapper)``
 
 const Content = styled.div`
-  font-weight: 400;
-  white-space: pre-wrap;
+  ${tw`whitespace-pre-wrap`}
 `
 
 const Footer = styled.div`
-  /* margin-top: ${rhythm(0.5)}; */
-  text-align: right;
+  ${tw`text-right`}
 `
 
 const Source = styled.span``

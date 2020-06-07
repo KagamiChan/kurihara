@@ -8,75 +8,57 @@ import { rgba } from 'polished'
 import { map, debounce, times } from 'lodash'
 import { Helmet } from 'react-helmet'
 import { I18nextProvider, useTranslation } from 'react-i18next'
+import tw from 'twin.macro'
 
 import { LanguageSwitch } from '../components/language-switch'
-import { media, theme } from '../utils/style'
+import { theme } from '../utils/style'
 import i18n from '../i18n'
 
 const colorList = [theme.blue, theme.green, theme.pink, theme.orange]
 
 const commonLeft = css`
-  /* left: ${rhythm(4)};
-  ${media.desktop`left: ${rhythm(2)};`} */
-  ${media.tablet`left: 0;`}
+  ${tw`left-16`}
 `
 
 const GlobalStyle = createGlobalStyle`
-  html{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  html {
+    ${tw`h-full w-full overflow-hidden`}
+    font-size: 20px;
   }
 
-  body{
-    overflow: hidden;
-    min-width: 720px;
-    height: 100%;
+  body {
+    ${tw`min-w-lg h-full overflow-hidden font-serif`}
   }
 `
 
 const Wrapper = styled.div`
-  z-index: 10;
-  position: absolute;
-  /* top: ${rhythm(4)}; */
+  ${tw`absolute top-8 z-10`}
   ${commonLeft};
 `
 
 const Title = styled.h1`
-  /* font-size: ${rhythm(2)}; */
-  font-weight: 200;
+  ${tw`text-6xl`}
 `
 
 const Footer = styled.div`
-  position: absolute;
-  bottom: 5%;
+  ${tw`absolute bottom-8`}
   ${commonLeft};
 `
 
 const List = styled.ul`
-  margin: 0;
+  ${tw`flex flex-wrap`}
 `
 
 const ListItem = styled.li`
-  list-style: none;
-  display: block;
-  float: left;
-  padding: 0;
-  margin: 0;
-  /* margin-left: ${rhythm(-0.5)}; */
+  ${tw`text-2xl`}
+
+  & + & {
+    ${tw`pl-4`}
+  }
 `
 
 const LinkItem = styled.a<{ index: number }>`
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  /* margin: ${rhythm(0.25)}; */
-  /* padding: ${rhythm(0.25)}; */
-  transition: 0.3s;
-  font-weight: 200;
-  /* font-size: ${rhythm(0.8)}; */
-
-  cursor: pointer;
+  ${tw`duration-100`}
 
   :hover {
     color: ${(props) => colorList[props.index % colorList.length]};
@@ -89,8 +71,7 @@ const LinkItem = styled.a<{ index: number }>`
 `
 
 const Canvas = styled.canvas`
-  z-index: -1;
-  position: absolute;
+  ${tw`absolute -z-1`}
 `
 
 const drawFlower = (

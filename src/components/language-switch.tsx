@@ -1,10 +1,10 @@
 import React, { FC, useMemo } from 'react'
 import styled from 'styled-components'
-import { rgba } from 'polished'
 import { useTranslation } from 'react-i18next'
 import { map } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage'
+import tw from 'twin.macro'
 
 const LANGUAGES = [
   {
@@ -26,22 +26,16 @@ const LANGUAGES = [
 ]
 
 const Switches = styled.div`
-  display: flex;
-  align-items: center;
+  ${tw`flex items-center`}
 `
 
 const Switch = styled.div<{ active: boolean }>`
-  /* padding: ${rhythm(0.25)};
-  margin: ${rhythm(0.25)}; */
-  cursor: pointer;
+  ${tw`cursor-pointer pl-2 pr-2`}
 
-  color: ${(props) => props.active && props.theme.blue};
-  background-color: ${(props) => props.active && rgba(props.theme.blue, 0.1)};
+  ${(props) => props.active && tw`font-semibold`}
 `
 
-const LangugeIndicator = styled.div`
-  cursor: pointer;
-`
+const LangugeIndicator = styled.div``
 
 export const LanguageSwitch: FC<{}> = () => {
   const { i18n } = useTranslation()

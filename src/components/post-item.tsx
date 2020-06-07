@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import { rgba } from 'polished'
 import { format } from 'date-fns'
 import { useTranslation } from 'react-i18next'
 import tw from 'twin.macro'

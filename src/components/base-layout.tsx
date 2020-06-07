@@ -18,6 +18,14 @@ import 'prismjs/themes/prism.css'
 const GlobalStyle = createGlobalStyle`
   @import url(//fonts.googleapis.com/css?family=Open+Sans:300);
   @import url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);
+
+  * {
+    ${tw`font-serif`}
+  }
+
+  html {
+    font-size: 20px;
+  }
 `
 
 const HeaderWrap = styled.div`
