@@ -39,7 +39,7 @@ const Switch = withKeyboardA11y(styled.div<{ active: boolean }>`
 
 const LangugeIndicator = styled.div``
 
-export const LanguageSwitch: FC<{}> = () => {
+const LanguageSwitch: FC<{}> = () => {
   const { i18n } = useTranslation()
 
   const currentLanguage = useMemo(() => i18n.language, [i18n.language])
@@ -67,3 +67,5 @@ export const LanguageSwitch: FC<{}> = () => {
     </LangugeIndicator>
   )
 }
+
+export default LanguageSwitch

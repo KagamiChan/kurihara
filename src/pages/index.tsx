@@ -9,10 +9,14 @@ import { map, debounce, times } from 'lodash'
 import { Helmet } from 'react-helmet'
 import { I18nextProvider, useTranslation } from 'react-i18next'
 import tw from 'twin.macro'
+import loadable from '@loadable/component'
 
-import { LanguageSwitch } from '../components/language-switch'
 import { theme } from '../utils/style'
 import i18n from '../i18n'
+
+const LanguageSwitch = loadable(() => import('../components/language-switch'), {
+  ssr: false,
+})
 
 const colorList = [theme.blue, theme.green, theme.pink, theme.orange]
 

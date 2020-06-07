@@ -2,20 +2,24 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 import { Trans } from 'react-i18next'
 import tw from 'twin.macro'
+import loadable from '@loadable/component'
 
 import { FooterWrapper } from './common'
-import { LanguageSwitch } from './language-switch'
 
 const Wrapper = styled(FooterWrapper)`
   ${tw`mb-0`}
 `
+
+const LanguageSwitch = loadable(() => import('./language-switch'), {
+  ssr: false,
+})
 
 const nowYear = new Date().getFullYear()
 
 /* eslint-disable prettier/prettier */
 export const Meta: FC<{}> = () => (
   <Wrapper>
-    <LanguageSwitch />
+      <LanguageSwitch />
     <div>
       <Trans i18nKey="ui:meta_first_line">
         自豪地基于 <a href="https://reactjs.org">React.js</a> 与 <a href="https://gatsbyjs.org">Gatsby.js</a> 驱动 | 托管于 Netlify | <a href="/rss.xml">RSS 订阅可用</a>
