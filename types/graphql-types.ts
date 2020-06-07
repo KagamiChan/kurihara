@@ -1404,8 +1404,8 @@ export type ImageSharpFluid = {
   sizes: Scalars['String'];
   originalImg?: Maybe<Scalars['String']>;
   originalName?: Maybe<Scalars['String']>;
-  presentationWidth?: Maybe<Scalars['Int']>;
-  presentationHeight?: Maybe<Scalars['Int']>;
+  presentationWidth: Scalars['Int'];
+  presentationHeight: Scalars['Int'];
 };
 
 export type ImageSharpFluidFilterInput = {
@@ -1499,8 +1499,8 @@ export type ImageSharpSizes = {
   sizes: Scalars['String'];
   originalImg?: Maybe<Scalars['String']>;
   originalName?: Maybe<Scalars['String']>;
-  presentationWidth?: Maybe<Scalars['Int']>;
-  presentationHeight?: Maybe<Scalars['Int']>;
+  presentationWidth: Scalars['Int'];
+  presentationHeight: Scalars['Int'];
 };
 
 export type ImageSharpSizesFilterInput = {
@@ -2079,6 +2079,8 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2210,6 +2212,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2412,6 +2416,8 @@ export type SiteFieldsEnum =
   'siteMetadata___title' |
   'siteMetadata___description' |
   'siteMetadata___siteUrl' |
+  'port' |
+  'host' |
   'polyfill' |
   'pathPrefix' |
   'id' |
@@ -2504,6 +2510,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2849,7 +2857,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___documentPaths' |
   'pluginCreator___pluginOptions___maxWidth' |
-  'pluginCreator___pluginOptions___pathToConfigModule' |
   'pluginCreator___pluginOptions___trackingId' |
   'pluginCreator___pluginOptions___query' |
   'pluginCreator___pluginOptions___feeds' |
@@ -3057,7 +3064,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___fileName' |
   'pluginOptions___documentPaths' |
   'pluginOptions___maxWidth' |
-  'pluginOptions___pathToConfigModule' |
   'pluginOptions___trackingId' |
   'pluginOptions___query' |
   'pluginOptions___feeds' |
@@ -3186,7 +3192,6 @@ export type SitePluginPluginOptions = {
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   maxWidth?: Maybe<Scalars['Int']>;
-  pathToConfigModule?: Maybe<Scalars['String']>;
   trackingId?: Maybe<Scalars['String']>;
   query?: Maybe<Scalars['String']>;
   feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>;
@@ -3216,7 +3221,6 @@ export type SitePluginPluginOptionsFilterInput = {
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
-  pathToConfigModule?: Maybe<StringQueryOperatorInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
   query?: Maybe<StringQueryOperatorInput>;
   feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>;
@@ -3371,6 +3375,8 @@ export type GatsbyImageSharpFixed_NoBase64Fragment = Pick<ImageSharpFixed, 'widt
 export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
 export type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+export type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
 
 export type GatsbyImageSharpFluid_TracedSvgFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 

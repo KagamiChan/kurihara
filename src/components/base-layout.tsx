@@ -3,13 +3,13 @@ import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { I18nextProvider, withTranslation } from 'react-i18next'
+import tw from 'twin.macro'
 import i18n from '../i18n'
 
 import '../lib/typekit'
 import { SiteTitle } from './site-title'
 import { Shortcut } from './shortcut'
 import { commonMargin } from './common'
-import { rhythm } from '../utils/typography'
 import { theme } from '../utils/style'
 import blogLogo from '../assets/blog-logo.png'
 
@@ -21,13 +21,11 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const HeaderWrap = styled.div`
-  background: white;
-  margin-bottom: ${rhythm(1)};
+  ${tw`bg-white sticky top-0`}
 `
 
 const Header = styled.div`
   ${commonMargin} max-width: 960px;
-  padding: ${rhythm(1 / 3)} 0;
   display: flex;
   align-items: center;
 `
@@ -38,58 +36,30 @@ const H1 = styled.h1`
 `
 
 const H1Link = styled(Link)`
-  text-decoration: none;
   background: url(${blogLogo});
-  background-repeat: no-repeat;
-  background-size: contain;
+  ${tw`bg-no-repeat bg-contain overflow-hidden w-32 h-16 block`}
   text-indent: -999px;
-  overflow: hidden;
-  width: ${rhythm(4)};
-  height: ${rhythm(2)};
-  display: block;
 `
 
 const Nav = styled.nav`
-  display: flex;
-  flex: 1;
-  align-items: center;
+  ${tw`flex items-center ml-4`}
 `
 
 const NavItem = styled(Link)`
-  margin-left: ${rhythm(1)};
-  text-decoration: none;
-  color: ${(props) => props.theme.black};
-  transition: 0.3s;
-  line-height: ${rhythm(1)};
-  display: block;
-  position: relative;
-
-  ::after {
-    width: 100%;
-    height: 1px;
-    background-color: ${(props) => props.theme.blue};
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: inline-block;
-    content: '';
-    transition: 0.3s;
-    opacity: 0;
-  }
+  ${tw`relative text-xl pl-2 pr-2`}
 
   :hover {
-    color: ${(props) => props.theme.blue};
-
-    ::after {
-      opacity: 1;
+    ${tw`text-blue-500`}
+    :before {
+      ${tw`block w-full h-px bg-blue-400 absolute left-0 bottom-0`}
+      content: '';
     }
   }
 `
 
 const Content = styled.div`
-  ${commonMargin} max-width: 800px;
-  padding: ${rhythm(1)} 0;
-  padding-top: 0;
+  ${commonMargin}
+  ${tw`max-w-6xl`}
 `
 
 const Navigation = withTranslation(['ui'])(({ t }) => (

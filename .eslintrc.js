@@ -40,6 +40,7 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
   },
   globals: {
     graphql: true,

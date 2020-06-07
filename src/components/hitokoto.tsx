@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt'
 
 import { FooterWrapper } from './common'
-import { rhythm } from '../utils/typography'
 import { HitokotoQuery } from '../../types/graphql-types'
 
 const Wrapper = styled(FooterWrapper)``
@@ -17,7 +16,7 @@ const Content = styled.div`
 `
 
 const Footer = styled.div`
-  margin-top: ${rhythm(0.5)};
+  /* margin-top: ${rhythm(0.5)}; */
   text-align: right;
 `
 
@@ -50,7 +49,7 @@ export const Hitokoto: FunctionComponent<{}> = () => {
       <Footer>
         —— {entry?.author?.join(' / ')} - <Source>{entry.source}</Source>{' '}
         {entry.link && (
-          <a href={entry.link}>
+          <a href={entry.link} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faExternalLinkAlt} />
           </a>
         )}

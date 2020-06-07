@@ -6,8 +6,6 @@ import { map } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage'
 
-import { rhythm } from '../utils/typography'
-
 const LANGUAGES = [
   {
     display: '简体中文',
@@ -33,8 +31,8 @@ const Switches = styled.div`
 `
 
 const Switch = styled.div<{ active: boolean }>`
-  padding: ${rhythm(0.25)};
-  margin: ${rhythm(0.25)};
+  /* padding: ${rhythm(0.25)};
+  margin: ${rhythm(0.25)}; */
   cursor: pointer;
 
   color: ${(props) => props.active && props.theme.blue};

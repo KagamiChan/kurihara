@@ -10,15 +10,14 @@ import { Helmet } from 'react-helmet'
 import { I18nextProvider, useTranslation } from 'react-i18next'
 
 import { LanguageSwitch } from '../components/language-switch'
-import { rhythm } from '../utils/typography'
 import { media, theme } from '../utils/style'
 import i18n from '../i18n'
 
 const colorList = [theme.blue, theme.green, theme.pink, theme.orange]
 
 const commonLeft = css`
-  left: ${rhythm(4)};
-  ${media.desktop`left: ${rhythm(2)};`}
+  /* left: ${rhythm(4)};
+  ${media.desktop`left: ${rhythm(2)};`} */
   ${media.tablet`left: 0;`}
 `
 
@@ -39,12 +38,12 @@ const GlobalStyle = createGlobalStyle`
 const Wrapper = styled.div`
   z-index: 10;
   position: absolute;
-  top: ${rhythm(4)};
+  /* top: ${rhythm(4)}; */
   ${commonLeft};
 `
 
 const Title = styled.h1`
-  font-size: ${rhythm(2)};
+  /* font-size: ${rhythm(2)}; */
   font-weight: 200;
 `
 
@@ -64,18 +63,18 @@ const ListItem = styled.li`
   float: left;
   padding: 0;
   margin: 0;
-  margin-left: ${rhythm(-0.5)};
+  /* margin-left: ${rhythm(-0.5)}; */
 `
 
 const LinkItem = styled.a<{ index: number }>`
   text-decoration: none;
   color: inherit;
   display: block;
-  margin: ${rhythm(0.25)};
-  padding: ${rhythm(0.25)};
+  /* margin: ${rhythm(0.25)}; */
+  /* padding: ${rhythm(0.25)}; */
   transition: 0.3s;
   font-weight: 200;
-  font-size: ${rhythm(0.8)};
+  /* font-size: ${rhythm(0.8)}; */
 
   cursor: pointer;
 

@@ -5,23 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons/faArrowUp'
 import 'intersection-observer'
 
-import { rhythm } from '../utils/typography'
-
 const Sentinel = styled.div`
   position: absolute;
-  top: ${rhythm(4)};
+  /* top: ${rhythm(4)}; */
   left: 0;
 `
 
 const Button = styled.a<{ visible: boolean }>`
-  border-radius: ${rhythm(0.5)};
-  height: ${rhythm(1)};
-  min-width: ${rhythm(1)};
+  /* border-radius: ${rhythm(0.5)}; */
+  /* height: ${rhythm(1)}; */
+  /* min-width: ${rhythm(1)}; */
   transition: 0.3s;
   background-color: ${(props) => rgba(props.theme.blue, 0.75)};
   position: fixed;
-  left: ${rhythm(0.5)};
-  bottom: ${rhythm(1)};
+  /* left: ${rhythm(0.5)}; */
+  /* bottom: ${rhythm(1)}; */
   color: #fff;
   display: flex;
   align-items: center;

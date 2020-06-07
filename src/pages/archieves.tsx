@@ -21,19 +21,18 @@ import { SiteTitle } from '../components/site-title'
 import { Meta } from '../components/meta'
 import { BaseLayout } from '../components/base-layout'
 import { PostItem } from '../components/post-item'
-import { rhythm } from '../utils/typography'
 
 import { ArchiveQuery } from '../../types/graphql-types'
 
 const Years = styled.div`
   display: flex;
-  margin-bottom: ${rhythm(1)};
+  /* margin-bottom: ${rhythm(1)}; */
   flex-wrap: wrap;
 `
 
 const Year = styled.a<{ active: boolean }>`
-  line-height: ${rhythm(1)};
-  padding: 0 ${rhythm(0.25)};
+  /* line-height: ${rhythm(1)}; */
+  /* padding: 0 ${rhythm(0.25)}; */
   background: ${(props) => props.active && props.theme.blue};
   color: ${(props) => props.active && '#fff'};
   border: none;
@@ -55,7 +54,7 @@ const DayCell = styled.rect<{
 `
 
 const List = styled.div`
-  margin-top: ${rhythm(1)};
+  /* margin-top: ${rhythm(1)}; */
 `
 
 interface DaysMatrixProps {
