@@ -21,6 +21,13 @@ const commonLeft = css`
 `
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    :focus {
+      outline-style: dashed;
+      outline-width: 2px;
+    }
+  }
+
   html {
     ${tw`h-full w-full overflow-hidden`}
     font-size: 20px;

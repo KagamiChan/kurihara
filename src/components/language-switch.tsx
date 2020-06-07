@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLanguage } from '@fortawesome/free-solid-svg-icons/faLanguage'
 import tw from 'twin.macro'
 
+import { withKeyboardA11y } from '../utils/with-keyboard-a11y'
+
 const LANGUAGES = [
   {
     display: '简体中文',
@@ -29,11 +31,11 @@ const Switches = styled.div`
   ${tw`flex items-center`}
 `
 
-const Switch = styled.div<{ active: boolean }>`
+const Switch = withKeyboardA11y(styled.div<{ active: boolean }>`
   ${tw`cursor-pointer pl-2 pr-2`}
 
   ${(props) => props.active && tw`font-semibold`}
-`
+`)
 
 const LangugeIndicator = styled.div``
 
@@ -49,6 +51,8 @@ export const LanguageSwitch: FC<{}> = () => {
         {map(LANGUAGES, ({ display, value }) => (
           <Switch
             active={currentLanguage === value}
+            tabIndex={0}
+            role="button"
             key={value}
             className="language-switch-item"
             data-testid={value}

@@ -20,10 +20,14 @@ const GlobalStyle = createGlobalStyle`
   @import url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);
 
   * {
-    ${tw`font-serif`}
+    :focus {
+      outline-style: dashed;
+      outline-width: 2px;
+    }
   }
 
   html {
+    ${tw`font-serif`}
     font-size: 20px;
   }
 `
