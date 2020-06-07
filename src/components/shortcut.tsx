@@ -1,38 +1,30 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, FC } from 'react'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons/faArrowUp'
 import 'intersection-observer'
+import tw from 'twin.macro'
 
 const Sentinel = styled.div`
-  position: absolute;
-  /* top: ${rhythm(4)}; */
-  left: 0;
+  ${tw`absolute left-0 top-8`}
 `
 
 const Button = styled.a<{ visible: boolean }>`
-  /* border-radius: ${rhythm(0.5)}; */
-  /* height: ${rhythm(1)}; */
-  /* min-width: ${rhythm(1)}; */
-  transition: 0.3s;
-  background-color: ${(props) => rgba(props.theme.blue, 0.75)};
-  position: fixed;
-  /* left: ${rhythm(0.5)}; */
-  /* bottom: ${rhythm(1)}; */
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: ${(props) => (props.visible ? 1 : 0)};
-  text-decoration: none;
+  ${tw`fixed left-4 bottom-4 rounded-full h-8 w-8 text-xl duration-100 bg-blue-500 opacity-75 text-white flex justify-center items-center cursor-pointer`}
 
   :hover {
-    background-color: ${(props) => rgba(props.theme.blue, 1)};
+    ${tw`opacity-100`}
   }
+
+  ${(props) => !props.visible && tw`opacity-0`}
 `
 
-export const Shortcut = () => {
+interface Props {
+  onVisibilityChange: (visibility: boolean) => void
+}
+
+export const Shortcut: FC<Props> = ({ onVisibilityChange }) => {
   const [visible, setVisible] = useState(false)
 
   const sentinel = useRef<HTMLDivElement | null>(null)
@@ -40,7 +32,10 @@ export const Shortcut = () => {
   useEffect(() => {
     const handleIntersect: IntersectionObserverCallback = ([
       { isIntersecting },
-    ]) => setVisible(!isIntersecting)
+    ]) => {
+      setVisible(!isIntersecting)
+      onVisibilityChange(!isIntersecting)
+    }
 
     const observer = new IntersectionObserver(handleIntersect)
     if (sentinel.current) {
@@ -53,7 +48,11 @@ export const Shortcut = () => {
   return (
     <>
       <Sentinel ref={sentinel} />
-      <Button visible={visible} href="#blog-title" title="回到顶部">
+      <Button
+        visible={visible}
+        onClick={() => (document.scrollingElement.scrollTop = 0)}
+        title="回到顶部"
+      >
         <FontAwesomeIcon icon={faArrowUp} />
       </Button>
     </>

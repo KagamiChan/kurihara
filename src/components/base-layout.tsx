@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useCallback } from 'react'
 import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
@@ -28,8 +28,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const HeaderWrap = styled.div`
-  ${tw`bg-white sticky top-0`}
+const HeaderWrap = styled.div<{ hasBackdrop: boolean }>`
+  ${tw`bg-white sticky top-0 z-10`}
+
+  ${(props) => props.hasBackdrop && tw`shadow-lg`}
 `
 
 const Header = styled.div`
@@ -78,28 +80,36 @@ const Navigation = withTranslation(['ui'])(({ t }) => (
   </Nav>
 ))
 
-export const BaseLayout: FC<{}> = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <I18nextProvider i18n={i18n}>
-      <div>
-        <GlobalStyle />
-        <SiteTitle />
-        <Helmet>
-          <meta name="description" content="明镜止水的个人日志" />
-          <meta name="keywords" content="明镜止水, HP, BLOG" />
-        </Helmet>
+export const BaseLayout: FC<{}> = ({ children }) => {
+  const [visible, setVisible] = useState(false)
 
-        <HeaderWrap>
-          <Header>
-            <H1 id="blog-title">
-              <H1Link to="/blog">明镜止水</H1Link>
-            </H1>
-            <Navigation />
-          </Header>
-        </HeaderWrap>
-        <Content>{children}</Content>
-        <Shortcut />
-      </div>
-    </I18nextProvider>
-  </ThemeProvider>
-)
+  const handleVisibilityChange = useCallback((visibility) => {
+    setVisible(visibility)
+  }, [])
+
+  return (
+    <ThemeProvider theme={theme}>
+      <I18nextProvider i18n={i18n}>
+        <div>
+          <GlobalStyle />
+          <SiteTitle />
+          <Helmet>
+            <meta name="description" content="明镜止水的个人日志" />
+            <meta name="keywords" content="明镜止水, HP, BLOG" />
+          </Helmet>
+
+          <HeaderWrap hasBackdrop={visible}>
+            <Header>
+              <H1 id="blog-title">
+                <H1Link to="/blog">明镜止水</H1Link>
+              </H1>
+              <Navigation />
+            </Header>
+          </HeaderWrap>
+          <Content>{children}</Content>
+          <Shortcut onVisibilityChange={handleVisibilityChange} />
+        </div>
+      </I18nextProvider>
+    </ThemeProvider>
+  )
+}

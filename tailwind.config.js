@@ -14,16 +14,18 @@ module.exports = {
     fontFamily: {
       serif: fontFamily,
     },
-    inset: {
-      8: '2rem',
-      16: '4rem',
-    },
-    minWidth: {
-      lg: '32rem',
-    },
-    zIndex: {
-      '-1': -1,
-      10: 10,
+    extend: {
+      inset: {
+        4: '1rem',
+        8: '2rem',
+        16: '4rem',
+      },
+      minWidth: {
+        lg: '32rem',
+      },
+      zIndex: {
+        '-1': -1,
+      },
     },
   },
 }

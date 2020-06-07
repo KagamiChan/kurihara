@@ -40,7 +40,7 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data }) => {
       <SiteTitle suffix={post?.frontmatter?.title} />
 
       <Article>
-        <Title>{post?.frontmatter?.title}</Title>
+        <Title id="post-title">{post?.frontmatter?.title}</Title>
         <Content>
           <Timestamp>
             {t('Posted')}{' '}
