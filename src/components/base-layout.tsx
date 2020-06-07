@@ -73,7 +73,7 @@ const NavItem = styled(Link)`
 
 const Content = styled.div`
   ${commonMargin}
-  ${tw`max-w-6xl`}
+  ${tw`max-w-6xl mt-4`}
 `
 
 const Navigation = withTranslation(['ui'])(({ t }) => (
