@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { rgba } from 'polished'
 import { Trans } from 'react-i18next'
 import tw from 'twin.macro'
 
