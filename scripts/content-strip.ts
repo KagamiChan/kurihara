@@ -1,4 +1,4 @@
-import replaceInFile from 'replace-in-file'
+import { replaceInFile } from 'replace-in-file'
 
 const files = process.argv.slice(2)
 
