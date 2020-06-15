@@ -46,7 +46,7 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "11.5.0",
     "react-typography": "^0.16.19",
-    "replace-in-file": "^6.0.0",
+    "replace-in-file": "^6.1.0",
     "styled-components": "^5.1.1",
     "tailwindcss": "^1.4.6",
     "twin.macro": "^1.4.1",
