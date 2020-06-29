@@ -19,7 +19,7 @@
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-lodash": "^3.3.6",
     "gatsby-plugin-netlify": "^2.3.7",
-    "gatsby-plugin-react-helmet": "^3.3.4",
+    "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-sharp": "^2.6.12",
     "gatsby-plugin-sitemap": "^2.4.5",
     "gatsby-plugin-styled-components": "^3.3.6",
