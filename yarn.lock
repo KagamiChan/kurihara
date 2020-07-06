@@ -2558,10 +2558,10 @@
   resolved "https://registry.yarnpkg.com/@types/get-port/-/get-port-3.2.0.tgz#f9e0a11443cc21336470185eae3dfba4495d29bc"
   integrity sha512-TiNg8R1kjDde5Pub9F9vCwZA/BNW9HeXP5b9j7Qucqncy/McfPZ6xze/EyBdXS5FhMIGN6Fx3vg75l5KHy3V1Q==
 
-"@types/gh-pages@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@types/gh-pages/-/gh-pages-2.2.0.tgz#d09aea23748022b8f6ce63deabe356c616323ece"
-  integrity sha512-0eNg5KwF/TUGipByYFKT676MEZrebe4HkwYUdqDU6itFoFFGqIr12qZr5s2sOqwvkN36vPr2zXuYYl/UVWGbKQ==
+"@types/gh-pages@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/gh-pages/-/gh-pages-3.0.0.tgz#375b0ddd43d2d2e696880c20bb43769fdaf88929"
+  integrity sha512-bWEiIqN0WSUQhUZXaaCVIRXdomjQCX9mCNLo6kGSML8VuiH5DXoiNOkXmxrJyrzMQmcV67JloDksM1I3WoVHhQ==
 
 "@types/glob@*", "@types/glob@^7.1.1":
   version "7.1.1"
