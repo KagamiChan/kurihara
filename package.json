@@ -49,7 +49,7 @@
     "replace-in-file": "^6.1.0",
     "styled-components": "^5.1.1",
     "tailwindcss": "^1.4.6",
-    "twin.macro": "^1.4.1",
+    "twin.macro": "^1.5.0",
     "word-count": "^0.2.2"
   },
   "keywords": [
