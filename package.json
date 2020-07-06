@@ -21,7 +21,7 @@
     "gatsby-plugin-netlify": "^2.3.7",
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-sharp": "^2.6.12",
-    "gatsby-plugin-sitemap": "^2.4.5",
+    "gatsby-plugin-sitemap": "^2.4.10",
     "gatsby-plugin-styled-components": "^3.3.6",
     "gatsby-plugin-typescript": "^2.4.8",
     "gatsby-remark-copy-linked-files": "^2.3.7",
