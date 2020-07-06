@@ -75,7 +75,7 @@
     "@babel/register": "^7.10.4",
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
-    "@types/babel__core": "^7.1.7",
+    "@types/babel__core": "^7.1.9",
     "@types/eslint": "^7.2.0",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/fs-extra": "^9.0.1",
