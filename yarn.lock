@@ -7733,10 +7733,10 @@ gatsby-plugin-lodash@^3.3.10:
     babel-plugin-lodash "^3.3.4"
     lodash-webpack-plugin "^0.11.5"
 
-gatsby-plugin-netlify@^2.3.11:
-  version "2.3.11"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.3.11.tgz#e8c791490a33aadbd7431a83f791caa5ecc01568"
-  integrity sha512-0YOVsqaGwoUwz7bg3wulWnZOkFt3+NUcFvSutWVmmGyp1AzD7ToTwUNPnz/Fai4kG0vb1ChHbMoPWikEvjZUuw==
+gatsby-plugin-netlify@^2.3.12:
+  version "2.3.12"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.3.12.tgz#9f9cdb844e9094eec8452b0c374caac5851f9aff"
+  integrity sha512-+HuOo9oomrNrVwIoQ2NozoGfT7P1smSbG1SIaQZmEVdB+AZal5E7FS73BMEO3P82F04+ra0nqzuxnIL/ZenJGA==
   dependencies:
     "@babel/runtime" "^7.10.3"
     fs-extra "^8.1.0"
@@ -13505,7 +13505,7 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.11, postcss@^7.0.18, postcss@^7.0.2
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-potrace@^2.1.6, potrace@^2.1.8:
+potrace@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/potrace/-/potrace-2.1.8.tgz#50f6fba92e1e39ddef6f979b0a0f841809e0acf2"
   integrity sha512-V9hI7UMJyEhNZjM8CbZaP/804ZRLgzWkCS9OOYnEZkszzj3zKR/erRdj0uFMcN3pp6x4B+AIZebmkQgGRinG/g==
