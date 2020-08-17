@@ -1,4 +1,4 @@
 module.exports = {
   '*.{js,jsx}': 'eslint',
-  '*.md': ['yarn strip', 'prettier --write', 'git add'],
+  '*.md': ['yarn strip', 'prettier --write'],
 }
