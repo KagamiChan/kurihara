@@ -76,7 +76,7 @@
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@types/babel__core": "^7.1.9",
-    "@types/eslint": "^7.2.0",
+    "@types/eslint": "^7.2.1",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/fs-extra": "^9.0.1",
     "@types/gh-pages": "^3.0.0",
