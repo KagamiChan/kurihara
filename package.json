@@ -47,7 +47,7 @@
     "react-i18next": "11.7.2",
     "react-typography": "^0.16.19",
     "replace-in-file": "^6.1.0",
-    "styled-components": "^5.1.1",
+    "styled-components": "^5.2.0",
     "tailwindcss": "^1.7.3",
     "twin.macro": "^1.8.1",
     "word-count": "^0.2.2"
