@@ -30,7 +30,7 @@
     "gatsby-source-filesystem": "^2.3.29",
     "gatsby-transformer-remark": "^2.8.34",
     "gatsby-transformer-sharp": "^2.5.14",
-    "gatsby-transformer-yaml": "^2.4.11",
+    "gatsby-transformer-yaml": "^2.4.12",
     "graphql": "^15.3.0",
     "gray-matter": "^4.0.2",
     "i18next": "^19.7.0",
