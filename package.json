@@ -118,7 +118,7 @@
     "serve": "^11.3.2",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.7",
-    "webpack": "^4.44.1"
+    "webpack": "^4.44.2"
   },
   "husky": {
     "hooks": {
