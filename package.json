@@ -22,7 +22,7 @@
     "gatsby-plugin-react-helmet": "^3.4.0",
     "gatsby-plugin-sharp": "^2.8.0",
     "gatsby-plugin-sitemap": "^2.6.0",
-    "gatsby-plugin-styled-components": "^3.4.0",
+    "gatsby-plugin-styled-components": "^3.5.0",
     "gatsby-plugin-typescript": "^2.6.0",
     "gatsby-remark-copy-linked-files": "^2.3.19",
     "gatsby-remark-images": "^3.4.1",
