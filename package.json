@@ -24,7 +24,7 @@
     "gatsby-plugin-sitemap": "^2.7.0",
     "gatsby-plugin-styled-components": "^3.5.0",
     "gatsby-plugin-typescript": "^2.7.0",
-    "gatsby-remark-copy-linked-files": "^2.5.0",
+    "gatsby-remark-copy-linked-files": "^2.6.0",
     "gatsby-remark-images": "^3.7.0",
     "gatsby-remark-prismjs": "^3.9.0",
     "gatsby-source-filesystem": "^2.7.0",
