@@ -2584,10 +2584,10 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
-"@types/prettier@^2.0.0", "@types/prettier@^2.1.5":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.1.5.tgz#b6ab3bba29e16b821d84e09ecfaded462b816b00"
-  integrity sha512-UEyp8LwZ4Dg30kVU2Q3amHHyTn1jEdhCIE59ANed76GaT1Vp76DD3ZWSAxgCrw6wJ0TqeoBpqmfUHiUDPs//HQ==
+"@types/prettier@^2.0.0", "@types/prettier@^2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.1.6.tgz#f4b1efa784e8db479cdb8b14403e2144b1e9ff03"
+  integrity sha512-6gOkRe7OIioWAXfnO/2lFiv+SJichKVSys1mSsgyrYHSEjk8Ctv4tSR/Odvnu+HWlH2C8j53dahU03XmQdd5fA==
 
 "@types/prismjs@^1.16.2":
   version "1.16.2"
@@ -8015,7 +8015,7 @@ gatsby-cli@^2.16.1:
     yoga-layout-prebuilt "^1.9.6"
     yurnalist "^1.1.2"
 
-gatsby-core-utils@^1.6.0, gatsby-core-utils@^1.7.0:
+gatsby-core-utils@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.7.0.tgz#fb5b5181136b48b859b57e3a2adc84852e79b0ec"
   integrity sha512-DYYkmlgpfkQBuc/vWEkSmp1xh7LGI00HA0AzH2U8AblrqAff3JBezeS3v8thkeuOm7FhlwkZGPNza+PIHYcwKA==
