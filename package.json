@@ -15,7 +15,7 @@
     "gatsby": "^2.31.1",
     "gatsby-link": "^2.9.0",
     "gatsby-plugin-feed": "^2.12.0",
-    "gatsby-plugin-google-analytics": "^2.10.0",
+    "gatsby-plugin-google-analytics": "^2.11.0",
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-lodash": "^3.9.0",
     "gatsby-plugin-netlify": "^2.10.0",
