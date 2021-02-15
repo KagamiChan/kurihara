@@ -2,11 +2,10 @@ import React, { FC, useState, useCallback } from 'react'
 import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { I18nextProvider, withTranslation } from 'react-i18next'
+import { I18nextProvider, useTranslation } from 'react-i18next'
 import tw, { GlobalStyles } from 'twin.macro'
 import i18n from '../i18n'
 
-import '../lib/typekit'
 import { SiteTitle } from './site-title'
 import { Shortcut } from './shortcut'
 import { commonMargin } from './common'
@@ -16,9 +15,6 @@ import blogLogo from '../assets/blog-logo.png'
 import 'prismjs/themes/prism.css'
 
 const GlobalStyle = createGlobalStyle`
-  @import url(//fonts.googleapis.com/css?family=Open+Sans:300);
-  @import url(//fonts.googleapis.com/earlyaccess/notosansscsliced.css);
-
   * {
     :focus {
       outline-style: dashed;
@@ -76,13 +72,16 @@ const Content = styled.div`
   ${tw`max-w-6xl mt-4`}
 `
 
-const Navigation = withTranslation(['ui'])(({ t }) => (
-  <Nav>
-    <NavItem to="/archieves">{t('Archives')}</NavItem>
-    <NavItem to="./">{t('List')}</NavItem>
-    <NavItem to="/about">{t('About')}</NavItem>
-  </Nav>
-))
+const Navigation = () => {
+  const { t } = useTranslation(['ui'])
+  return (
+    <Nav>
+      <NavItem to="/archieves">{t('Archives')}</NavItem>
+      <NavItem to="./">{t('List')}</NavItem>
+      <NavItem to="/about">{t('About')}</NavItem>
+    </Nav>
+  )
+}
 
 export const BaseLayout: FC<{}> = ({ children }) => {
   const [visible, setVisible] = useState(false)
@@ -101,6 +100,11 @@ export const BaseLayout: FC<{}> = ({ children }) => {
           <Helmet>
             <meta name="description" content="明镜止水的个人日志" />
             <meta name="keywords" content="明镜止水, HP, BLOG" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"
+              rel="stylesheet"
+            />
           </Helmet>
 
           <HeaderWrap hasBackdrop={visible}>

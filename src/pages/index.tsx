@@ -13,7 +13,6 @@ import loadable from '@loadable/component'
 
 import { theme } from '../utils/style'
 import i18n from '../i18n'
-import '../lib/typekit'
 
 const LanguageSwitch = loadable(() => import('../components/language-switch'), {
   ssr: false,
@@ -144,6 +143,11 @@ const PageContent: FunctionComponent<{}> = () => {
       <Wrapper>
         <Helmet>
           <title>明镜止水::春擬き</title>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"
+            rel="stylesheet"
+          />
         </Helmet>
         <Title id="site-title" title="明镜止水">
           明镜止水

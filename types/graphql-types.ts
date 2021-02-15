@@ -1425,7 +1425,7 @@ export type ImageSharpGatsbyImageDataArgs = {
   webpOptions?: Maybe<WebPOptions>;
   avifOptions?: Maybe<AvifOptions>;
   transformOptions?: Maybe<TransformOptions>;
-  background?: Maybe<Scalars['String']>;
+  backgroundColor?: Maybe<Scalars['String']>;
 };
 
 
@@ -3140,8 +3140,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___plugins___pluginFilepath' |
   'pluginCreator___pluginOptions___name' |
   'pluginCreator___pluginOptions___path' |
-  'pluginCreator___pluginOptions___codegen' |
-  'pluginCreator___pluginOptions___documentPaths' |
   'pluginCreator___pluginOptions___isTSX' |
   'pluginCreator___pluginOptions___jsxPragma' |
   'pluginCreator___pluginOptions___allExtensions' |
@@ -3163,6 +3161,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___failOnError' |
   'pluginCreator___pluginOptions___displayName' |
   'pluginCreator___pluginOptions___minify' |
+  'pluginCreator___pluginOptions___namespace' |
   'pluginCreator___pluginOptions___transpileTemplateLiterals' |
   'pluginCreator___pluginOptions___pure' |
   'pluginCreator___pluginOptions___trackingId' |
@@ -3178,6 +3177,8 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___feeds___output' |
   'pluginCreator___pluginOptions___feeds___title' |
   'pluginCreator___pluginOptions___pathCheck' |
+  'pluginCreator___pluginOptions___codegen' |
+  'pluginCreator___pluginOptions___documentPaths' |
   'pluginCreator___nodeAPIs' |
   'pluginCreator___browserAPIs' |
   'pluginCreator___ssrAPIs' |
@@ -3387,8 +3388,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___pluginFilepath' |
   'pluginOptions___name' |
   'pluginOptions___path' |
-  'pluginOptions___codegen' |
-  'pluginOptions___documentPaths' |
   'pluginOptions___isTSX' |
   'pluginOptions___jsxPragma' |
   'pluginOptions___allExtensions' |
@@ -3410,6 +3409,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___failOnError' |
   'pluginOptions___displayName' |
   'pluginOptions___minify' |
+  'pluginOptions___namespace' |
   'pluginOptions___transpileTemplateLiterals' |
   'pluginOptions___pure' |
   'pluginOptions___trackingId' |
@@ -3425,6 +3425,8 @@ export type SitePluginFieldsEnum =
   'pluginOptions___feeds___output' |
   'pluginOptions___feeds___title' |
   'pluginOptions___pathCheck' |
+  'pluginOptions___codegen' |
+  'pluginOptions___documentPaths' |
   'nodeAPIs' |
   'browserAPIs' |
   'ssrAPIs' |
@@ -3543,8 +3545,6 @@ export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
-  codegen?: Maybe<Scalars['Boolean']>;
-  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
@@ -3566,6 +3566,7 @@ export type SitePluginPluginOptions = {
   failOnError?: Maybe<Scalars['Boolean']>;
   displayName?: Maybe<Scalars['Boolean']>;
   minify?: Maybe<Scalars['Boolean']>;
+  namespace?: Maybe<Scalars['String']>;
   transpileTemplateLiterals?: Maybe<Scalars['Boolean']>;
   pure?: Maybe<Scalars['Boolean']>;
   trackingId?: Maybe<Scalars['String']>;
@@ -3578,6 +3579,8 @@ export type SitePluginPluginOptions = {
   query?: Maybe<Scalars['String']>;
   feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
+  codegen?: Maybe<Scalars['Boolean']>;
+  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsFeeds = {
@@ -3600,8 +3603,6 @@ export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
-  codegen?: Maybe<BooleanQueryOperatorInput>;
-  documentPaths?: Maybe<StringQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
   jsxPragma?: Maybe<StringQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
@@ -3623,6 +3624,7 @@ export type SitePluginPluginOptionsFilterInput = {
   failOnError?: Maybe<BooleanQueryOperatorInput>;
   displayName?: Maybe<BooleanQueryOperatorInput>;
   minify?: Maybe<BooleanQueryOperatorInput>;
+  namespace?: Maybe<StringQueryOperatorInput>;
   transpileTemplateLiterals?: Maybe<BooleanQueryOperatorInput>;
   pure?: Maybe<BooleanQueryOperatorInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
@@ -3635,6 +3637,8 @@ export type SitePluginPluginOptionsFilterInput = {
   query?: Maybe<StringQueryOperatorInput>;
   feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
+  codegen?: Maybe<BooleanQueryOperatorInput>;
+  documentPaths?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPlugins = {

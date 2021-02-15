@@ -3,8 +3,7 @@
 const colors = require('tailwindcss/colors')
 
 const fontFamily = [
-  'source-han-serif-sc',
-  'Source Han Serif SC',
+  'Noto Serif SC',
   'Times',
   'Times New Roman',
   'STSong',
