@@ -8,11 +8,12 @@ import { rgba } from 'polished'
 import { map, debounce, times } from 'lodash'
 import { Helmet } from 'react-helmet'
 import { I18nextProvider, useTranslation } from 'react-i18next'
-import tw from 'twin.macro'
+import tw, { GlobalStyles } from 'twin.macro'
 import loadable from '@loadable/component'
 
 import { theme } from '../utils/style'
 import i18n from '../i18n'
+import '../lib/typekit'
 
 const LanguageSwitch = loadable(() => import('../components/language-switch'), {
   ssr: false,
@@ -147,6 +148,7 @@ const PageContent: FunctionComponent<{}> = () => {
         <Title id="site-title" title="明镜止水">
           明镜止水
         </Title>
+        <GlobalStyles />
         <GlobalStyle />
         <nav>
           <List>

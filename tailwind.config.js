@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const colors = require('tailwindcss/colors')
+
 const fontFamily = [
   'source-han-serif-sc',
   'Source Han Serif SC',
@@ -13,6 +17,13 @@ module.exports = {
   theme: {
     fontFamily: {
       serif: fontFamily,
+    },
+    colors: {
+      orange: colors.orange,
+      blue: colors.lightBlue,
+      gray: colors.coolGray,
+      white: colors.white,
+      green: colors.green,
     },
     extend: {
       inset: {

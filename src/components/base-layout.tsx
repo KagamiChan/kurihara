@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { I18nextProvider, withTranslation } from 'react-i18next'
-import tw from 'twin.macro'
+import tw, { GlobalStyles } from 'twin.macro'
 import i18n from '../i18n'
 
 import '../lib/typekit'
@@ -95,6 +95,7 @@ export const BaseLayout: FC<{}> = ({ children }) => {
     <ThemeProvider theme={theme}>
       <I18nextProvider i18n={i18n}>
         <div>
+          <GlobalStyles />
           <GlobalStyle />
           <SiteTitle />
           <Helmet>

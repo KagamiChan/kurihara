@@ -48,8 +48,8 @@
     "react-typography": "^0.16.19",
     "replace-in-file": "^6.2.0",
     "styled-components": "^5.2.1",
-    "tailwindcss": "^1.8.13",
-    "twin.macro": "^1.12.1",
+    "tailwindcss": "^2.0.3",
+    "twin.macro": "^2.2.3",
     "word-count": "^0.2.2"
   },
   "keywords": [
