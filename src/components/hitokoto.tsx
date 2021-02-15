@@ -9,14 +9,20 @@ import tw from 'twin.macro'
 import { FooterWrapper } from './common'
 import { HitokotoQuery } from '../../types/graphql-types'
 
-const Wrapper = styled(FooterWrapper)``
+const Wrapper = styled(FooterWrapper)`
+  ${tw`flex justify-center mt-32 mb-8`}
+`
+
+const Container = styled.div`
+  ${tw`bg-gray-100 p-4 text-sm`}
+`
 
 const Content = styled.div`
   ${tw`whitespace-pre-wrap`}
 `
 
 const Footer = styled.div`
-  ${tw`text-right`}
+  ${tw`text-right ml-16`}
 `
 
 const Source = styled.span``
@@ -44,15 +50,17 @@ export const Hitokoto: FunctionComponent<{}> = () => {
   const entry = get(data, ['allHitokotoYaml', 'edges', index, 'node'])
   return (
     <Wrapper>
-      <Content>{entry.content}</Content>
-      <Footer>
-        —— {entry?.author?.join(' / ')} - <Source>{entry.source}</Source>{' '}
-        {entry.link && (
-          <a href={entry.link} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faExternalLinkAlt} />
-          </a>
-        )}
-      </Footer>
+      <Container>
+        <Content>{entry.content}</Content>
+        <Footer>
+          —— {entry?.author?.join(' / ')} - <Source>{entry.source}</Source>{' '}
+          {entry.link && (
+            <a href={entry.link} target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faExternalLinkAlt} />
+            </a>
+          )}
+        </Footer>
+      </Container>
     </Wrapper>
   )
 }

@@ -61,7 +61,6 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data }) => {
           <div dangerouslySetInnerHTML={{ __html: post?.html || '' }} />
         </Content>
       </Article>
-      <hr />
       <Hitokoto />
       <Meta />
     </BaseLayout>
