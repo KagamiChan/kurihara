@@ -119,11 +119,5 @@
     "ts-node": "^9.1.1",
     "typescript": "^3.9.9",
     "webpack": "^5.21.2"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
   }
 }
