@@ -8012,7 +8012,7 @@ gatsby-cli@^2.19.1:
     yoga-layout-prebuilt "^1.9.6"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^1.10.0, gatsby-core-utils@^1.9.0:
+gatsby-core-utils@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.10.0.tgz#7df5bc7b7e810c71602d5ec18a925e8a7890fb45"
   integrity sha512-uI5gJXmVHegn8E/vttoX0BaXRJPC73RzxuZDtl2U5WBEgeg+VVkKCmNVQE9Xk+Qstm2Wd6RU+QJ4LMx5ywYZhQ==
@@ -14459,10 +14459,10 @@ react-hot-loader@^4.12.21:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-i18next@11.8.5:
-  version "11.8.5"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.8.5.tgz#a093335822e36252cda6efc0f55facef6253643f"
-  integrity sha512-2jY/8NkhNv2KWBnZuhHxTn13aMxAbvhiDUNskm+1xVVnrPId78l8fA7fCyVeO3XU1kptM0t4MtvxV1Nu08cjLw==
+react-i18next@11.8.7:
+  version "11.8.7"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.8.7.tgz#845f31e01e2aa92a3954c374ebcc4bd54df1cace"
+  integrity sha512-IDK/a73cJN4J2C6yTqmDS/r8iikwKaN283hltqps8UiRaFVTvlSxE85HkamEFD6lULG4hFZExecXJ/hA27DW3Q==
   dependencies:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
