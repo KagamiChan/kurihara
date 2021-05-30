@@ -14,20 +14,18 @@ interface Props {
 
 const PageTemplate: FunctionComponent<Props> = ({
   data: { markdownRemark: post },
-}) => {
-  return (
-    <BaseLayout>
-      <Article>
-        <Title>{post?.frontmatter?.title}</Title>
-        <Content>
-          <div dangerouslySetInnerHTML={{ __html: post?.html || '' }} />
-        </Content>
-      </Article>
-      <hr />
-      <Meta />
-    </BaseLayout>
-  )
-}
+}) => (
+  <BaseLayout>
+    <Article>
+      <Title>{post?.frontmatter?.title}</Title>
+      <Content>
+        <div dangerouslySetInnerHTML={{ __html: post?.html || '' }} />
+      </Content>
+    </Article>
+    <hr />
+    <Meta />
+  </BaseLayout>
+)
 
 export default PageTemplate
 

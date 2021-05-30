@@ -78,19 +78,17 @@ interface Props {
 
 const BlogPaginated: FunctionComponent<Props> = ({
   pageContext: { items, page, pages },
-}) => {
-  return (
-    <BaseLayout>
-      <div>
-        {map(items, (p) => (
-          <PostItem key={p.node.id} post={p} />
-        ))}
-      </div>
-      <Paginator pages={pages} page={page} neighbour={3} />
-      <hr />
-      <Meta />
-    </BaseLayout>
-  )
-}
+}) => (
+  <BaseLayout>
+    <div>
+      {map(items, (p) => (
+        <PostItem key={p.node.id} post={p} />
+      ))}
+    </div>
+    <Paginator pages={pages} page={page} neighbour={3} />
+    <hr />
+    <Meta />
+  </BaseLayout>
+)
 
 export default BlogPaginated

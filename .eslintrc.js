@@ -1,4 +1,4 @@
-//@ts-check
+// @ts-check
 
 /** @type { import("@types/eslint").Linter.Config } */
 module.exports = {
@@ -13,8 +13,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
     'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react',
   ],
   parser: '@typescript-eslint/parser',
   plugins: ['import', 'react', 'prettier', '@typescript-eslint'],
