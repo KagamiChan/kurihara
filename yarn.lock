@@ -2839,10 +2839,10 @@
   resolved "https://registry.yarnpkg.com/@types/typography-breakpoint-constants/-/typography-breakpoint-constants-0.16.0.tgz#799e8c0cf1a0e94e70779f593eb8a38029a2f6a9"
   integrity sha512-2yeLWbpMBCDnAqPam1E0gJWZJBENF1fGXeAVod6Y1dNe3FNdxWn0U8AChby+dB3CJjKzUv00tn28X0Q2z4PMBQ==
 
-"@types/typography@^0.16.3":
-  version "0.16.3"
-  resolved "https://registry.yarnpkg.com/@types/typography/-/typography-0.16.3.tgz#a237ed8b6ffa5d647491d4e681f2f37a87bfbd65"
-  integrity sha512-LC+htrmoMhmFfFYjshxeHzZsKnpwVo9oMmdelRhqISG+ataFPscxnq8XEuCGWcNXQXZYfmIKjgmo1eJ/vs1BQw==
+"@types/typography@^0.16.4":
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/@types/typography/-/typography-0.16.4.tgz#ef7e46c6143c869ea78368605e663b3be0a99046"
+  integrity sha512-/dGcnJhnkPVlP1A5wDhRhvfvyqJ9yePHyNKRjcR701vMGjDsTnIN3C+l33blkwijtEoQgN8g1CZhbkks1DyBfw==
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2", "@types/unist@^2.0.3":
   version "2.0.3"
