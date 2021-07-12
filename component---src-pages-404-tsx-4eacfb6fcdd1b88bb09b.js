@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{"i6+/":function(e,n,a){"use strict";a.r(n);var t=a("q1tI"),l=a.n(t),u=a("m/mZ"),c=a("5ns1"),r=a("P59E");n.default=function(){return l.a.createElement(c.a,null,l.a.createElement(u.a,{suffix:"博丽大结界"}),l.a.createElement("div",null,"你来到了结界的边缘，只看到一片空白"),l.a.createElement(r.a,null))}}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-4eacfb6fcdd1b88bb09b.js.map
