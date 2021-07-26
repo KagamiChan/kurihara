@@ -33,7 +33,7 @@
     "gatsby-transformer-yaml": "^2.11.0",
     "graphql": "^15.5.1",
     "gray-matter": "^4.0.3",
-    "i18next": "^20.3.3",
+    "i18next": "^20.3.5",
     "i18next-browser-languagedetector": "^6.1.2",
     "i18next-xhr-backend": "^3.2.2",
     "intersection-observer": "^0.12.0",
