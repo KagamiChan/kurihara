@@ -7,49 +7,55 @@ on:
 
 jobs:
   build_and_test:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Use latest node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
+      - name: Use latest node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
 
-    - name: Installing puppeteer dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libgbm1
+      - name: Installing puppeteer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgbm1
 
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
-    - uses: actions/cache@v2
-      id: yarn-cache
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-v1
+      - uses: actions/cache@v2
+        name: Caching Node.js dependencies
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-v1
 
-    - name: Yarn install
-      run: yarn install --frozen-lockfile
+      - uses: actions/cache@v2
+        name: Caching Gatsby
+        with:
+          path: .cache
+          key: ${{ runner.os }}-gatsby-cache
 
-    - name: Lint
-      run: yarn lint
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
 
-    - name: Build
-      run: yarn build
+      - name: Lint
+        run: yarn lint
 
-    - name: Test
-      run: yarn test
+      - name: Build
+        run: yarn build
 
-    - name: Deploying master branch
-      if: github.ref == 'refs/heads/master'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        yarn deploy
+      - name: Test
+        run: yarn test
+
+      - name: Deploying master branch
+        if: github.ref == 'refs/heads/master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          yarn deploy
