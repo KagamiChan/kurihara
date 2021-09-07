@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-var-requires, import/no-extraneous-dependencies */
 
 require('@babel/register')({
   presets: [
@@ -8,11 +8,18 @@ require('@babel/register')({
   extensions: ['.js', '.ts', '.tsx'],
 })
 
-const { createPages, onCreateNode } = require('./gatsby/node')
+const {
+  createPages,
+  onCreateNode,
+  onCreateWebpackConfig,
+  onCreateBabelConfig,
+} = require('./gatsby/node')
 
 const node = {
   createPages,
   onCreateNode,
+  onCreateWebpackConfig,
+  onCreateBabelConfig,
 }
 
 module.exports = node

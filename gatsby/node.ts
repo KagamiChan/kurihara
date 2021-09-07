@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { each, first, compact, split, chunk, filter } from 'lodash'
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
@@ -147,4 +148,15 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
       plugins: [plugins.provide({ process: 'process/browser' })],
     })
   }
+}
+
+export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({
+  actions,
+}) => {
+  actions.setBabelPreset({
+    name: 'babel-preset-gatsby',
+    options: {
+      reactRuntime: 'automatic',
+    },
+  })
 }
