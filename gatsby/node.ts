@@ -94,7 +94,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   each(
     chunk(
-      filter(posts, p => p?.node?.fields?.type === 'blog'),
+      filter(posts, (p) => p?.node?.fields?.type === 'blog'),
       ITEM_PER_PAGE,
     ),
     (slice, index, slices) => {
@@ -135,4 +135,16 @@ export const createPages: GatsbyNode['createPages'] = async ({
   })
 
   return Promise.resolve()
+}
+
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+  actions,
+  stage,
+  plugins,
+}) => {
+  if (stage === 'build-javascript' || stage === 'develop') {
+    actions.setWebpackConfig({
+      plugins: [plugins.provide({ process: 'process/browser' })],
+    })
+  }
 }
