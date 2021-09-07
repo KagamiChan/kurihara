@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { format } from 'date-fns'

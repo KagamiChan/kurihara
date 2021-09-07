@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 
-import React, { FunctionComponent } from 'react'
+import { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 
 import { Article, Content, Title } from '../components/common'

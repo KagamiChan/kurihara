@@ -39,6 +39,8 @@ module.exports = {
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'no-shadow': 'off',
   },
   globals: {
     graphql: true,

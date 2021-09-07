@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import { FunctionComponent } from 'react'
 import Link from 'gatsby-link'
 import { map, range } from 'lodash'
 import PropTypes from 'prop-types'

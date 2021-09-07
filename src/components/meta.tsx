@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 import { Trans } from 'react-i18next'
 import tw from 'twin.macro'
@@ -17,7 +17,7 @@ const LanguageSwitch = loadable(() => import('./language-switch'), {
 const nowYear = new Date().getFullYear()
 
 /* eslint-disable prettier/prettier */
-export const Meta: FC<{}> = () => (
+export const Meta: FC<Record<string, never>> = () => (
   <Wrapper>
       <LanguageSwitch />
     <div>

@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback } from 'react'
+import { FC, useState, useCallback, PropsWithChildren } from 'react'
 import Link from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
@@ -83,7 +83,7 @@ const Navigation = () => {
   )
 }
 
-export const BaseLayout: FC<{}> = ({ children }) => {
+export const BaseLayout: FC<PropsWithChildren<any>> = ({ children }) => {
   const [visible, setVisible] = useState(false)
 
   const handleVisibilityChange = useCallback((visibility) => {

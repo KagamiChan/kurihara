@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 
-import React, { FunctionComponent } from 'react'
+import { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { format } from 'date-fns'

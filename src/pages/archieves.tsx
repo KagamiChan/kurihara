@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, MouseEventHandler } from 'react'
+import { FC, useState, useEffect, MouseEventHandler, memo } from 'react'
 import { graphql } from 'gatsby'
 import { map, max, min, range, groupBy, entries, uniq, isEqual } from 'lodash'
 import fp from 'lodash/fp'
@@ -118,7 +118,7 @@ const DaysMatrix: FC<DaysMatrixProps> = ({
   )
 }
 
-const MemoDaysMatrix = React.memo(DaysMatrix, isEqual)
+const MemoDaysMatrix = memo(DaysMatrix, isEqual)
 
 interface Props {
   data: ArchiveQuery

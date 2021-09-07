@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useRef, useCallback, useEffect } from 'react'
+import { FunctionComponent, useRef, useCallback, useEffect } from 'react'
 import styled, {
   createGlobalStyle,
   css,
@@ -136,7 +136,7 @@ const links = [
   },
 ]
 
-const PageContent: FunctionComponent<{}> = () => {
+const PageContent: FunctionComponent<Record<string, never>> = () => {
   const { t } = useTranslation(['ui'])
   return (
     <>
@@ -173,7 +173,7 @@ const PageContent: FunctionComponent<{}> = () => {
   )
 }
 
-const Index: FunctionComponent<{}> = () => {
+const Index: FunctionComponent<Record<string, never>> = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   const drawCanvas = useCallback(

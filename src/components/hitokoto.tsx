@@ -1,4 +1,4 @@
-import React, { useMemo, FunctionComponent } from 'react'
+import { useMemo, FunctionComponent } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { get, size } from 'lodash'
 import styled from 'styled-components'
@@ -27,7 +27,7 @@ const Footer = styled.div`
 
 const Source = styled.span``
 
-export const Hitokoto: FunctionComponent<{}> = () => {
+export const Hitokoto: FunctionComponent<Record<string, never>> = () => {
   const order = useMemo(() => Math.random(), [])
 
   const data = useStaticQuery<HitokotoQuery>(graphql`

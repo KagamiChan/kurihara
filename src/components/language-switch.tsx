@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { map } from 'lodash'
@@ -39,7 +39,7 @@ const Switch = withKeyboardA11y(styled.div<{ active: boolean }>`
 
 const LangugeIndicator = styled.div``
 
-const LanguageSwitch: FC<{}> = () => {
+const LanguageSwitch: FC<Record<string, never>> = () => {
   const { i18n } = useTranslation()
 
   const currentLanguage = useMemo(() => i18n.language, [i18n.language])

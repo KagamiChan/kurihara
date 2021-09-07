@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, FC } from 'react'
+import { useRef, useState, useEffect, FC } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons/faArrowUp'
@@ -50,7 +50,7 @@ export const Shortcut: FC<Props> = ({ onVisibilityChange }) => {
       <Button
         visible={visible}
         onClick={() => {
-          document.scrollingElement.scrollTop = 0
+          document.scrollingElement!.scrollTop = 0
         }}
         title="回到顶部"
       >

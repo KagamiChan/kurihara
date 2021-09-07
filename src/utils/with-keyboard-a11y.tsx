@@ -1,4 +1,4 @@
-import React, { ComponentType, useCallback, FC } from 'react'
+import { ComponentType, useCallback, FC } from 'react'
 import _ from 'lodash'
 
 export const withKeyboardA11y = (Wrapped: ComponentType) => {
