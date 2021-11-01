@@ -14711,10 +14711,10 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
-twin.macro@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/twin.macro/-/twin.macro-2.7.0.tgz#2107e79339e24041de1f72e0f045ae321041f007"
-  integrity sha512-7RictvVsITP3Odm7zd5EcZ3i8+deBuDCZBAwnm/H5MSixaKESjvEFQaHA/T8nkHb6vKcp/2f/6+txRzXLj//gg==
+twin.macro@^2.8.1:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/twin.macro/-/twin.macro-2.8.1.tgz#674c75a47b0416b9d129681b2676f20507c4697b"
+  integrity sha512-rsAc9Ll+9JER5xwbHxtJp3VQghlw18WzNi0lDyKBtLcvpreqRBtPjQjvP3NRey0tYkYF0GgoDWZoQtlkGcUKPw==
   dependencies:
     "@babel/parser" "^7.12.5"
     "@babel/template" "^7.14.5"
