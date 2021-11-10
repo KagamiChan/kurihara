@@ -10,7 +10,7 @@ import { SiteTitle } from './site-title'
 import { Shortcut } from './shortcut'
 import { commonMargin } from './common'
 import { theme } from '../utils/style'
-import blogLogo from '../assets/blog-logo.png'
+import { SiteLogo } from './site-logo'
 
 import 'prismjs/themes/prism.css'
 
@@ -46,9 +46,7 @@ const H1 = styled.h1`
 `
 
 const H1Link = styled(Link)`
-  background: url(${blogLogo});
-  ${tw`bg-no-repeat bg-contain overflow-hidden w-32 h-16 block`}
-  text-indent: -999px;
+  ${tw`bg-no-repeat bg-contain overflow-hidden w-32 h-16 block text-blue-500 flex items-center justify-center`}
 `
 
 const Nav = styled.nav`
@@ -110,7 +108,9 @@ export const BaseLayout: FC<PropsWithChildren<any>> = ({ children }) => {
           <HeaderWrap hasBackdrop={visible}>
             <Header>
               <H1 id="blog-title">
-                <H1Link to="/blog">明镜止水</H1Link>
+                <H1Link to="/blog">
+                  <SiteLogo role="img" aria-label="少年读书隙中窥月" />
+                </H1Link>
               </H1>
               <Navigation />
             </Header>
