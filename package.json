@@ -67,7 +67,9 @@
     "test": "jest",
     "lint": "eslint src/**/*.{js,ts,tsx}",
     "strip": "ts-node --project tsconfig.cli.json scripts/content-strip.ts",
-    "draft": "ts-node --project tsconfig.cli.json scripts/draft.ts"
+    "draft": "ts-node --project tsconfig.cli.json scripts/draft.ts",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -76,6 +78,10 @@
     "@babel/register": "^7.16.7",
     "@commitlint/cli": "^16.0.1",
     "@commitlint/config-conventional": "^16.0.0",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/react": "^6.4.9",
     "@types/babel__core": "^7.1.18",
     "@types/eslint": "^8.2.2",
     "@types/eslint-plugin-prettier": "^3.1.0",
@@ -97,6 +103,7 @@
     "@types/typography-breakpoint-constants": "^0.16.0",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
+    "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^2.0.2",
     "babel-preset-gatsby": "^2.4.0",
     "cross-env": "^7.0.3",
