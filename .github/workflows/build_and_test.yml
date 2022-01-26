@@ -31,15 +31,17 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-v2-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-v1
+            ${{ runner.os }}-yarn-v2
 
       - uses: actions/cache@v2
         name: Caching Gatsby
         with:
           path: .cache
-          key: ${{ runner.os }}-gatsby-cache
+          key: ${{ runner.os }}-gatsby-cache-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-cache
 
       - name: Yarn install
         run: yarn install --frozen-lockfile
