@@ -6264,6 +6264,21 @@ chokidar@^3.4.1, chokidar@^3.4.2, chokidar@^3.5.2:
   optionalDependencies:
     fsevents "~2.3.2"
 
+chokidar@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
+  integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
+  dependencies:
+    anymatch "~3.1.2"
+    braces "~3.0.2"
+    glob-parent "~5.1.2"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.6.0"
+  optionalDependencies:
+    fsevents "~2.3.2"
+
 chownr@^1.1.1:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
@@ -9325,7 +9340,7 @@ gatsby-cli@^4.6.0:
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^3.6.0:
+gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.6.0.tgz#0e2f951e2c53731bdb459eb118eb3815a90a9393"
   integrity sha512-xmjtOWQfLinNbgBiDRT1KpEfDZm0Z0u6+hsf8EH8Ps5UCIhKinGrdtK+QH+RzPGCV1PUg/E/pnLVqQLCvD+tmA==
@@ -10840,10 +10855,10 @@ i18next-xhr-backend@^3.2.2:
   dependencies:
     "@babel/runtime" "^7.5.5"
 
-i18next@^21.6.9:
-  version "21.6.9"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.6.9.tgz#854bbcf8a3f47e4af9a5a92e0df6a546f4370841"
-  integrity sha512-oS82WMEwBFLGzq18RGwm7XRkRUMngXr92LqOjC1Z1txfueotPBPcN2bU2GWC3010fgjdhsQMFqrEqEf8a+R/oQ==
+i18next@^21.6.10:
+  version "21.6.10"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.6.10.tgz#aa503831d42213ae2f05eaede29ca07c2d6fbb6f"
+  integrity sha512-Xw+tEGQ61BF6SXtBlFffhM/YhJKHZf2cyDrcNK/l2dE6yVbkPkSasC3VhkAsHXX30vUJ0yG04WIUtf7UvwjOxg==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
@@ -12505,10 +12520,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@^12.3.1:
-  version "12.3.1"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-12.3.1.tgz#d475b0c0d0a12d91dde58a429ac6268dea485f06"
-  integrity sha512-Ocht/eT+4/siWOZDJpNUKcKX2UeWW/pDbohJ4gRsrafAjBi79JK8kiNVk2ciIVNKdw0Q4ABptl2nr6uQAlRImw==
+lint-staged@^12.3.2:
+  version "12.3.2"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-12.3.2.tgz#c87fe59dca475b7d1cb56863c5faa03c145e1446"
+  integrity sha512-gtw4Cbj01SuVSfAOXC6ivd/7VKHTj51yj5xV8TgktFmYNMsZzXuSd5/brqJEA93v63wL7R6iDlunMANOechC0A==
   dependencies:
     cli-truncate "^3.1.0"
     colorette "^2.0.16"
@@ -15613,14 +15628,14 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@^18.0.0-rc.0:
-  version "18.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.0.0-rc.0.tgz#aa07044bdd6399ff94c664b2985e2e25948fbf3e"
-  integrity sha512-tdD1n0svTndHBQvVAq/f2Kx7FgQ30CpSLp87/neQKAHPW5WtdgW1sBSwmFAcMQOrmstTuP0M+zRlH86f9kMX/A==
+react-dom@^17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
+  integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    scheduler "^0.21.0-rc.0"
+    scheduler "^0.20.2"
 
 react-draggable@^4.4.3:
   version "4.4.4"
@@ -15785,10 +15800,10 @@ react-typography@^0.16.20:
   resolved "https://registry.yarnpkg.com/react-typography/-/react-typography-0.16.20.tgz#6861fef52ab3156eda334cbe110fb66646340f57"
   integrity sha512-xRDlR5mYA/NI2WAc/DPvmODWK5UvY6LsjzPEeiT5X1yXUDpqFAFnWi/m5atrAtaIOeZqT982DQM+Cy8Io+jVFg==
 
-react@^18.0.0-rc.0:
-  version "18.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.0.0-rc.0.tgz#60bfcf1edd0b35fbeeeca852515c6cc2ce06a6eb"
-  integrity sha512-PawosMBgF8k5Nlc3++ibzjFqPvo1XKv80MNtVYqz3abHHB2w3IpU65sSdSmBd2ooCwVhcp9b1vkx/twqhakNtA==
+react@^17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
+  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -16444,14 +16459,7 @@ rxjs@^6.5.3:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^7.1.0:
-  version "7.5.1"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.5.1.tgz#af73df343cbcab37628197f43ea0c8256f54b157"
-  integrity sha512-KExVEeZWxMZnZhUZtsJcFwz8IvPvgu4G2Z2QyqjZQzUGr32KDYuSxrEYO4w3tFFNbfLozcrKUTvTPi+E9ywJkQ==
-  dependencies:
-    tslib "^2.1.0"
-
-rxjs@^7.5.2:
+rxjs@^7.1.0, rxjs@^7.5.2:
   version "7.5.2"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.5.2.tgz#11e4a3a1dfad85dbf7fb6e33cbba17668497490b"
   integrity sha512-PwDt186XaL3QN5qXj/H9DGyHhP3/RYYgZZwqBv9Tv8rsAaiwFH1IsJJlcgD37J7UW5a6O67qX0KWKS3/pu0m4w==
@@ -16522,10 +16530,10 @@ saxes@^5.0.1:
   dependencies:
     xmlchars "^2.2.0"
 
-scheduler@^0.21.0-rc.0:
-  version "0.21.0-rc.0-next-fe419346d-20220105"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.21.0-rc.0-next-fe419346d-20220105.tgz#0f57a98e0c5702e1ad098d9228ee651abd954ea7"
-  integrity sha512-DerOJ2siEsHU3nJGB/0O3c3FW9JtVcf3Kwsxna2rGgwOzhQBVCnxemVhbEmJTq1AfEOB/NBA07Y/uqIJYBLGAw==
+scheduler@^0.20.2:
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
+  integrity sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -17732,14 +17740,14 @@ tailwindcss@^2.2.7:
     resolve "^1.20.0"
     tmp "^0.2.1"
 
-tailwindcss@^3.0.16:
-  version "3.0.16"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.16.tgz#eb6e7a0ecec56e43b9dad439b8cb3a5da1e0c1a3"
-  integrity sha512-1L8E5Wr+o1c4kxxObNz2owJe94a7BLEMV+2Lz6wzprJdcs3ENSRR9t4OZf2OqtRNS/q/zFPuOKoLtQoy3Lrhhw==
+tailwindcss@^3.0.17:
+  version "3.0.17"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.17.tgz#2c5fe6c364d76ec54644347c6f09befe0113b06f"
+  integrity sha512-OiHUsmOKQQEg/ocXaLIjk/kOz8EK2jF6iPuc1bQ4NsmhYl7sk70UDsGV02AJvBAAiJhinPCkDR8egT9qY+ulCw==
   dependencies:
     arg "^5.0.1"
     chalk "^4.1.2"
-    chokidar "^3.5.2"
+    chokidar "^3.5.3"
     color-name "^1.1.4"
     cosmiconfig "^7.0.1"
     detective "^5.2.0"
