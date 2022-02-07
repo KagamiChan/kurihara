@@ -80,7 +80,7 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@storybook/addon-actions": "^6.4.16",
     "@storybook/addon-essentials": "^6.4.16",
-    "@storybook/addon-links": "^6.4.16",
+    "@storybook/addon-links": "^6.4.18",
     "@storybook/react": "^6.4.16",
     "@types/babel__core": "^7.1.18",
     "@types/eslint": "^8.4.1",
