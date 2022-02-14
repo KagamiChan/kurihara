@@ -14,7 +14,7 @@
     "fs-extra": "^10.0.0",
     "gatsby": "^4.6.2",
     "gatsby-link": "^4.6.0",
-    "gatsby-plugin-feed": "^4.6.0",
+    "gatsby-plugin-feed": "^4.7.0",
     "gatsby-plugin-google-analytics": "^4.6.0",
     "gatsby-plugin-graphql-codegen": "^3.1.1",
     "gatsby-plugin-lodash": "^5.6.0",
