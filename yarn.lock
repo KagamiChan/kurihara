@@ -9504,16 +9504,16 @@ gatsby-page-utils@^2.10.0, gatsby-page-utils@^2.8.1:
     lodash "^4.17.21"
     micromatch "^4.0.4"
 
-gatsby-plugin-feed@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.9.0.tgz#76f01943bf318f15173ef3ea07a94841fb8461be"
-  integrity sha512-dP97uKKYTp7sJfcv+fNh6VbEc+mIob1ZSMRGKMwtodIpYLm9oI6j2w/0nfibVB2ojYgiISg9gg+lPOHN9WK/xQ==
+gatsby-plugin-feed@^4.10.1:
+  version "4.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-4.10.1.tgz#f7e926cdaef93fbf93379d492298e347348066fa"
+  integrity sha512-eXD+hEzxmTujA8fGuOC8DnEUWIa6GH1oIzXNySsBukvr3c25BHuDXmD7niuQE/DJQKkyBKciSsLdu65IIcUW8g==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@hapi/joi" "^15.1.1"
     common-tags "^1.8.2"
     fs-extra "^10.0.0"
-    gatsby-plugin-utils "^3.3.0"
+    gatsby-plugin-utils "^3.4.1"
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
@@ -9645,7 +9645,7 @@ gatsby-plugin-typescript@^4.10.0, gatsby-plugin-typescript@^4.8.1:
     "@babel/runtime" "^7.15.4"
     babel-plugin-remove-graphql-queries "^4.10.0"
 
-gatsby-plugin-utils@^3.2.0, gatsby-plugin-utils@^3.3.0, gatsby-plugin-utils@^3.4.1:
+gatsby-plugin-utils@^3.2.0, gatsby-plugin-utils@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-3.4.1.tgz#14c9cff75af32a32860575069af44bdabc8f65d9"
   integrity sha512-sDMVGauxMgXyX8WGZDndZI2vIaolJzlXBMdKhgP7DIT+Qa5wjvyHWvZy34dxtVrT3IHPK/PRMgpE81Gr7gKveg==
