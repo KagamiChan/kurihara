@@ -9444,7 +9444,7 @@ gatsby-cli@^4.8.1:
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^3.10.0:
+gatsby-core-utils@^3.10.0, gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.1, gatsby-core-utils@^3.9.1:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.10.0.tgz#52be8a9a891d95686a7ee0c1cfef44f8e362232b"
   integrity sha512-yaRI/uUsbIggPRfh0y6CH+fy2AqbFFLxCYndw5nrVByEY40+KaKs0wOF4yIgPRBZZUHOyfBJ+1AGo2JLHdY5lA==
@@ -9458,27 +9458,6 @@ gatsby-core-utils@^3.10.0:
     got "^11.8.3"
     import-from "^4.0.0"
     lmdb "^2.2.4"
-    lock "^1.1.0"
-    node-object-hash "^2.3.10"
-    proper-lockfile "^4.1.2"
-    resolve-from "^5.0.0"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
-
-gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.1, gatsby-core-utils@^3.9.1:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.9.1.tgz#a4c1bb2021a7e7c06b4aad8d71c9c76ca9cdc21f"
-  integrity sha512-DNf7NhhH0WrFuoBvyURjsw4w+eKbp1GlRA0cchYHJwVTaDPvLvX1o7zxN76xIBx+m0kttpnO3KuJ9LDOSli3ag==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    fastq "^1.13.0"
-    file-type "^16.5.3"
-    fs-extra "^10.0.0"
-    got "^11.8.3"
-    import-from "^4.0.0"
-    lmdb "^2.1.7"
     lock "^1.1.0"
     node-object-hash "^2.3.10"
     proper-lockfile "^4.1.2"
@@ -9767,13 +9746,13 @@ gatsby-telemetry@^3.8.1, gatsby-telemetry@^3.9.1:
     lodash "^4.17.21"
     node-fetch "^2.6.7"
 
-gatsby-transformer-remark@^5.9.1:
-  version "5.9.1"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-5.9.1.tgz#ab32e3c8f601e944b52ec3ef8392713030aa63ae"
-  integrity sha512-+7Z1CRR9wmW/pS1t1/Y4n/e8iEqw3Z/67ZG+UDMqKHG/TY11DUyAgacvBlvy9VxgXLR4qf8Qv2k9PWq/aQEo/g==
+gatsby-transformer-remark@^5.10.1:
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-5.10.1.tgz#6e4d73eef1cef42abfb2db1a9ada999aeaa76228"
+  integrity sha512-vQjqEjvgUhLGe/oh6IrDyDPlRzN60F6fRrMWdxeAnVWWZ4AAVpEPdJrd3ZjNdEP1UZSpzYb+YfQYROXvdfmHkQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
-    gatsby-core-utils "^3.9.1"
+    gatsby-core-utils "^3.10.0"
     gray-matter "^4.0.3"
     hast-util-raw "^6.0.2"
     hast-util-to-html "^7.1.3"
@@ -12748,17 +12727,6 @@ lmdb@2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/lmdb/-/lmdb-2.2.1.tgz#b7fd22ed2268ab74aa71108b793678314a7b94bb"
   integrity sha512-tUlIjyJvbd4mqdotI9Xe+3PZt/jqPx70VKFDrKMYu09MtBWOT3y2PbuTajX+bJFDjbgLkQC0cTx2n6dithp/zQ==
-  dependencies:
-    msgpackr "^1.5.4"
-    nan "^2.14.2"
-    node-gyp-build "^4.2.3"
-    ordered-binary "^1.2.4"
-    weak-lru-cache "^1.2.2"
-
-lmdb@^2.1.7:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/lmdb/-/lmdb-2.2.3.tgz#713ffa515c31e042808abf364b4aa0feaeaf6360"
-  integrity sha512-+OiHQpw22mBBxocb/9vcVNETqf0k5vgHA2r+KX7eCf8j5tSV50ZIv388iY1mnnrERIUhs2sjKQbZhPg7z4HyPQ==
   dependencies:
     msgpackr "^1.5.4"
     nan "^2.14.2"
