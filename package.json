@@ -31,7 +31,7 @@
     "gatsby-transformer-remark": "^5.10.2",
     "gatsby-transformer-sharp": "^4.10.0",
     "gatsby-transformer-yaml": "^4.10.0",
-    "graphql-compose": "^9.0.7",
+    "graphql-compose": "^9.0.8",
     "gray-matter": "^4.0.3",
     "i18next": "^21.6.14",
     "i18next-browser-languagedetector": "^6.1.4",
