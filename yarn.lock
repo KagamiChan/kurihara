@@ -9458,7 +9458,7 @@ gatsby-cli@^4.8.1:
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^3.11.1, gatsby-core-utils@^3.12.1, gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.1:
+gatsby-core-utils@^3.12.1, gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.1:
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.12.1.tgz#590ec08de7168b086b7d49128732b9ada95b985f"
   integrity sha512-jBG1MfR6t2MZNIl8LQ3Cwc92F6uFNcEC091IK+qKVy9FNT0+WzcKQ6Olip6u1NSvCatfrg1FqrH0K78a6lmnLQ==
@@ -9559,10 +9559,10 @@ gatsby-plugin-graphql-codegen@^3.1.1:
     fs-extra "^10.0.0"
     lodash.debounce "4.0.8"
 
-gatsby-plugin-lodash@^5.11.0:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-lodash/-/gatsby-plugin-lodash-5.11.0.tgz#5b339803e7a09791504fec6db426ce7bc998631a"
-  integrity sha512-BiNyRswPAPH9/zHNEFz/Vxabnl3CB1y/0nfsYCVKhPhhxj2wVurqQldewMc8RkIaE1KoJEZdDLOxTpBcjjaQEg==
+gatsby-plugin-lodash@^5.12.1:
+  version "5.12.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-lodash/-/gatsby-plugin-lodash-5.12.1.tgz#420e37f947ad8326262ed6a32db1cc013fba10cc"
+  integrity sha512-aKvJgRTTLVPTLJsmQEJzi47Nr7vwt12OrgKk9LWt+5Pup1efyuFOXikPQQfC3huW58pUje8YMwQM07O9d9ZIdA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     babel-plugin-lodash "^3.3.4"
