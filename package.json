@@ -103,7 +103,7 @@
     "@types/typography-breakpoint-constants": "^0.16.0",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
-    "babel-loader": "^8.2.4",
+    "babel-loader": "^8.2.5",
     "babel-plugin-styled-components": "^2.0.7",
     "babel-preset-gatsby": "^2.12.1",
     "cross-env": "^7.0.3",
