@@ -9813,27 +9813,6 @@ gatsby-core-utils@^3.12.1, gatsby-core-utils@^3.13.0, gatsby-core-utils@^3.5.2, 
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
-gatsby-core-utils@^3.13.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.13.0.tgz#b6137bbd285e41a6811ccd33fcd5d5f6a5a17aef"
-  integrity sha512-uAyy54t9dYAUHjLq38QfX/pxyWxsqDiWN/+Ppg/KXTbE83LUQlD0PctdNxz9jFmJ8CgE1BUbfUKpmemh8BLkjw==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    fastq "^1.13.0"
-    file-type "^16.5.3"
-    fs-extra "^10.0.0"
-    got "^11.8.3"
-    import-from "^4.0.0"
-    lmdb "^2.2.6"
-    lock "^1.1.0"
-    node-object-hash "^2.3.10"
-    proper-lockfile "^4.1.2"
-    resolve-from "^5.0.0"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
-
 gatsby-graphiql-explorer@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-2.8.0.tgz#95f1eb0f8186d20552da1418fe287877fb7c42cd"
@@ -9994,10 +9973,10 @@ gatsby-plugin-sitemap@^5.13.0:
     minimatch "^3.1.2"
     sitemap "^7.0.0"
 
-gatsby-plugin-styled-components@^5.12.1:
-  version "5.12.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-5.12.1.tgz#cee3bfb1f49c9bb21fdc5d957dd81287363ecd7c"
-  integrity sha512-G5r+XHtBlGEDbYzJu+vJvRRCZC5sIwcyxmwTKqdL3C9HJajU1sTy2gwPBXYNYyB4yV4PraFZTpCVVCYTEqkm0g==
+gatsby-plugin-styled-components@^5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-5.13.0.tgz#110ab554d52637a45edfc62e663a7c9c6dc8649c"
+  integrity sha512-0nsLFQGgcQXxSR5MxHqUAnIkM9F6IdLXQfBkj4I2RTao1vZKebRU5wByNNMpS7VehIaS+FGzEw2+WUZOg29eUQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
 
