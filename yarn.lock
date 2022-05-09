@@ -3836,10 +3836,10 @@
     "@types/eslint" "*"
     "@types/estree" "*"
 
-"@types/eslint@*", "@types/eslint@^8.4.1":
-  version "8.4.1"
-  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.4.1.tgz#c48251553e8759db9e656de3efc846954ac32304"
-  integrity sha512-GE44+DNEyxxh2Kc6ro/VkIj+9ma0pO0bwv9+uHSyBrikYOHr8zYcdPvnBOp1aw8s+CjRvuSx7CyWqRrNFQ59mA==
+"@types/eslint@*", "@types/eslint@^8.4.2":
+  version "8.4.2"
+  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.4.2.tgz#48f2ac58ab9c631cb68845c3d956b28f79fad575"
+  integrity sha512-Z1nseZON+GEnFjJc04sv4NSALGjhFwy6K0HXt7qsn5ArfAKtb63dXNJHf+1YW6IpOIYRBGUbu3GwJdj8DGnCjA==
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
@@ -9481,7 +9481,7 @@ gatsby-cli@^4.8.1:
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^3.12.1, gatsby-core-utils@^3.13.0, gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.1:
+gatsby-core-utils@^3.13.0, gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.1:
   version "3.13.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.13.0.tgz#b6137bbd285e41a6811ccd33fcd5d5f6a5a17aef"
   integrity sha512-uAyy54t9dYAUHjLq38QfX/pxyWxsqDiWN/+Ppg/KXTbE83LUQlD0PctdNxz9jFmJ8CgE1BUbfUKpmemh8BLkjw==
