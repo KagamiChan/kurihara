@@ -115,7 +115,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.5.0",
-    "gh-pages": "^3.2.3",
+    "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
     "jest": "^28.1.0",
     "jest-puppeteer": "^6.1.0",
