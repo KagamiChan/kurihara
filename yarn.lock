@@ -8926,10 +8926,10 @@ eslint@^7.32.0:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-eslint@^8.17.0:
-  version "8.17.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.17.0.tgz#1cfc4b6b6912f77d24b874ca1506b0fe09328c21"
-  integrity sha512-gq0m0BTJfci60Fz4nczYxNAlED+sMcihltndR8t9t1evnU/azx53x3t2UHXC/uRjcbvRw/XctpaNygSTcQD+Iw==
+eslint@^8.18.0:
+  version "8.18.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.18.0.tgz#78d565d16c993d0b73968c523c0446b13da784fd"
+  integrity sha512-As1EfFMVk7Xc6/CvhssHUjsAQSkpfXvUGMFC3ce8JDe6WvqCgRrLOBQbVpsBFr1X1V+RACOadnzVvcUS5ni2bA==
   dependencies:
     "@eslint/eslintrc" "^1.3.0"
     "@humanwhocodes/config-array" "^0.9.2"
@@ -10082,7 +10082,7 @@ gatsby-plugin-typescript@^4.16.0, gatsby-plugin-typescript@^4.8.1:
     "@babel/runtime" "^7.15.4"
     babel-plugin-remove-graphql-queries "^4.16.0"
 
-gatsby-plugin-utils@^3.10.0, gatsby-plugin-utils@^3.2.0, gatsby-plugin-utils@^3.9.1:
+gatsby-plugin-utils@^3.10.0, gatsby-plugin-utils@^3.2.0:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-3.10.0.tgz#d47bb1165bd6aafb3bd17820df97582dba93a69f"
   integrity sha512-/K6frqNRwmSznUnjWD3Isk5wEj56zLrygfAdlBYVLd6XfAHK18sPJBaIi+Gpno4pNaSMuu10x+OxPmSIjE0X7g==
