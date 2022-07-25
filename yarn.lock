@@ -9965,6 +9965,27 @@ gatsby-core-utils@^3.18.0, gatsby-core-utils@^3.18.1, gatsby-core-utils@^3.19.0,
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
+gatsby-core-utils@^3.19.0:
+  version "3.19.0"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.19.0.tgz#9de637574af1d1d283ffa9b38f058aa2dc6e3d12"
+  integrity sha512-cjXs9DsXkPZt+UdiLHxtq+rGMGVrcnM0KwkawlruvPchI7lqGNv9CScqlvYPxx1dBhu3zSZS26EBALMlFhyOJA==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    ci-info "2.0.0"
+    configstore "^5.0.1"
+    fastq "^1.13.0"
+    file-type "^16.5.3"
+    fs-extra "^10.1.0"
+    got "^11.8.5"
+    import-from "^4.0.0"
+    lmdb "2.5.3"
+    lock "^1.1.0"
+    node-object-hash "^2.3.10"
+    proper-lockfile "^4.1.2"
+    resolve-from "^5.0.0"
+    tmp "^0.2.1"
+    xdg-basedir "^4.0.0"
+
 gatsby-graphiql-explorer@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-2.8.0.tgz#95f1eb0f8186d20552da1418fe287877fb7c42cd"
@@ -9980,26 +10001,25 @@ gatsby-legacy-polyfills@^2.18.0, gatsby-legacy-polyfills@^2.8.0:
     "@babel/runtime" "^7.15.4"
     core-js-compat "3.9.0"
 
-gatsby-link@^4.18.1, gatsby-link@^4.8.1:
-  version "4.18.1"
-  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-4.18.1.tgz#b378c377d17e3e55e42b9f20c4b7b2fee9555199"
-  integrity sha512-gLFH2iU4WugHU5k+SLu4F0Ar04kDT5KhkyXly99ZVtiIvHpA5DqcuGNIUjIE/lizSCsfa553wGv7dadfghGzrQ==
+gatsby-link@^4.19.1, gatsby-link@^4.8.1:
+  version "4.19.1"
+  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-4.19.1.tgz#d4f66d2eb2cad055245c665f117b5de3a1b01f7d"
+  integrity sha512-LCazIxhPOGHJKJVrr5s3jJHYtmaCnaaHQtW9WS0CWvPkW/zC4rKDXyEn8xDWVYaUnRnXUVDhv4Psp6J+Xqifxg==
   dependencies:
-    "@babel/runtime" "^7.15.4"
     "@types/reach__router" "^1.3.10"
-    gatsby-page-utils "^2.18.1"
+    gatsby-page-utils "^2.19.0"
     prop-types "^15.8.1"
 
-gatsby-page-utils@^2.18.1, gatsby-page-utils@^2.8.1:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/gatsby-page-utils/-/gatsby-page-utils-2.18.1.tgz#a311e26a877fef2f17db812b15e9646543ef63ce"
-  integrity sha512-4EM0LNOQgnCndHDQSI/ZKRFWYWG9dtTPuGbBaGlmPquhj3zwjOscws1vfj7g+u3PowKjZQ2Rf92RZd8xt8XLTQ==
+gatsby-page-utils@^2.19.0, gatsby-page-utils@^2.8.1:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/gatsby-page-utils/-/gatsby-page-utils-2.19.0.tgz#60c17ff9c6af1aabfca3358573c63bd322f2948f"
+  integrity sha512-eYStV4jQbuEBKhatH3yzWA+lmoydJBCZVg6w2GG38eSsgcj9pdep8oQqyQdGFU3dy/HizWmWCv+wW9FIUoVQsQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
     bluebird "^3.7.2"
     chokidar "^3.5.3"
     fs-exists-cached "^1.0.0"
-    gatsby-core-utils "^3.18.1"
+    gatsby-core-utils "^3.19.0"
     glob "^7.2.3"
     lodash "^4.17.21"
     micromatch "^4.0.5"
