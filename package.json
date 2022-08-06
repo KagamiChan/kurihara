@@ -119,7 +119,7 @@
     "husky": "^8.0.1",
     "jest": "^28.1.3",
     "jest-puppeteer": "^6.1.1",
-    "lint-staged": "^12.4.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "puppeteer": "^14.4.1",
     "serve": "^13.0.4",
