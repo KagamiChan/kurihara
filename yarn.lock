@@ -10208,7 +10208,7 @@ gatsby-plugin-typescript@^4.21.0, gatsby-plugin-typescript@^4.8.1:
     "@babel/runtime" "^7.15.4"
     babel-plugin-remove-graphql-queries "^4.21.0"
 
-gatsby-plugin-utils@^3.14.0, gatsby-plugin-utils@^3.15.0, gatsby-plugin-utils@^3.2.0:
+gatsby-plugin-utils@^3.15.0, gatsby-plugin-utils@^3.2.0:
   version "3.15.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-3.15.0.tgz#1d1d7a3e696c38aa7db848e0d52aaa4ded841172"
   integrity sha512-O4dm4ntakCoQZnnnS4oGihtT48Rrh888fMpcxj0zWu/6/8Uyz8IgagJyJAz0MMdcfhrLIE+X8Rszjk8hINDQhA==
@@ -16417,10 +16417,10 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-i18next@11.18.4:
-  version "11.18.4"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.18.4.tgz#b3c35ac4c4657b05d599b036536d7b2c0331e248"
-  integrity sha512-gK/AylAQC5DvCD5YLNCHW4PNzpCfrWIyVAXbSMl+/5QXzlDP8VdBoqE2s2niGHB+zIXwBV9hRXbDrVuupbgHcg==
+react-i18next@11.18.5:
+  version "11.18.5"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.18.5.tgz#985e87bc66ed1316381b464a4ecfd35a2c951357"
+  integrity sha512-cKcyuuzIv0YUZ4l9WORflVNuhISPAqQShOAsxwFyYuJoCA7HlLmHm7XnvO6hfAGmGpDNRhJHoBX8hG49Cb2xZQ==
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-parse-stringify "^3.0.1"
