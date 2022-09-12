@@ -9805,10 +9805,10 @@ gatsby-plugin-graphql-codegen@^3.1.1:
     fs-extra "^10.0.0"
     lodash.debounce "4.0.8"
 
-gatsby-plugin-lodash@^5.21.0:
-  version "5.21.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-lodash/-/gatsby-plugin-lodash-5.21.0.tgz#5f7858d8ee4db0521509f48901851d9efba4321c"
-  integrity sha512-nlAunorZmmhYyKXj1BMgkHj4hZX9NSIkjhPl99iFHJlc9jgwhCNbMvJVJLYUMnT7BsO20HjpxaYSZ01lbzh0gQ==
+gatsby-plugin-lodash@^5.22.0:
+  version "5.22.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-lodash/-/gatsby-plugin-lodash-5.22.0.tgz#0d589cb4adf8d83289b1099957660b5863842cf4"
+  integrity sha512-lZgN8aOYh11r0aUvzI//pvaFyUM1sThtyede2w21enpDTUG9y3I1XF0493uOZLUC/WzkpsiugTKThw+1rsIptw==
   dependencies:
     "@babel/runtime" "^7.15.4"
     babel-plugin-lodash "^3.3.4"
