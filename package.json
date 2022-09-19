@@ -78,7 +78,7 @@
     "@babel/register": "^7.18.9",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@storybook/addon-actions": "^6.5.8",
+    "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-links": "^6.5.12",
     "@storybook/react": "^6.4.22",
