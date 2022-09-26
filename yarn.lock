@@ -9677,7 +9677,7 @@ gatsby-cli@^4.8.1:
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^3.19.0, gatsby-core-utils@^3.21.0, gatsby-core-utils@^3.22.0, gatsby-core-utils@^3.23.0, gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.1:
+gatsby-core-utils@^3.21.0, gatsby-core-utils@^3.22.0, gatsby-core-utils@^3.23.0, gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.1:
   version "3.23.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.23.0.tgz#0c8879ffb655f2d8cfe485f03beed7db6441dc69"
   integrity sha512-ABVTAkjZh+2H4u6GZ+r1uZrdcWuT5KG2nEpKmBWBp21GWEE+yvUqtGOocBgUeGac1A3ggvn02UzcE6BIEm9PYg==
@@ -9713,25 +9713,25 @@ gatsby-legacy-polyfills@^2.23.0, gatsby-legacy-polyfills@^2.8.0:
     "@babel/runtime" "^7.15.4"
     core-js-compat "3.9.0"
 
-gatsby-link@^4.19.1, gatsby-link@^4.8.1:
-  version "4.19.1"
-  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-4.19.1.tgz#d4f66d2eb2cad055245c665f117b5de3a1b01f7d"
-  integrity sha512-LCazIxhPOGHJKJVrr5s3jJHYtmaCnaaHQtW9WS0CWvPkW/zC4rKDXyEn8xDWVYaUnRnXUVDhv4Psp6J+Xqifxg==
+gatsby-link@^4.23.0, gatsby-link@^4.8.1:
+  version "4.23.0"
+  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-4.23.0.tgz#f77e164196c980571c35799e21d599ce11a4ff30"
+  integrity sha512-sxRhJQZ3A2PLKupg0dCa1gdw9IbB+ppc2I5YpoHIEsmTbPXVwpzAAbUdW5g4xCVVUK5K2TjZvMZO7XMDoBpMLA==
   dependencies:
     "@types/reach__router" "^1.3.10"
-    gatsby-page-utils "^2.19.0"
+    gatsby-page-utils "^2.23.0"
     prop-types "^15.8.1"
 
-gatsby-page-utils@^2.19.0, gatsby-page-utils@^2.8.1:
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/gatsby-page-utils/-/gatsby-page-utils-2.19.0.tgz#60c17ff9c6af1aabfca3358573c63bd322f2948f"
-  integrity sha512-eYStV4jQbuEBKhatH3yzWA+lmoydJBCZVg6w2GG38eSsgcj9pdep8oQqyQdGFU3dy/HizWmWCv+wW9FIUoVQsQ==
+gatsby-page-utils@^2.23.0, gatsby-page-utils@^2.8.1:
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/gatsby-page-utils/-/gatsby-page-utils-2.23.0.tgz#7673fed76de5d3903edbf86f5f7a32be22d30b5b"
+  integrity sha512-WDBun2ODaMojzc55eAjL6bqBP1rwD7XlcMzOkmIm6pslpF33k8I6CfbcCPsLE1OyZL401o+h4mAQAvX2IbKiWA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     bluebird "^3.7.2"
     chokidar "^3.5.3"
     fs-exists-cached "^1.0.0"
-    gatsby-core-utils "^3.19.0"
+    gatsby-core-utils "^3.23.0"
     glob "^7.2.3"
     lodash "^4.17.21"
     micromatch "^4.0.5"
