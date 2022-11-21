@@ -101,7 +101,7 @@
     "@types/styled-components": "^5.1.26",
     "@types/typography": "^0.16.4",
     "@types/typography-breakpoint-constants": "^0.16.0",
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.42.0",
     "babel-loader": "^8.2.5",
     "babel-plugin-styled-components": "^2.0.7",
