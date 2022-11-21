@@ -50,7 +50,7 @@
     "replace-in-file": "^6.3.5",
     "styled-components": "^5.3.6",
     "tailwindcss": "^3.2.2",
-    "twin.macro": "^2.8.2",
+    "twin.macro": "^3.0.0",
     "word-count": "^0.2.2"
   },
   "keywords": [
