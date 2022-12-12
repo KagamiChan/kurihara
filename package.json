@@ -29,7 +29,7 @@
     "gatsby-remark-prismjs": "^6.25.0",
     "gatsby-source-filesystem": "^4.24.0",
     "gatsby-transformer-remark": "^5.25.0",
-    "gatsby-transformer-sharp": "^4.24.0",
+    "gatsby-transformer-sharp": "^4.25.0",
     "gatsby-transformer-yaml": "^4.25.0",
     "graphql-compose": "^9.0.10",
     "gray-matter": "^4.0.3",
