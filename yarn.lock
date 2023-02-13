@@ -7362,6 +7362,16 @@ cosmiconfig@6.0.0, cosmiconfig@^6.0.0:
     path-type "^4.0.0"
     yaml "^1.7.2"
 
+cosmiconfig@8.0.0, cosmiconfig@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-8.0.0.tgz#e9feae014eab580f858f8a0288f38997a7bebe97"
+  integrity sha512-da1EafcpH6b/TD8vDRaWV7xFINlHlF6zKsGwS1TsuVJTZRkquaS5HTMq7uq6h31619QjbsYl21gVDOm32KM1vQ==
+  dependencies:
+    import-fresh "^3.2.1"
+    js-yaml "^4.1.0"
+    parse-json "^5.0.0"
+    path-type "^4.0.0"
+
 cosmiconfig@^7.0.0, cosmiconfig@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-7.0.1.tgz#714d756522cace867867ccb4474c5d01bbae5d6d"
@@ -7372,16 +7382,6 @@ cosmiconfig@^7.0.0, cosmiconfig@^7.0.1:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
-
-cosmiconfig@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-8.0.0.tgz#e9feae014eab580f858f8a0288f38997a7bebe97"
-  integrity sha512-da1EafcpH6b/TD8vDRaWV7xFINlHlF6zKsGwS1TsuVJTZRkquaS5HTMq7uq6h31619QjbsYl21gVDOm32KM1vQ==
-  dependencies:
-    import-fresh "^3.2.1"
-    js-yaml "^4.1.0"
-    parse-json "^5.0.0"
-    path-type "^4.0.0"
 
 cp-file@^7.0.0:
   version "7.0.0"
@@ -8038,10 +8038,10 @@ devcert@^1.2.0:
     tmp "^0.0.33"
     tslib "^1.10.0"
 
-devtools-protocol@0.0.1001819:
-  version "0.0.1001819"
-  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.1001819.tgz#0a98f44cefdb02cc684f3d5e6bd898a1690231d9"
-  integrity sha512-G6OsIFnv/rDyxSqBa2lDLR6thp9oJioLsb2Gl+LbQlyoA9/OBAkrTU9jiCcQ8Pnh7z4d6slDiLaogR5hzgJLmQ==
+devtools-protocol@0.0.1082910:
+  version "0.0.1082910"
+  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.1082910.tgz#d79490dc66ef23eb17a24423c9ce5ce661714a91"
+  integrity sha512-RqoZ2GmqaNxyx+99L/RemY5CkwG9D0WEfOKxekwCRXOGrDCep62ngezEJUVMq6rISYQ+085fJnWDQqGHlxVNww==
 
 dicer@0.2.5:
   version "0.2.5"
@@ -15336,19 +15336,19 @@ pirates@^4.0.1, pirates@^4.0.4, pirates@^4.0.5:
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.5.tgz#feec352ea5c3268fb23a37c702ab1699f35a5f3b"
   integrity sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==
 
-pkg-dir@4.2.0, pkg-dir@^4.1.0, pkg-dir@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-4.2.0.tgz#f099133df7ede422e81d1d8448270eeb3e4261f3"
-  integrity sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
-  dependencies:
-    find-up "^4.0.0"
-
 pkg-dir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-3.0.0.tgz#2749020f239ed990881b1f71210d51eb6523bea3"
   integrity sha512-/E57AYkoeQ25qkxMj5PBOVgF8Kiu/h7cYS30Z5+R7WaiCCBfLq58ZI/dSeaEKb9WVJV5n/03QwrN3IeWIFllvw==
   dependencies:
     find-up "^3.0.0"
+
+pkg-dir@^4.1.0, pkg-dir@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-4.2.0.tgz#f099133df7ede422e81d1d8448270eeb3e4261f3"
+  integrity sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
+  dependencies:
+    find-up "^4.0.0"
 
 pkg-dir@^5.0.0:
   version "5.0.0"
@@ -16046,23 +16046,32 @@ pupa@^2.1.1:
   dependencies:
     escape-goat "^2.0.0"
 
-puppeteer@^14.4.1:
-  version "14.4.1"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-14.4.1.tgz#6c7437a65f7ba98ef8ad7c2b0f1cf808e91617bb"
-  integrity sha512-+H0Gm84aXUvSLdSiDROtLlOofftClgw2TdceMvvCU9UvMryappoeS3+eOLfKvoy4sm8B8MWnYmPhWxVFudAOFQ==
+puppeteer-core@19.6.3:
+  version "19.6.3"
+  resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-19.6.3.tgz#e3334fbb4ccb2c1ca6f4597e2f082de5a80599da"
+  integrity sha512-8MbhioSlkDaHkmolpQf9Z7ui7jplFfOFTnN8d5kPsCazRRTNIH6/bVxPskn0v5Gh9oqOBlknw0eHH0/OBQAxpQ==
   dependencies:
     cross-fetch "3.1.5"
     debug "4.3.4"
-    devtools-protocol "0.0.1001819"
+    devtools-protocol "0.0.1082910"
     extract-zip "2.0.1"
     https-proxy-agent "5.0.1"
-    pkg-dir "4.2.0"
-    progress "2.0.3"
     proxy-from-env "1.1.0"
     rimraf "3.0.2"
     tar-fs "2.1.1"
     unbzip2-stream "1.4.3"
-    ws "8.7.0"
+    ws "8.11.0"
+
+puppeteer@^19.6.3:
+  version "19.6.3"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-19.6.3.tgz#4edc7ea87f7e7e7b2885395326a6c9e5a222a10b"
+  integrity sha512-K03xTtGDwS6cBXX/EoqoZxglCUKcX2SLIl92fMnGMRjYpPGXoAV2yKEh3QXmXzKqfZXd8TxjjFww+tEttWv8kw==
+  dependencies:
+    cosmiconfig "8.0.0"
+    https-proxy-agent "5.0.1"
+    progress "2.0.3"
+    proxy-from-env "1.1.0"
+    puppeteer-core "19.6.3"
 
 purgecss@^4.0.3:
   version "4.0.3"
@@ -19896,20 +19905,25 @@ ws@7.4.5:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.5.tgz#a484dd851e9beb6fdb420027e3885e8ce48986c1"
   integrity sha512-xzyu3hFvomRfXKH8vOFMU3OguG6oOvhXMo3xsGy3xWExqaM2dxBbVxuD99O7m3ZUFMvvscsZDqxfgMaRr/Nr1g==
 
+ws@8.11.0:
+  version "8.11.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.11.0.tgz#6a0d36b8edfd9f96d8b25683db2f8d7de6e8e143"
+  integrity sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==
+
 ws@8.2.3:
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.2.3.tgz#63a56456db1b04367d0b721a0b80cae6d8becbba"
   integrity sha512-wBuoj1BDpC6ZQ1B7DWQBYVLphPWkm8i9Y0/3YdHjHKHiohOJ1ws+3OccDWtH+PoC9DZD5WOTrJvNbWvjS6JWaA==
 
-ws@8.7.0, ws@^8.2.3:
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.7.0.tgz#eaf9d874b433aa00c0e0d8752532444875db3957"
-  integrity sha512-c2gsP0PRwcLFzUiA8Mkr37/MI7ilIlHQxaEAtd0uNMbVMoy8puJyafRlm0bV9MbGSabUPeLrRRaqIBcFcA2Pqg==
-
 "ws@^5.2.0 || ^6.0.0 || ^7.0.0":
   version "7.5.4"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.4.tgz#56bfa20b167427e138a7795de68d134fe92e21f9"
   integrity sha512-zP9z6GXm6zC27YtspwH99T3qTG7bBFv2VIkeHstMLrLlDJuzA7tQ5ls3OJ1hOGGCzTQPniNJoHXIAOS0Jljohg==
+
+ws@^8.2.3:
+  version "8.7.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.7.0.tgz#eaf9d874b433aa00c0e0d8752532444875db3957"
+  integrity sha512-c2gsP0PRwcLFzUiA8Mkr37/MI7ilIlHQxaEAtd0uNMbVMoy8puJyafRlm0bV9MbGSabUPeLrRRaqIBcFcA2Pqg==
 
 ws@~7.4.2:
   version "7.4.6"
