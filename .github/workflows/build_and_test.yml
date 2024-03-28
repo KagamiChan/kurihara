@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use latest node
-        uses: actions/setup-node@v1
+      - name: Use LTS node
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: 'lts'
 
       - name: Installing puppeteer dependencies
         run: |
