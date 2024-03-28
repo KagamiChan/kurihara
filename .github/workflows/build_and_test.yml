@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Use LTS node
         uses: actions/setup-node@v4
@@ -26,7 +26,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         name: Caching Node.js dependencies
         id: yarn-cache
         with:
@@ -35,7 +35,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-v2
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         name: Caching Gatsby
         with:
           path: .cache
