@@ -15,7 +15,7 @@ jobs:
       - name: Use LTS node
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/-n'
+          node-version: '20'
 
       - name: Installing puppeteer dependencies
         run: |
