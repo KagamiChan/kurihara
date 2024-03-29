@@ -44,10 +44,11 @@ const DayCell = withKeyboardA11y(styled.rect<{
   month: number
   selected: boolean
 }>`
-  ${tw`fill-current duration-100`}
+  ${tw`duration-100`}
   ${(props) => (props.month % 2 ? tw`text-gray-200` : tw`text-gray-300`)};
   ${(props) => props.active && tw`text-green-500 cursor-pointer`}
   ${(props) => props.selected && tw`text-orange-500`};
+  fill: currentColor;
 `)
 
 const List = styled.div`
@@ -223,7 +224,7 @@ export default BlogArchives
 export const query = graphql`
   query Archive {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___publish_date], order: DESC }
+      sort: [{ frontmatter: { publish_date: DESC } }]
       filter: { fields: { type: { eq: "blog" } } }
     ) {
       edges {

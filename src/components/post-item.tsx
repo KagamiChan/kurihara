@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby-link'
 import styled from 'styled-components'
 import { format } from 'date-fns'
 import { useTranslation } from 'react-i18next'

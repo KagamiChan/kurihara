@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby-link'
 import { map, range } from 'lodash'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -48,7 +48,7 @@ const Paginator: FunctionComponent<PaginatorProps> = ({
     {map(
       range(Math.max(page - neighbour, 2), Math.min(page + neighbour, pages)),
       (p) => (
-        <PageLink active={page === p} to={`/blog/page/${p}`}>
+        <PageLink key={p} active={page === p} to={`/blog/page/${p}`}>
           {p}
         </PageLink>
       ),

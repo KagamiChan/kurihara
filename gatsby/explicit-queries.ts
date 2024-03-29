@@ -23,7 +23,7 @@ if (require.main === module) {
     query FeedContent {
       allMarkdownRemark(
         limit: 20
-        sort: { order: DESC, fields: [frontmatter___publish_date] }
+        sort: [{ frontmatter: { publish_date: DESC } }]
         filter: {
           frontmatter: { draft: { ne: true } }
           fields: { type: { eq: "blog" } }

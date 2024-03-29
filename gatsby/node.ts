@@ -58,9 +58,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   const result = await graphql<CreatePagesQuery>(`
     query CreatePages {
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___publish_date], order: DESC }
-      ) {
+      allMarkdownRemark(sort: [{ frontmatter: { publish_date: DESC } }]) {
         edges {
           node {
             id
@@ -149,7 +147,6 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     })
   }
 }
-
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({
   actions,
 }) => {

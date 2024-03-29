@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 const path = require('path')
 
 module.exports = {
+  jsxRuntime: 'automatic',
   siteMetadata: {
     title: '少年读书隙中窥月',
     description: '明镜止水的个人日志',
@@ -97,7 +98,7 @@ module.exports = {
               query FeedContent {
                 allMarkdownRemark(
                   limit: 20,
-                  sort: { order: DESC, fields: [frontmatter___publish_date] },
+                  sort: [{ frontmatter: { publish_date: DESC } }],
                   filter: {
                     frontmatter: {
                       draft: { ne: true }

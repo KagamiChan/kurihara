@@ -1,5 +1,5 @@
 import { FC, useState, useCallback, PropsWithChildren } from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { I18nextProvider, useTranslation } from 'react-i18next'
