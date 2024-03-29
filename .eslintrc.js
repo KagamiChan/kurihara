@@ -42,6 +42,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-shadow': 'off',
     'react/function-component-definition': 'off',
+    'react/require-default-props': 'off',
   },
   globals: {
     graphql: true,
