@@ -33,3 +33,7 @@ public/
 # Ignore graphql typing changes if we don't have query updates
 # For running in dev mode, gatsby will add port and host properties
 types/graphql-types.ts
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

@@ -49,6 +49,13 @@ module.exports = {
     page: true,
     browser: true,
     context: true,
-    jestPuppeteer: true,
   },
+  overrides: [
+    {
+      files: ['specs/**/*.ts', 'playwright.config.ts'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+  ],
 }

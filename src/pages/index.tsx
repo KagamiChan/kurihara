@@ -149,7 +149,7 @@ const PageContent: FunctionComponent<Record<string, never>> = () => {
             rel="stylesheet"
           />
         </Helmet>
-        <Title id="site-title" title="明镜止水">
+        <Title data-testid="site-title" title="明镜止水">
           明镜止水
         </Title>
         <GlobalStyles />
