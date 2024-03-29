@@ -22,9 +22,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libgbm1
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: pnpm/action-setup@v3
+
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm store path)"
 
       - uses: actions/cache@v3
         name: Caching Node.js dependencies
