@@ -180,7 +180,7 @@ devDependencies:
     version: 6.1.0
   '@types/loadable__component':
     specifier: ^5.13.4
-    version: 5.13.4
+    version: 5.13.9
   '@types/lodash':
     specifier: ^4.14.191
     version: 4.14.191
@@ -3671,8 +3671,8 @@ packages:
     dependencies:
       '@types/node': 18.11.18
 
-  /@types/loadable__component@5.13.4:
-    resolution: {integrity: sha512-YhoCCxyuvP2XeZNbHbi8Wb9EMaUJuA2VGHxJffcQYrJKIKSkymJrhbzsf9y4zpTmr5pExAAEh5hbF628PAZ8Dg==}
+  /@types/loadable__component@5.13.9:
+    resolution: {integrity: sha512-QWOtIkwZqHNdQj3nixQ8oyihQiTMKZLk/DNuvNxMSbTfxf47w+kqcbnxlUeBgAxdOtW0Dh48dTAIp83iJKtnrQ==}
     dependencies:
       '@types/react': 17.0.80
     dev: true
