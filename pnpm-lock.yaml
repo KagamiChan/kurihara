@@ -88,7 +88,7 @@ dependencies:
     version: 4.0.3
   i18next:
     specifier: ^23.10.1
-    version: 23.10.1
+    version: 23.11.3
   i18next-browser-languagedetector:
     specifier: ^7.0.2
     version: 7.0.2
@@ -121,7 +121,7 @@ dependencies:
     version: 6.1.0(react@18.3.1)
   react-i18next:
     specifier: 12.3.1
-    version: 12.3.1(i18next@23.10.1)(react-dom@18.3.1)(react@18.3.1)
+    version: 12.3.1(i18next@23.11.3)(react-dom@18.3.1)(react@18.3.1)
   replace-in-file:
     specifier: ^6.3.5
     version: 6.3.5
@@ -4651,7 +4651,7 @@ packages:
       gatsby: ^5.0.0-next
     dependencies:
       '@babel/core': 7.24.5
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.5
       '@babel/types': 7.24.5
       gatsby: 5.13.4(babel-eslint@10.1.0)(react-dom@18.3.1)(react@18.3.1)(typescript@4.9.5)
       gatsby-core-utils: 4.13.1
@@ -8027,7 +8027,7 @@ packages:
       gatsby: ^5.0.0-next
       graphql: ^16.0.0
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.5
       fastq: 1.17.1
       fs-extra: 11.2.0
       gatsby: 5.13.4(babel-eslint@10.1.0)(react-dom@18.3.1)(react@18.3.1)(typescript@4.9.5)
@@ -9028,10 +9028,10 @@ packages:
       '@babel/runtime': 7.24.1
     dev: false
 
-  /i18next@23.10.1:
-    resolution: {integrity: sha512-NDiIzFbcs3O9PXpfhkjyf7WdqFn5Vq6mhzhtkXzj51aOcNuPNcTwuYNuXCpHsanZGHlHKL35G7huoFeVic1hng==}
+  /i18next@23.11.3:
+    resolution: {integrity: sha512-Pq/aSKowir7JM0rj+Wa23Kb6KKDUGno/HjG+wRQu0PxoTbpQ4N89MAT0rFGvXmLkRLNMb1BbBOKGozl01dabzg==}
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.5
     dev: false
 
   /iconv-lite@0.4.24:
@@ -12031,7 +12031,7 @@ packages:
       react-side-effect: 2.1.0(react@18.3.1)
     dev: false
 
-  /react-i18next@12.3.1(i18next@23.10.1)(react-dom@18.3.1)(react@18.3.1):
+  /react-i18next@12.3.1(i18next@23.11.3)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-5v8E2XjZDFzK7K87eSwC7AJcAkcLt5xYZ4+yTPDAW1i7C93oOY1dnr4BaQM7un4Hm+GmghuiPvevWwlca5PwDA==}
     peerDependencies:
       i18next: '>= 19.0.0'
@@ -12046,7 +12046,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.24.1
       html-parse-stringify: 3.0.1
-      i18next: 23.10.1
+      i18next: 23.11.3
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: false
