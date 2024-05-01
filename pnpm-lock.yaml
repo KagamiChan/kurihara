@@ -100,7 +100,7 @@ dependencies:
     version: 4.17.21
   polished:
     specifier: ^4.2.2
-    version: 4.2.2
+    version: 4.3.1
   prismjs:
     specifier: ^1.29.0
     version: 1.29.0
@@ -11296,11 +11296,11 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /polished@4.2.2:
-    resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
+  /polished@4.3.1:
+    resolution: {integrity: sha512-OBatVyC/N7SCW/FaDHrSd+vn0o5cS855TOmYi4OkdWUMSJCET/xip//ch8xGUvtr3i44X9LVyWwQlRMTN3pwSA==}
     engines: {node: '>=10'}
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.5
     dev: false
 
   /possible-typed-array-names@1.0.0:
