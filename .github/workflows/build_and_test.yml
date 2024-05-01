@@ -23,7 +23,7 @@ jobs:
         id: nodejs-deps-cache-dir-path
         run: echo "::set-output name=dir::$(pnpm store path)"
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Caching Node.js dependencies
         id: nodejs-deps-cache
         with:
@@ -32,7 +32,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-v1
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Caching Gatsby
         with:
           path: .cache
