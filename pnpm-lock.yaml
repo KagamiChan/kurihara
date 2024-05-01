@@ -91,7 +91,7 @@ dependencies:
     version: 23.11.3
   i18next-browser-languagedetector:
     specifier: ^7.0.2
-    version: 7.0.2
+    version: 7.2.1
   intersection-observer:
     specifier: ^0.12.2
     version: 0.12.2
@@ -9029,10 +9029,10 @@ packages:
     hasBin: true
     dev: true
 
-  /i18next-browser-languagedetector@7.0.2:
-    resolution: {integrity: sha512-5ViaK+gikxfqZ9M3jJ7gJkUzzu/p3HwiqfLoL1bdiL7CUb0IylcTyVLdPaTU3pH5VFWFCiGFuJDg3VkLUikWgg==}
+  /i18next-browser-languagedetector@7.2.1:
+    resolution: {integrity: sha512-h/pM34bcH6tbz8WgGXcmWauNpQupCGr25XPp9cZwZInR9XHSjIFDYp1SIok7zSPsTOMxdvuLyu86V+g2Kycnfw==}
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.5
     dev: false
 
   /i18next@23.11.3:
