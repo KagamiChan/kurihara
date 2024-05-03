@@ -7,7 +7,6 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalL
 import tw from 'twin.macro'
 
 import { FooterWrapper } from './common'
-import { HitokotoQuery } from '../../types/graphql-types'
 
 const Wrapper = styled(FooterWrapper)`
   ${tw`flex justify-center mt-32 mb-8`}
@@ -30,7 +29,7 @@ const Source = styled.span``
 export const Hitokoto: FunctionComponent<Record<string, never>> = () => {
   const order = useMemo(() => Math.random(), [])
 
-  const data = useStaticQuery<HitokotoQuery>(graphql`
+  const data = useStaticQuery<Queries.HitokotoQuery>(graphql`
     query Hitokoto {
       allHitokotoYaml {
         edges {

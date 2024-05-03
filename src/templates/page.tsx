@@ -6,10 +6,9 @@ import { graphql } from 'gatsby'
 import { Article, Content, Title } from '../components/common'
 import { BaseLayout } from '../components/base-layout'
 import { Meta } from '../components/meta'
-import { PageBySlugQuery } from '../../types/graphql-types'
 
 interface Props {
-  data: PageBySlugQuery
+  data: Queries.PageBySlugQuery
 }
 
 const PageTemplate: FunctionComponent<Props> = ({

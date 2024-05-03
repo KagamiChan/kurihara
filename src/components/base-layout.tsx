@@ -79,7 +79,7 @@ const Navigation = () => (
 export const BaseLayout: FC<PropsWithChildren<any>> = ({ children }) => {
   const [visible, setVisible] = useState(false)
 
-  const handleVisibilityChange = useCallback((visibility) => {
+  const handleVisibilityChange = useCallback((visibility: boolean) => {
     setVisible(visibility)
   }, [])
 

@@ -39,7 +39,9 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
       name: 'type',
     })
 
-    const words = wordCount(node.rawMarkdownBody!)
+    const words = wordCount(
+      (node as unknown as Queries.MarkdownRemark).rawMarkdownBody!,
+    )
     const WORD_PER_MINUTE = 160
 
     createNodeField({
@@ -59,7 +61,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 }) => {
   const { createPage, createRedirect } = actions
 
-  const result = await graphql(`
+  const result = await graphql<Queries.CreatePagesQuery>(`
     query CreatePages {
       allMarkdownRemark(sort: [{ frontmatter: { publish_date: DESC } }]) {
         edges {
@@ -160,3 +162,17 @@ export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = ({
     },
   })
 }
+
+export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] =
+  ({ actions }) => {
+    actions.createTypes(`
+    type Site {
+      siteMetadata: SiteMetadata!
+    }
+
+    type SiteMetadata {
+      title: String!
+      siteUrl: String!
+    }
+  `)
+  }

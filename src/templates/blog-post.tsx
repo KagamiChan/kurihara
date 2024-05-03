@@ -11,7 +11,6 @@ import { Hitokoto } from '../components/hitokoto'
 import { Meta } from '../components/meta'
 import { Article, Content, Title } from '../components/common'
 import { BaseLayout } from '../components/base-layout'
-import { BlogPostBySlugQuery } from '../../types/graphql-types'
 
 const Timestamp = styled.div`
   ${tw`text-gray-500 text-lg mb-4`}
@@ -22,15 +21,15 @@ const Notice = styled.div`
 `
 
 interface Props {
-  data: BlogPostBySlugQuery
+  data: Queries.BlogPostBySlugQuery
 }
 
 const BlogPostTemplate: FunctionComponent<Props> = ({ data }) => {
   const { markdownRemark: post } = data
 
-  const publishDate = new Date(post?.frontmatter?.publish_date)
+  const publishDate = new Date(post?.frontmatter?.publish_date ?? 0)
 
-  const reviseDate = new Date(post?.frontmatter?.revise_date)
+  const reviseDate = new Date(post?.frontmatter?.revise_date ?? 0)
 
   return (
     <BaseLayout>
@@ -41,14 +40,14 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data }) => {
         <Content>
           <Timestamp>
             发布于
-            <time dateTime={post?.frontmatter?.publish_date}>
+            <time dateTime={post?.frontmatter?.publish_date ?? ''}>
               {format(new Date(publishDate), 'yyyy-MM-dd')}
             </time>
             {Boolean(post?.frontmatter?.revise_date) &&
               +reviseDate > +publishDate && (
                 <>
                   | 最后修订于
-                  <time dateTime={post?.frontmatter?.revise_date}>
+                  <time dateTime={post?.frontmatter?.revise_date ?? ''}>
                     {format(new Date(reviseDate), 'yyyy-MM-dd')}
                   </time>
                 </>

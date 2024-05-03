@@ -23,8 +23,6 @@ import { BaseLayout } from '../components/base-layout'
 import { PostItem } from '../components/post-item'
 import { withKeyboardA11y } from '../utils/with-keyboard-a11y'
 
-import { ArchiveQuery } from '../../types/graphql-types'
-
 const Years = styled.div`
   ${tw`flex flex-wrap mb-4`}
 `
@@ -122,10 +120,10 @@ const DaysMatrix: FC<DaysMatrixProps> = ({
 const MemoDaysMatrix = memo(DaysMatrix, isEqual)
 
 interface Props {
-  data: ArchiveQuery
+  data: Queries.ArchiveQuery
 }
 
-type Post = ArchiveQuery['allMarkdownRemark']['edges'][number]
+type Post = Queries.ArchiveQuery['allMarkdownRemark']['edges'][number]
 
 const BlogArchives: FC<Props> = ({ data }) => {
   const [activeYear, setActiveYear] = useState(0)
@@ -160,7 +158,10 @@ const BlogArchives: FC<Props> = ({ data }) => {
   const endYear = getYear(new Date(endTime))
 
   const activeDays = uniq(
-    map(posts, (p) => +startOfDay(new Date(p.node.frontmatter?.publish_date))),
+    map(
+      posts,
+      (p) => +startOfDay(new Date(p.node.frontmatter?.publish_date ?? 0)),
+    ),
   )
 
   const timezone = new Date().getTimezoneOffset()
@@ -202,13 +203,16 @@ const BlogArchives: FC<Props> = ({ data }) => {
         {fp.flow(
           fp.filter<Post>(
             (p) =>
-              getYear(new Date(p.node.frontmatter?.publish_date)) ===
+              getYear(new Date(p.node.frontmatter?.publish_date ?? 0)) ===
               activeYear,
           ),
           fp.filter<Post>(
             (p) =>
               !activeDay ||
-              isSameDay(new Date(p.node.frontmatter?.publish_date), activeDay),
+              isSameDay(
+                new Date(p.node.frontmatter?.publish_date ?? 0),
+                activeDay,
+              ),
           ),
           fp.map((p) => <PostItem key={p.node.id} post={p} />),
         )(posts)}

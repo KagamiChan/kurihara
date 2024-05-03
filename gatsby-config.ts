@@ -6,7 +6,13 @@ import path from 'node:path'
 
 export default {
   jsxRuntime: 'automatic',
-  graphqlTypegen: true,
+  graphqlTypegen: {
+    documentSearchPaths: [
+      './gatsby-node.ts',
+      './gatsby-config.ts',
+      './src/explicit-queries.ts',
+    ],
+  },
   siteMetadata: {
     title: '少年读书隙中窥月',
     description: '明镜止水的个人日志',
@@ -72,12 +78,16 @@ export default {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) =>
+            serialize: ({
+              query: { site, allMarkdownRemark },
+            }: {
+              query: Queries.FeedContentQuery & Queries.FeedMetaQuery
+            }) =>
               allMarkdownRemark.edges.map((edge) => ({
                 ...edge.node.frontmatter,
                 description: edge.node.excerpt,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                url: `${site.siteMetadata.siteUrl}${edge.node.fields?.slug}`,
+                guid: `${site.siteMetadata.siteUrl}${edge.node.fields?.slug}`,
                 custom_elements: [
                   {
                     'content:encoded': edge.node.html,

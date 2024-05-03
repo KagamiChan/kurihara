@@ -1,4 +1,4 @@
-types/graphql-types.ts linguist-generated
+src/gatsby-types.d.ts linguist-generated
 *.js text eol=lf
 *.ts text eol=lf
 *.tsx text eol=lf

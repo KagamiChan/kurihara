@@ -9,8 +9,6 @@ import { Meta } from '../components/meta'
 import { BaseLayout } from '../components/base-layout'
 import { PostItem } from '../components/post-item'
 
-import { CreatePagesQuery } from '../../types/graphql-types'
-
 const Pagination = styled.div`
   ${tw`flex flex-wrap items-center mt-4 mb-4`}
 `
@@ -70,7 +68,7 @@ Paginator.propTypes = {
 
 interface Props {
   pageContext: {
-    items: CreatePagesQuery['allMarkdownRemark']['edges']
+    items: Queries.CreatePagesQuery['allMarkdownRemark']['edges']
     page: number
     pages: number
   }

@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import { format } from 'date-fns'
 import tw from 'twin.macro'
 
-import { CreatePagesQuery } from '../../types/graphql-types'
-
 const Item = styled(Link)`
   ${tw`block text-2xl text-blue-500 duration-100 mb-4`}
 
@@ -19,15 +17,20 @@ const Property = styled.span`
 `
 
 export interface Props {
-  post: NonNullable<CreatePagesQuery['allMarkdownRemark']['edges'][number]>
+  post: NonNullable<
+    Queries.CreatePagesQuery['allMarkdownRemark']['edges'][number]
+  >
 }
 
 export const PostItem: FC<Props> = ({ post }) => (
   <Item to={post.node.fields?.slug || ''}>
     <span>{post.node.frontmatter?.title}</span>
     <Property>
-      <time dateTime={post.node.frontmatter?.publish_date}>
-        {format(new Date(post.node.frontmatter?.publish_date), 'yyyy-MM-dd')}
+      <time dateTime={post.node.frontmatter?.publish_date ?? ''}>
+        {format(
+          new Date(post.node.frontmatter?.publish_date ?? 0),
+          'yyyy-MM-dd',
+        )}
       </time>
       <span> • </span>
       <span>{post.node.fields?.timeToRead?.minutes}分钟</span>

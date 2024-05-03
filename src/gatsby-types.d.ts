@@ -2041,7 +2041,7 @@ type Query_siteArgs = {
   pathPrefix: InputMaybe<StringQueryOperatorInput>;
   polyfill: InputMaybe<BooleanQueryOperatorInput>;
   port: InputMaybe<IntQueryOperatorInput>;
-  siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
+  siteMetadata: InputMaybe<SiteMetadataFilterInput>;
   trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -2113,7 +2113,7 @@ type Site = Node & {
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly port: Maybe<Scalars['Int']>;
-  readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly siteMetadata: SiteMetadata;
   readonly trailingSlash: Maybe<Scalars['String']>;
 };
 
@@ -2308,7 +2308,7 @@ type SiteFieldSelector = {
   readonly pathPrefix: InputMaybe<FieldSelectorEnum>;
   readonly polyfill: InputMaybe<FieldSelectorEnum>;
   readonly port: InputMaybe<FieldSelectorEnum>;
-  readonly siteMetadata: InputMaybe<SiteSiteMetadataFieldSelector>;
+  readonly siteMetadata: InputMaybe<SiteMetadataFieldSelector>;
   readonly trailingSlash: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -2324,7 +2324,7 @@ type SiteFilterInput = {
   readonly pathPrefix: InputMaybe<StringQueryOperatorInput>;
   readonly polyfill: InputMaybe<BooleanQueryOperatorInput>;
   readonly port: InputMaybe<IntQueryOperatorInput>;
-  readonly siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
+  readonly siteMetadata: InputMaybe<SiteMetadataFilterInput>;
   readonly trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -2533,6 +2533,30 @@ type SiteGroupConnection_minArgs = {
 
 type SiteGroupConnection_sumArgs = {
   field: SiteFieldSelector;
+};
+
+type SiteMetadata = {
+  readonly description: Maybe<Scalars['String']>;
+  readonly siteUrl: Scalars['String'];
+  readonly title: Scalars['String'];
+};
+
+type SiteMetadataFieldSelector = {
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly siteUrl: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+type SiteMetadataFilterInput = {
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SiteMetadataSortInput = {
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly siteUrl: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type SitePage = Node & {
@@ -2829,26 +2853,7 @@ type SitePluginSortInput = {
 
 type SiteSiteMetadata = {
   readonly description: Maybe<Scalars['String']>;
-  readonly siteUrl: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
-};
-
-type SiteSiteMetadataFieldSelector = {
-  readonly description: InputMaybe<FieldSelectorEnum>;
-  readonly siteUrl: InputMaybe<FieldSelectorEnum>;
-  readonly title: InputMaybe<FieldSelectorEnum>;
-};
-
-type SiteSiteMetadataFilterInput = {
-  readonly description: InputMaybe<StringQueryOperatorInput>;
-  readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
-  readonly title: InputMaybe<StringQueryOperatorInput>;
-};
-
-type SiteSiteMetadataSortInput = {
-  readonly description: InputMaybe<SortOrderEnum>;
-  readonly siteUrl: InputMaybe<SortOrderEnum>;
-  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type SiteSortInput = {
@@ -2863,7 +2868,7 @@ type SiteSortInput = {
   readonly pathPrefix: InputMaybe<SortOrderEnum>;
   readonly polyfill: InputMaybe<SortOrderEnum>;
   readonly port: InputMaybe<SortOrderEnum>;
-  readonly siteMetadata: InputMaybe<SiteSiteMetadataSortInput>;
+  readonly siteMetadata: InputMaybe<SiteMetadataSortInput>;
   readonly trailingSlash: InputMaybe<SortOrderEnum>;
 };
 
@@ -2903,7 +2908,7 @@ type BlogPostBySlugQueryVariables = Exact<{
 }>;
 
 
-type BlogPostBySlugQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly markdownRemark: { readonly id: string, readonly excerpt: string | null, readonly html: string | null, readonly frontmatter: { readonly title: string | null, readonly publish_date: string | null, readonly revise_date: string | null, readonly draft: boolean | null } | null } | null };
+type BlogPostBySlugQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null, readonly markdownRemark: { readonly id: string, readonly excerpt: string | null, readonly html: string | null, readonly frontmatter: { readonly title: string | null, readonly publish_date: string | null, readonly revise_date: string | null, readonly draft: boolean | null } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -2941,17 +2946,27 @@ type PageBySlugQueryVariables = Exact<{
 }>;
 
 
-type PageBySlugQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null, readonly markdownRemark: { readonly id: string, readonly excerpt: string | null, readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null };
+type PageBySlugQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null, readonly markdownRemark: { readonly id: string, readonly excerpt: string | null, readonly html: string | null, readonly frontmatter: { readonly title: string | null } | null } | null };
 
 type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type SiteTitleQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null };
+type SiteTitleQuery = { readonly site: { readonly siteMetadata: { readonly title: string } } | null };
 
 type CreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type CreatePagesQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly fields: { readonly slug: string | null, readonly type: string | null, readonly timeToRead: { readonly words: number | null, readonly minutes: number | null } | null } | null, readonly frontmatter: { readonly title: string | null, readonly publish_date: string | null } | null } }> } };
+
+type FeedMetaQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FeedMetaQuery = { readonly site: { readonly siteMetadata: { readonly title: string, readonly description: string | null, readonly siteUrl: string } } | null };
+
+type FeedContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FeedContentQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly excerpt: string | null, readonly html: string | null, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly title: string | null, readonly date: string | null } | null } }> } };
 
 
 }
