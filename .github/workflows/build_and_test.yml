@@ -15,13 +15,13 @@ jobs:
       - name: Use LTS node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 'lts/*'
 
       - uses: pnpm/action-setup@v3
 
       - name: Get pnpm cache directory path
         id: nodejs-deps-cache-dir-path
-        run: echo "::set-output name=dir::$(pnpm store path)"
+        run: echo "::set-output name=dir::$(corepack pnpm store path)"
 
       - uses: actions/cache@v4
         name: Caching Node.js dependencies
@@ -41,19 +41,19 @@ jobs:
             ${{ runner.os }}-gatsby-cache
 
       - name: Install
-        run: pnpm install --frozen-lockfile
+        run: corepack pnpm install --frozen-lockfile
 
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+        run: corepack pnpm exec playwright install --with-deps
 
       - name: Lint
-        run: pnpm lint
+        run: corepack pnpm lint
 
       - name: Build
-        run: pnpm build
+        run: corepack pnpm build
 
       - name: Test
-        run: pnpm test
+        run: corepack pnpm test
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -67,4 +67,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pnpm run deploy
+          corepack pnpm run deploy
