@@ -16,7 +16,6 @@
     "gatsby-plugin-feed": "^5.13.1",
     "gatsby-plugin-google-analytics": "^5.13.1",
     "gatsby-plugin-lodash": "^6.13.1",
-    "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-react-helmet": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-sitemap": "^6.13.1",

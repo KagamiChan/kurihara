@@ -130,6 +130,5 @@ export default {
         ],
       },
     },
-    'gatsby-plugin-netlify',
   ],
 } satisfies GatsbyConfig
