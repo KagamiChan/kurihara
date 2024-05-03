@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/no-var-requires, import/no-extraneous-dependencies */
+
 /* eslint-disable import/no-extraneous-dependencies */
 import { each, first, compact, split, chunk, filter } from 'lodash'
 import path from 'path'
 import { createFilePath } from 'gatsby-source-filesystem'
 import wordCount from 'word-count'
 import { GatsbyNode } from 'gatsby'
-import { CreatePagesQuery, MarkdownRemark } from '../types/graphql-types'
 
-const SRC = path.resolve(__dirname, '../src')
+const SRC = path.resolve(__dirname, './src')
 
 const TEMPLATES = {
   blog: path.resolve(SRC, 'templates/blog-post.tsx'),
@@ -36,7 +39,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
       name: 'type',
     })
 
-    const words = wordCount((node as MarkdownRemark).rawMarkdownBody!)
+    const words = wordCount(node.rawMarkdownBody!)
     const WORD_PER_MINUTE = 160
 
     createNodeField({
@@ -56,7 +59,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 }) => {
   const { createPage, createRedirect } = actions
 
-  const result = await graphql<CreatePagesQuery>(`
+  const result = await graphql(`
     query CreatePages {
       allMarkdownRemark(sort: [{ frontmatter: { publish_date: DESC } }]) {
         edges {

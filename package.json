@@ -15,7 +15,6 @@
     "gatsby-link": "^5.13.1",
     "gatsby-plugin-feed": "^5.13.1",
     "gatsby-plugin-google-analytics": "^5.13.1",
-    "gatsby-plugin-graphql-codegen": "^3.1.1",
     "gatsby-plugin-lodash": "^6.13.1",
     "gatsby-plugin-netlify": "^5.1.1",
     "gatsby-plugin-react-helmet": "^6.13.1",
@@ -30,7 +29,6 @@
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "gatsby-transformer-yaml": "^5.13.1",
-    "graphql-compose": "^9.0.10",
     "gray-matter": "^4.0.3",
     "i18next": "^23.10.1",
     "i18next-browser-languagedetector": "^7.0.2",
@@ -56,7 +54,6 @@
     "blog"
   ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "deploy": "ts-node --project tsconfig.cli.json scripts/release.ts",
@@ -71,9 +68,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.3",
-    "@babel/preset-env": "^7.24.3",
-    "@babel/preset-typescript": "^7.24.1",
-    "@babel/register": "^7.23.7",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@playwright/test": "^1.42.1",

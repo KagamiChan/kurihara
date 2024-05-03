@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const path = require('path')
+import { GatsbyConfig } from 'gatsby'
 
-module.exports = {
+import path from 'node:path'
+
+export default {
   jsxRuntime: 'automatic',
+  graphqlTypegen: true,
   siteMetadata: {
     title: '少年读书隙中窥月',
     description: '明镜止水的个人日志',
@@ -23,19 +26,6 @@ module.exports = {
       options: {
         name: 'data',
         path: path.resolve(__dirname, './data'),
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-graphql-codegen',
-      options: {
-        codegen: process.env.NODE_ENV !== 'development',
-        fileName: 'types/graphql-types.ts',
-        documentPaths: [
-          './src/**/*.{ts,tsx,js}',
-          './gatsby/**/*.{ts,tsx,js}',
-          './.cache/fragments/*.js',
-          './node_modules/gatsby-*/**/*.js',
-        ],
       },
     },
     'gatsby-plugin-typescript',
@@ -132,4 +122,4 @@ module.exports = {
     },
     'gatsby-plugin-netlify',
   ],
-}
+} satisfies GatsbyConfig
