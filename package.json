@@ -30,8 +30,6 @@
     "gatsby-transformer-sharp": "^5.13.1",
     "gatsby-transformer-yaml": "^5.13.1",
     "gray-matter": "^4.0.3",
-    "i18next": "^23.10.1",
-    "i18next-browser-languagedetector": "^7.0.2",
     "intersection-observer": "^0.12.2",
     "lodash": "^4.17.21",
     "polished": "^4.2.2",

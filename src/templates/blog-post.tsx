@@ -4,7 +4,6 @@ import { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { format } from 'date-fns'
-import { useTranslation } from 'react-i18next'
 import tw from 'twin.macro'
 
 import { SiteTitle } from '../components/site-title'
@@ -27,8 +26,6 @@ interface Props {
 }
 
 const BlogPostTemplate: FunctionComponent<Props> = ({ data }) => {
-  const { t } = useTranslation()
-
   const { markdownRemark: post } = data
 
   const publishDate = new Date(post?.frontmatter?.publish_date)
@@ -43,20 +40,20 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data }) => {
         <Title id="post-title">{post?.frontmatter?.title}</Title>
         <Content>
           <Timestamp>
-            {t('Posted')}{' '}
+            发布于
             <time dateTime={post?.frontmatter?.publish_date}>
               {format(new Date(publishDate), 'yyyy-MM-dd')}
             </time>
             {Boolean(post?.frontmatter?.revise_date) &&
               +reviseDate > +publishDate && (
                 <>
-                  | {t('Last revised')}{' '}
+                  | 最后修订于
                   <time dateTime={post?.frontmatter?.revise_date}>
                     {format(new Date(reviseDate), 'yyyy-MM-dd')}
                   </time>
                 </>
               )}
-            {!!post?.frontmatter?.draft && <Notice>{t('draft_status')}</Notice>}
+            {!!post?.frontmatter?.draft && <Notice>这篇文章还是草稿</Notice>}
           </Timestamp>
           <div dangerouslySetInnerHTML={{ __html: post?.html || '' }} />
         </Content>

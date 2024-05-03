@@ -2,9 +2,7 @@ import { FC, useState, useCallback, PropsWithChildren } from 'react'
 import { Link } from 'gatsby-link'
 import { Helmet } from 'react-helmet'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { I18nextProvider, useTranslation } from 'react-i18next'
 import tw, { GlobalStyles } from 'twin.macro'
-import i18n from '../i18n'
 
 import { SiteTitle } from './site-title'
 import { Shortcut } from './shortcut'
@@ -70,16 +68,13 @@ const Content = styled.div`
   ${tw`max-w-6xl mt-4`}
 `
 
-const Navigation = () => {
-  const { t } = useTranslation(['ui'])
-  return (
-    <Nav>
-      <NavItem to="/archieves">{t('Archives')}</NavItem>
-      <NavItem to="./">{t('List')}</NavItem>
-      <NavItem to="/about">{t('About')}</NavItem>
-    </Nav>
-  )
-}
+const Navigation = () => (
+  <Nav>
+    <NavItem to="/archieves">存档</NavItem>
+    <NavItem to="./">列表</NavItem>
+    <NavItem to="/about">关于</NavItem>
+  </Nav>
+)
 
 export const BaseLayout: FC<PropsWithChildren<any>> = ({ children }) => {
   const [visible, setVisible] = useState(false)
@@ -90,35 +85,33 @@ export const BaseLayout: FC<PropsWithChildren<any>> = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <I18nextProvider i18n={i18n}>
-        <div>
-          <GlobalStyles />
-          <GlobalStyle />
-          <SiteTitle />
-          <Helmet>
-            <meta name="description" content="明镜止水的个人日志" />
-            <meta name="keywords" content="明镜止水, HP, BLOG" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"
-              rel="stylesheet"
-            />
-          </Helmet>
+      <div>
+        <GlobalStyles />
+        <GlobalStyle />
+        <SiteTitle />
+        <Helmet>
+          <meta name="description" content="明镜止水的个人日志" />
+          <meta name="keywords" content="明镜止水, HP, BLOG" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"
+            rel="stylesheet"
+          />
+        </Helmet>
 
-          <HeaderWrap hasBackdrop={visible}>
-            <Header>
-              <H1 id="blog-title">
-                <H1Link to="/blog">
-                  <SiteLogo role="img" aria-label="少年读书隙中窥月" />
-                </H1Link>
-              </H1>
-              <Navigation />
-            </Header>
-          </HeaderWrap>
-          <Content>{children}</Content>
-          <Shortcut onVisibilityChange={handleVisibilityChange} />
-        </div>
-      </I18nextProvider>
+        <HeaderWrap hasBackdrop={visible}>
+          <Header>
+            <H1 id="blog-title">
+              <H1Link to="/blog">
+                <SiteLogo role="img" aria-label="少年读书隙中窥月" />
+              </H1Link>
+            </H1>
+            <Navigation />
+          </Header>
+        </HeaderWrap>
+        <Content>{children}</Content>
+        <Shortcut onVisibilityChange={handleVisibilityChange} />
+      </div>
     </ThemeProvider>
   )
 }

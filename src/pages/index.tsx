@@ -1,22 +1,15 @@
-import { FunctionComponent, useRef, useCallback, useEffect } from 'react'
+import { debounce, map, times } from 'lodash'
+import { rgba } from 'polished'
+import { FunctionComponent, useCallback, useEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet'
 import styled, {
+  ThemeProvider,
   createGlobalStyle,
   css,
-  ThemeProvider,
 } from 'styled-components'
-import { rgba } from 'polished'
-import { map, debounce, times } from 'lodash'
-import { Helmet } from 'react-helmet'
-import { I18nextProvider, useTranslation } from 'react-i18next'
 import tw, { GlobalStyles } from 'twin.macro'
-import loadable from '@loadable/component'
 
 import { theme } from '../utils/style'
-import i18n from '../i18n'
-
-const LanguageSwitch = loadable(() => import('../components/language-switch'), {
-  ssr: false,
-})
 
 const colorList = [theme.blue, theme.green, theme.pink, theme.orange]
 
@@ -115,63 +108,50 @@ const drawFlower = (
 
 const links = [
   {
-    name: 'blog',
+    name: '日志',
     url: '/blog',
   },
   {
-    name: 'zhihu',
-    url: 'https://www.zhihu.com/people/kagamichan',
+    name: 'X',
+    url: 'https://twitter.com/kagami1096',
   },
   {
-    name: 'weibo',
-    url: 'https://weibo.com/coolszm',
-  },
-  {
-    name: 'twitter',
-    url: 'https://twitter.com/seki_kagami',
-  },
-  {
-    name: 'github',
+    name: 'Github',
     url: 'https://github.com/kagamichan',
   },
 ]
 
-const PageContent: FunctionComponent<Record<string, never>> = () => {
-  const { t } = useTranslation(['ui'])
-  return (
-    <>
-      <Wrapper>
-        <Helmet>
-          <title>明镜止水::春擬き</title>
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"
-            rel="stylesheet"
-          />
-        </Helmet>
-        <Title data-testid="site-title" title="明镜止水">
-          明镜止水
-        </Title>
-        <GlobalStyles />
-        <GlobalStyle />
-        <nav>
-          <List>
-            {map(links, (link, i) => (
-              <ListItem key={link.name}>
-                <LinkItem href={link.url} index={i}>
-                  {t(link.name)}
-                </LinkItem>
-              </ListItem>
-            ))}
-          </List>
-        </nav>
-      </Wrapper>
-      <Footer>
-        <LanguageSwitch />鏡 ＠ がんばらないプロジェクト/翠星製作所
-      </Footer>
-    </>
-  )
-}
+const PageContent: FunctionComponent<Record<string, never>> = () => (
+  <>
+    <Wrapper>
+      <Helmet>
+        <title>明镜止水::春擬き</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <Title data-testid="site-title" title="明镜止水">
+        明镜止水
+      </Title>
+      <GlobalStyles />
+      <GlobalStyle />
+      <nav>
+        <List>
+          {map(links, (link, i) => (
+            <ListItem key={link.name}>
+              <LinkItem href={link.url} index={i}>
+                {link.name}
+              </LinkItem>
+            </ListItem>
+          ))}
+        </List>
+      </nav>
+    </Wrapper>
+    <Footer>鏡 ＠ がんばらないプロジェクト/翠星製作所</Footer>
+  </>
+)
 
 const Index: FunctionComponent<Record<string, never>> = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -235,12 +215,8 @@ const Index: FunctionComponent<Record<string, never>> = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <I18nextProvider i18n={i18n}>
-        <>
-          <PageContent />
-          <Canvas ref={canvasRef} />
-        </>
-      </I18nextProvider>
+      <PageContent />
+      <Canvas ref={canvasRef} />
     </ThemeProvider>
   )
 }

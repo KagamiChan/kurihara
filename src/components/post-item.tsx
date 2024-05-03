@@ -2,7 +2,6 @@ import { FC } from 'react'
 import { Link } from 'gatsby-link'
 import styled from 'styled-components'
 import { format } from 'date-fns'
-import { useTranslation } from 'react-i18next'
 import tw from 'twin.macro'
 
 import { CreatePagesQuery } from '../../types/graphql-types'
@@ -23,22 +22,15 @@ export interface Props {
   post: NonNullable<CreatePagesQuery['allMarkdownRemark']['edges'][number]>
 }
 
-export const PostItem: FC<Props> = ({ post }) => {
-  const { t } = useTranslation()
-  return (
-    <Item to={post.node.fields?.slug || ''}>
-      <span>{post.node.frontmatter?.title}</span>
-      <Property>
-        <time dateTime={post.node.frontmatter?.publish_date}>
-          {format(new Date(post.node.frontmatter?.publish_date), 'yyyy-MM-dd')}
-        </time>
-        <span> • </span>
-        <span>
-          {t('{{minutes}} min', {
-            minutes: post.node.fields?.timeToRead?.minutes,
-          })}
-        </span>
-      </Property>
-    </Item>
-  )
-}
+export const PostItem: FC<Props> = ({ post }) => (
+  <Item to={post.node.fields?.slug || ''}>
+    <span>{post.node.frontmatter?.title}</span>
+    <Property>
+      <time dateTime={post.node.frontmatter?.publish_date}>
+        {format(new Date(post.node.frontmatter?.publish_date), 'yyyy-MM-dd')}
+      </time>
+      <span> • </span>
+      <span>{post.node.fields?.timeToRead?.minutes}分钟</span>
+    </Property>
+  </Item>
+)
