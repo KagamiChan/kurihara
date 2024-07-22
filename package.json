@@ -64,8 +64,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.3",
-    "@commitlint/cli": "^17.4.2",
-    "@commitlint/config-conventional": "^17.4.2",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
     "@playwright/test": "^1.42.1",
     "@types/babel__core": "^7.20.0",
     "@types/eslint": "^8.21.0",
