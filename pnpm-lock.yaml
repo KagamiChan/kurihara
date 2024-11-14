@@ -118,10 +118,10 @@ importers:
         version: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwindcss:
         specifier: ^3.4.3
-        version: 3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
+        version: 3.4.15(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
       twin.macro:
         specifier: ^3.4.1
-        version: 3.4.1(tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)))
+        version: 3.4.1(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)))
       word-count:
         specifier: ^0.2.2
         version: 0.2.2
@@ -5522,9 +5522,6 @@ packages:
   physical-cpu-count@2.0.0:
     resolution: {integrity: sha512-rxJOljMuWtYlvREBmd6TZYanfcPhNUKtGDZBjBBS8WG1dpN2iwPsRJZgQqN/OtJuiQckdRFOfzogqJClTrsi7g==}
 
-  picocolors@1.1.0:
-    resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
-
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -5822,6 +5819,10 @@ packages:
 
   postcss@8.4.47:
     resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.4.49:
+    resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
     engines: {node: ^10 || ^12 || >=14}
 
   prebuild-install@7.1.2:
@@ -6644,8 +6645,8 @@ packages:
     resolution: {integrity: sha512-w2sfv80nrAh2VCbqR5AK27wswXhqcck2AhfnNW76beQXskGZ1V12GwS//yYVa3d3fcvAip2OUnbDAjW2k3v9fA==}
     engines: {node: '>=10.0.0'}
 
-  tailwindcss@3.4.14:
-    resolution: {integrity: sha512-IcSvOcTRcUtQQ7ILQL5quRDg7Xs93PdJEk1ZLbhhvJc7uj/OAhYOnruEiwnGgBvUtaUAJ8/mhSw1o8L2jCiENA==}
+  tailwindcss@3.4.15:
+    resolution: {integrity: sha512-r4MeXnfBmSOuKUWmXe6h2CcyfzJCEk4F0pptO5jlnYSIViUkVmsawj80N5h2lO3gwcmSb4n3PuN+e+GC1Guylw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -13963,8 +13964,6 @@ snapshots:
 
   physical-cpu-count@2.0.0: {}
 
-  picocolors@1.1.0: {}
-
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -14043,24 +14042,24 @@ snapshots:
     dependencies:
       postcss: 8.4.47
 
-  postcss-import@15.1.0(postcss@8.4.47):
+  postcss-import@15.1.0(postcss@8.4.49):
     dependencies:
-      postcss: 8.4.47
+      postcss: 8.4.49
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  postcss-js@4.0.1(postcss@8.4.47):
+  postcss-js@4.0.1(postcss@8.4.49):
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.47
+      postcss: 8.4.49
 
-  postcss-load-config@4.0.2(postcss@8.4.47)(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)):
+  postcss-load-config@4.0.2(postcss@8.4.49)(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.6.0
     optionalDependencies:
-      postcss: 8.4.47
+      postcss: 8.4.49
       ts-node: 10.9.2(@types/node@22.9.0)(typescript@5.6.3)
 
   postcss-loader@5.3.0(postcss@8.4.47)(webpack@5.96.1):
@@ -14130,9 +14129,9 @@ snapshots:
       icss-utils: 5.1.0(postcss@8.4.47)
       postcss: 8.4.47
 
-  postcss-nested@6.2.0(postcss@8.4.47):
+  postcss-nested@6.2.0(postcss@8.4.49):
     dependencies:
-      postcss: 8.4.47
+      postcss: 8.4.49
       postcss-selector-parser: 6.1.2
 
   postcss-normalize-charset@5.1.0(postcss@8.4.47):
@@ -14228,6 +14227,12 @@ snapshots:
       source-map-js: 1.2.1
 
   postcss@8.4.47:
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.4.49:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.1.1
@@ -14718,7 +14723,7 @@ snapshots:
       htmlparser2: 8.0.2
       is-plain-object: 5.0.0
       parse-srcset: 1.0.2
-      postcss: 8.4.47
+      postcss: 8.4.49
 
   sax@1.4.1: {}
 
@@ -15269,7 +15274,7 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
 
-  tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)):
+  tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -15284,12 +15289,12 @@ snapshots:
       micromatch: 4.0.8
       normalize-path: 3.0.0
       object-hash: 3.0.0
-      picocolors: 1.1.0
-      postcss: 8.4.47
-      postcss-import: 15.1.0(postcss@8.4.47)
-      postcss-js: 4.0.1(postcss@8.4.47)
-      postcss-load-config: 4.0.2(postcss@8.4.47)(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
-      postcss-nested: 6.2.0(postcss@8.4.47)
+      picocolors: 1.1.1
+      postcss: 8.4.49
+      postcss-import: 15.1.0(postcss@8.4.49)
+      postcss-js: 4.0.1(postcss@8.4.49)
+      postcss-load-config: 4.0.2(postcss@8.4.49)(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
+      postcss-nested: 6.2.0(postcss@8.4.49)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
       sucrase: 3.35.0
@@ -15445,7 +15450,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  twin.macro@3.4.1(tailwindcss@3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))):
+  twin.macro@3.4.1(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))):
     dependencies:
       '@babel/template': 7.24.0
       babel-plugin-macros: 3.1.0
@@ -15453,7 +15458,7 @@ snapshots:
       lodash.get: 4.4.2
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.16
-      tailwindcss: 3.4.14(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
+      tailwindcss: 3.4.15(ts-node@10.9.2(@types/node@22.9.0)(typescript@5.6.3))
 
   type-check@0.4.0:
     dependencies:
