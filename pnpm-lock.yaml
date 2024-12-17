@@ -109,7 +109,7 @@ importers:
         version: 6.1.0(react@18.3.1)
       replace-in-file:
         specifier: ^8.0.0
-        version: 8.2.0
+        version: 8.3.0
       sharp:
         specifier: ^0.33.3
         version: 0.33.5
@@ -6100,8 +6100,8 @@ packages:
     resolution: {integrity: sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w==}
     engines: {node: '>=0.10'}
 
-  replace-in-file@8.2.0:
-    resolution: {integrity: sha512-hMsQtdYHwWviQT5ZbNsgfu0WuCiNlcUSnnD+aHAL081kbU9dPkPocDaHlDvAHKydTWWpx1apfcEcmvIyQk3CpQ==}
+  replace-in-file@8.3.0:
+    resolution: {integrity: sha512-4VhddQiMCPIuypiwHDTM+XHjZoVu9h7ngBbSCnwGRcwdHwxltjt/m//Ep3GDwqaOx1fDSrKFQ+n7uo4uVcEz9Q==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -14575,7 +14575,7 @@ snapshots:
 
   repeat-string@1.6.1: {}
 
-  replace-in-file@8.2.0:
+  replace-in-file@8.3.0:
     dependencies:
       chalk: 5.3.0
       glob: 10.4.5
